@@ -14,7 +14,7 @@ public class Ghost : Enemy
         //moves towards the player
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         //rotates towards the player
-        transform.rotation = Quaternion.Euler(Vector3.forward*angle);
+        //transform.rotation = Quaternion.Euler(Vector3.forward*angle);
     }
     // Update is called once per frame
     void Update()

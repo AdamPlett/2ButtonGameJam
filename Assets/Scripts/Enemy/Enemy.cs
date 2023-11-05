@@ -39,8 +39,9 @@ public abstract class Enemy : MonoBehaviour
     {
         Debug.Log("Enemy Killed!");
     }
+
     public virtual void Attack()
     {
-        Debug.Log("Enemy Attacked");
+        Debug.Log("Enemy Attack!");
     }
 }
