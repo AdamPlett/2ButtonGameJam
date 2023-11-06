@@ -24,7 +24,7 @@ public abstract class PowerUp : MonoBehaviour
         Debug.Log("PowerUp collected!");
     }
     //after the powerups duration is over, destroy the gameobject
-    public virtual void Destory()
+    public virtual void DestoryPowerUp()
     {
         Debug.Log("PowerUp Destroyed!");
     }

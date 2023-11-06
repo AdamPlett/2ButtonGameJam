@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Ghost : Enemy
 {
+    // Update is called once per frame
+    void Update()
+    {
+        Move();
+    }
     public override void Move()
     {
         //makes a vector in the direction of the player and sets its magnitiude to 1
@@ -15,10 +20,5 @@ public class Ghost : Enemy
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         //rotates towards the player
         //transform.rotation = Quaternion.Euler(Vector3.forward*angle);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        Move();
     }
 }

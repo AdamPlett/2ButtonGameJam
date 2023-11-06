@@ -37,19 +37,28 @@ public abstract class Enemy : MonoBehaviour
     //enemy movement
     public abstract void Move();
     //destroys the enemy gameobject when health reaches 0
-    public virtual void Destory()
+    public virtual void Death()
     {
+        Destroy(gameObject);
         Debug.Log("Enemy Killed!");
     }
-
+    //checks if enemy is already attacking, if not than it attacks
     public virtual void Attack()
     {
         //exit if already attacking
         if (attacking == true) return;
-        //keep track that enemy is attack
+        //sets that the enemy is attacking to true and waits the time between attacks(fireRate) before resetting back to false
         attacking = true;
-        Invoke(nameof(ResetAttack), fireRate);
         Debug.Log("Enemy Attack!");
+        Invoke(nameof(ResetAttack), fireRate);
+    }
+    public virtual void TakeDamage(float dmgTaken)
+    {
+        //put enemy take damage FX here
+
+        //subtracts damage taken from current enemy health and destroy enemy game object if health is less than 0
+        health -= dmgTaken;
+        if (health <= 0) Invoke(nameof(Death), .25f);
     }
     public virtual void ResetAttack()
     {
