@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
     // ACCESS "soWeapon" TO MODIFY GUN STATS
     public soWeapon weaponType;
 
-    public void Shoot(eSide side, float fireAngle, Vector3 bulletForward)
+    public void Shoot(Vector3 bulletForward)
     {
         Vector3 bulletVelocity = GetBulletVelocity(bulletForward);
 

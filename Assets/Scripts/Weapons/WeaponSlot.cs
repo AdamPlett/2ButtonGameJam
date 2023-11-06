@@ -14,11 +14,17 @@ public class WeaponSlot : MonoBehaviour
 
     public void ShootWeapons()
     {
-        if(weapons.Count > 0)
+        if (weapons != null)
         {
-            foreach (var weapon in weapons)
+            if (weapons.Count > 0)
             {
-                weapon.GetComponent<Weapon>().Shoot(side, zAngle, this.transform.right * -1f);
+                foreach (var weapon in weapons)
+                {
+                    if(weapon != null)
+                    {
+                        weapon.GetComponent<Weapon>().Shoot(this.transform.right * -1f);
+                    }
+                }
             }
         }
     }
