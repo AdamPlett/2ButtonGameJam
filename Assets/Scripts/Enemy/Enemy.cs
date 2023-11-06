@@ -10,13 +10,15 @@ public abstract class Enemy : MonoBehaviour
     //how much damage the enmey does when attack
     public float damage=1;
     //how often the enemy attacks
-    public float fireRate=3;
+    public float fireRate=1.5f;
     //checker to see if the enemy is currently attacking
     protected bool attacking=false;
     //enemy health
     public float health=5;
     //points awarded when enemy is killed
     public float killPoints=5;
+    //range in which enemy can attack
+    public float attackRange;
 
     [Header("Setup")]
     //the player characters transform 
@@ -29,7 +31,7 @@ public abstract class Enemy : MonoBehaviour
     //when spawned finds the transform for the player
     public virtual void Awake()
     {
-        //player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player").transform;
         //agent = GetComponent<NavMeshAgent>();
     }
     //enemy movement
@@ -42,6 +44,15 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Attack()
     {
+        //exit if already attacking
+        if (attacking == true) return;
+        //keep track that enemy is attack
+        attacking = true;
+        Invoke(nameof(ResetAttack), fireRate);
         Debug.Log("Enemy Attack!");
+    }
+    public virtual void ResetAttack()
+    {
+        attacking = false;
     }
 }
