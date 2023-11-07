@@ -104,7 +104,15 @@ public class PlayerInput : MonoBehaviour
         {
             return true;
         }
+        else if(Input.GetKey(KeyCode.X))
+        {
+            return true;
+        }
         else if(Input.GetKey(KeyCode.LeftArrow))
+        {
+            return true;
+        }
+        else if(Input.GetKey(KeyCode.Mouse0))
         {
             return true;
         }
@@ -122,7 +130,15 @@ public class PlayerInput : MonoBehaviour
         {
             return true;
         }
+        else if (Input.GetKeyUp(KeyCode.X))
+        {
+            return true;
+        }
         else if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            return true;
+        }
+        else if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             return true;
         }
@@ -140,7 +156,15 @@ public class PlayerInput : MonoBehaviour
         {
             return true;
         }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            return true;
+        }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            return true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             return true;
         }
@@ -161,7 +185,15 @@ public class PlayerInput : MonoBehaviour
         {
             return true;
         }
+        else if (Input.GetKey(KeyCode.C))
+        {
+            return true;
+        }
         else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            return true;
+        }
+        else if (Input.GetKey(KeyCode.Mouse1))
         {
             return true;
         }
@@ -179,7 +211,15 @@ public class PlayerInput : MonoBehaviour
         {
             return true;
         }
+        else if (Input.GetKeyUp(KeyCode.C))
+        {
+            return true;
+        }
         else if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            return true;
+        }
+        else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             return true;
         }
@@ -197,7 +237,15 @@ public class PlayerInput : MonoBehaviour
         {
             return true;
         }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            return true;
+        }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            return true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             return true;
         }

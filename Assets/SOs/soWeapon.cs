@@ -11,9 +11,9 @@ public class soWeapon : ScriptableObject
 
     public float range;             // How far each individual bullet travels before it is destroyed
     public float fireRate;          // How fast each weapon shoots (The higher the fireRate, the less time between individual shots)
-    public float numBullets;        // Number of bullets shot each time the fire button is pressed
-    public float clipCapacity;      // Amount of ammo each weapon can shoot before needing to reload
     public float reloadTime;        // Time player must wait after ammo reaches 0 to reload
+    public int clipCapacity;        // Amount of ammo each weapon can shoot before needing to reload
+    public int bulletsPerShot;      // Number of bullets shot each time the fire button is pressed
   
     public eShot shootingPattern;   // Dictates what pattern bullets travel after being shot
 
@@ -22,7 +22,6 @@ public class soWeapon : ScriptableObject
 
     public float bulletDamage;      // Base damage each individual bullet does to an enemy
     public float bulletSpeed;       // Speed that each individual bullet travels at
-
     public float bulletTravelTime;  // Time bullet is allowed to travel before it is destroyed (assuming nothing has been hit beforehand)
 
     public float recoilForce;       // Force in which the player is pushed when shooting

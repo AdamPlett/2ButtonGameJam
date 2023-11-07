@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: {fileID: 11400000, guid: ea3f759f7a350f64b88ff6474c5aad72, type: 2}
+  ammoCount: 0
+  reloadTimer: 0
