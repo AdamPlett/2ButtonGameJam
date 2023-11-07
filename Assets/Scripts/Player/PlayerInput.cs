@@ -6,26 +6,36 @@ public class PlayerInput : MonoBehaviour
 {
     public PlayerController player;
 
-    [Header("Booleans")]
+    [Header("Input Booleans")]
     [SerializeField] bool rightKeyPressed;
     [SerializeField] bool rightKeyHeld;
     [SerializeField] bool leftKeyPressed;
     [SerializeField] bool leftKeyHeld;
 
-    private float timePressed = 0f;
+    [Space(5)] [Header("Action Booleans")] 
+    [SerializeField] bool fireRight = false;
+    [SerializeField] bool fireLeft = false;
+    [SerializeField] bool rotateRight = false;
+    [SerializeField] bool rotateLeft = false;
+    [SerializeField] bool boostActive = false;
+
     private float holdMinimum = .25f;   // Determines how long a key must be pressed to be considered held
-    private bool fireRight = false;
-    private bool fireLeft = false;
-    private bool rotateRight = false;
-    private bool rotateLeft = false;
+    private float boostHoldMin = .5f;   // same asHold minimum, but used specifically for the boost ability
+    private float timePressedLeft = 0f;
+    private float timePressedRight = 0f;
 
     void Update()
     {
         CheckForInput();
     }
+
     private void FixedUpdate()
     {
-        if (fireRight == true)
+        if(boostActive)
+        {
+            // ACTIVATE MEGA HYPER DEATH LASER OR WHATEVER YA CALL IT
+        }
+        else if (fireRight == true)
         {
             player.FireRight();
             fireRight = false;
@@ -46,71 +56,111 @@ public class PlayerInput : MonoBehaviour
             rotateLeft = false;
         }
     }
-    private void CheckForInput()
-    {
-        // CHECK TO SEE IF RIGHT KEY HAS BEEN PRESSED
-        if (DetectRightKeyDown())
-        {
-            timePressed = Time.timeSinceLevelLoad;
 
-            rightKeyPressed = true;
-            rightKeyHeld = false;
-        }
-        else if (DetectRightKeyUp())
-        {
-            // ONCE RIGHT KEY IS RELEASED, CHECK TO SEE IF IT WAS PRESSED OR HELD
-            // IF NOT HELD, THEN FIRE
-            if (!rightKeyHeld)
+    private void CheckForInput()
+    {       
+        if(DetectLeftKeyDown() && DetectRightKeyDown())
+        { 
+            if(!boostActive)
             {
-                fireRight = true;
+                Debug.Log("ACTIVATE POWER-UP");
+
+                leftKeyPressed = true;
+                rightKeyPressed = true;
+            }
+        }
+        else if(DetectLeftKeyUp() && DetectRightKeyUp())
+        {
+            if (!rightKeyHeld || !leftKeyHeld)
+            {
+                Debug.Log("ACTIVATE POWER-UP");
             }
 
+            boostActive = false;
+            leftKeyPressed = false;
+            leftKeyHeld = false;
             rightKeyPressed = false;
             rightKeyHeld = false;
         }
-
-        // CHECKS TO SEE IF RIGHT KEY HAS BEEN PRESSED LONG ENOUGH TO BE CONSIDERED HELD
-        // IF HELD, THEN ROTATE
-        if (DetectRightKey())
+        else if (DetectLeftKey() && DetectRightKey())
         {
-            if (Time.timeSinceLevelLoad - timePressed > holdMinimum)
+            if (Time.timeSinceLevelLoad - timePressedLeft > boostHoldMin && Time.timeSinceLevelLoad - timePressedRight > boostHoldMin)
             {
-                rightKeyHeld = true;
-
-                rotateRight = true;
-            }
-        }
-
-        // CHECK TO SEE IF LEFT KEY HAS BEEN PRESSED
-        if (DetectLeftKeyDown())
-        {
-            timePressed = Time.timeSinceLevelLoad;
-
-            leftKeyPressed = true;
-            leftKeyHeld = false;
-        }
-        else if (DetectLeftKeyUp())
-        {
-            // ONCE LEFT KEY IS RELEASED, CHECK TO SEE IF IT WAS PRESSED OR HELD
-            // IF NOT HELD, THEN FIRE
-            if (!leftKeyHeld)
-            {
-                fireLeft = true;
-            }
-
-            leftKeyPressed = false;
-            leftKeyHeld = false;
-        }
-
-        // CHECKS TO SEE IF LEFT KEY HAS BEEN PRESSED LONG ENOUGH TO BE CONSIDERED HELD
-        // IF HELD, THEN ROTATE
-        if (DetectLeftKey())
-        {
-            if (Time.timeSinceLevelLoad - timePressed > holdMinimum)
-            {
+                boostActive = true;
+                leftKeyPressed = true;
                 leftKeyHeld = true;
+                rightKeyPressed = true;
+                rightKeyHeld = true;
+            }
+        }
+        else
+        {
+            // CHECK TO SEE IF RIGHT KEY HAS BEEN PRESSED
+            if (DetectRightKeyDown())
+            {
+                timePressedRight = Time.timeSinceLevelLoad;
 
-                rotateLeft = true;
+                rightKeyPressed = true;
+                rightKeyHeld = false;
+            }
+            else if (DetectRightKeyUp())
+            {
+                // ONCE RIGHT KEY IS RELEASED, CHECK TO SEE IF IT WAS PRESSED OR HELD
+                // IF NOT HELD, THEN FIRE
+                if (!rightKeyHeld)
+                {
+                    fireRight = true;
+                }
+
+                rightKeyPressed = false;
+                rightKeyHeld = false;
+                boostActive = false;
+            }
+
+            // CHECKS TO SEE IF RIGHT KEY HAS BEEN PRESSED LONG ENOUGH TO BE CONSIDERED HELD
+            // IF HELD, THEN ROTATE
+            if (DetectRightKey())
+            {
+                if (Time.timeSinceLevelLoad - timePressedRight > holdMinimum)
+                {
+                    rightKeyHeld = true;
+
+                    rotateRight = true;
+                }
+            }
+
+            // CHECK TO SEE IF LEFT KEY HAS BEEN PRESSED
+            if (DetectLeftKeyDown())
+            {
+                timePressedLeft = Time.timeSinceLevelLoad;
+
+                leftKeyPressed = true;
+                leftKeyHeld = false;
+            }
+            else if (DetectLeftKeyUp())
+            {
+                // ONCE LEFT KEY IS RELEASED, CHECK TO SEE IF IT WAS PRESSED OR HELD
+                // IF NOT HELD, THEN FIRE
+                if (!leftKeyHeld)
+                {
+                    fireLeft = true;
+                }
+
+                leftKeyPressed = false;
+                leftKeyHeld = false;
+                boostActive = false;
+            }
+
+            // CHECKS TO SEE IF LEFT KEY HAS BEEN PRESSED LONG ENOUGH TO BE CONSIDERED HELD
+            // IF HELD, THEN ROTATE
+            if (DetectLeftKey())
+            {
+                if (Time.timeSinceLevelLoad - timePressedLeft > holdMinimum)
+                {
+                    leftKeyHeld = true;
+
+                    rotateLeft = true;
+                }
             }
         }
     }

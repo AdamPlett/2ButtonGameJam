@@ -1079,7 +1079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &544859539
 Transform:
   m_ObjectHideFlags: 0
@@ -2743,10 +2743,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63723a0ad65ddf43abee6ecd09ec7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCollider: {fileID: 0}
+  playerCollider: {fileID: 2012333133}
   maelstrom: {fileID: 544859538}
   inMaelstrom: 0
-  allowShipRotation: 1
+  allowShipRotation: 0
 --- !u!1 &2025375360
 GameObject:
   m_ObjectHideFlags: 0

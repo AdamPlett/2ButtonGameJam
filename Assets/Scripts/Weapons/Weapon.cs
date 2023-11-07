@@ -89,7 +89,12 @@ public class Weapon : MonoBehaviour
     // CALLED FOR STRAIGHT SHOOTING WEAPONS THAT FIRE A SINGULAR BULLET AT A TIME (EX: STANDARD RIFLE)
     private void ShootStraightShot(Vector3 velocity)
     {
-        GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, GameManager.gm.player.playerTransform);
+        Transform bulletSpawn = GameManager.gm.player.playerTransform;
+        Vector3 bulletSpawnPos = bulletSpawn.position;
+        bulletSpawnPos.y += 0.5f;
+        bulletSpawn.position = bulletSpawnPos;
+
+        GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
         Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
 
         bulletInstance.transform.parent = null;
