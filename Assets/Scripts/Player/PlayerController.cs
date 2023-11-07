@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player")]
     public GameObject playerInstance;
     public Transform playerTransform;
-    [SerializeField] private Rigidbody2D playerRB;
+    public Vector3 playerForward;
+    public Rigidbody2D playerRB;
 
     [Header("Player Variables")]
     [SerializeField] float rotateSpeed;
@@ -43,10 +44,14 @@ public class PlayerController : MonoBehaviour
     public void RotateLeft()
     {
         playerTransform.Rotate(0, 0, rotateSpeed);
+
+        playerForward = gameObject.transform.up;
     }
 
     public void RotateRight()
     {
         playerTransform.Rotate(0, 0, rotateSpeed * -1f);
+
+        playerForward = gameObject.transform.up;
     }
 }

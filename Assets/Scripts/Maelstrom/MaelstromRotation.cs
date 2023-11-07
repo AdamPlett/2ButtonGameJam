@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MaelstromRotation : MonoBehaviour
 {
-    [SerializeField] private float rotationSpeed;
+    public float rotationSpeed;
 
     private void Update()
     {
