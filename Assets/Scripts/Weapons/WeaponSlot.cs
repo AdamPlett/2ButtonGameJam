@@ -21,7 +21,7 @@ public class WeaponSlot : MonoBehaviour
             {
                 if (weapon != null)
                 {
-                    weapon.GetComponent<Weapon>().Shoot(this.transform.right * -1f);
+                    weapon.GetComponent<Weapon>().Shoot(this.transform.right * -1f * Time.deltaTime*100);
                 }
             }
         }

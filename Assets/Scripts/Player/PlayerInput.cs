@@ -13,14 +13,17 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] bool leftKeyHeld;
 
     private float timePressed = 0f;
-    private float holdMinimum = 0.25f;   // Determines how long a key must be pressed to be considered held
+    private float holdMinimum = .25f;   // Determines how long a key must be pressed to be considered held
 
 
     void Update()
     {
         CheckForInput();
     }
-
+    private void FixedUpdate()
+    {
+        
+    }
     private void CheckForInput()
     {
         // CHECK TO SEE IF RIGHT KEY HAS BEEN PRESSED
