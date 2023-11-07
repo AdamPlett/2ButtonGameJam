@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum eShot { straightShot, tripleShot, scatter, sweeping, beam}
+public enum eShot { straightShot, burstShot, scatter, sweeping, beam}
 
 [CreateAssetMenu(fileName = "New Weapon", menuName = "ScriptableObjects/Weapons")]
 public class soWeapon : ScriptableObject
@@ -11,6 +11,7 @@ public class soWeapon : ScriptableObject
 
     public float range;             // How far each individual bullet travels before it is destroyed
     public float fireRate;          // How fast each weapon shoots (The higher the fireRate, the less time between individual shots)
+    public float numBullets;        // Number of bullets shot each time the fire button is pressed
     public float clipCapacity;      // Amount of ammo each weapon can shoot before needing to reload
     public float reloadTime;        // Time player must wait after ammo reaches 0 to reload
   
