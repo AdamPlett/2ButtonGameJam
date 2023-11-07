@@ -2649,7 +2649,7 @@ MonoBehaviour:
   playerInstance: {fileID: 2012333127}
   playerTransform: {fileID: 2012333128}
   playerRB: {fileID: 2012333132}
-  rotateSpeed: 0.25
+  rotateSpeed: 1
   knockbackForce: 10
   weapons: {fileID: 2012333130}
 --- !u!114 &2012333130
@@ -2706,7 +2706,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 3
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

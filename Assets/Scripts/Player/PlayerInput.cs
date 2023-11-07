@@ -14,7 +14,10 @@ public class PlayerInput : MonoBehaviour
 
     private float timePressed = 0f;
     private float holdMinimum = .25f;   // Determines how long a key must be pressed to be considered held
-
+    private bool fireRight = false;
+    private bool fireLeft = false;
+    private bool rotateRight = false;
+    private bool rotateLeft = false;
 
     void Update()
     {
@@ -22,7 +25,26 @@ public class PlayerInput : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
+        if (fireRight == true)
+        {
+            player.FireRight();
+            fireRight = false;
+        }
+        else if (rotateRight == true )
+        {
+            player.RotateRight();
+            rotateRight = false;
+        }
+        if (fireLeft == true)
+        {
+            player.FireLeft();
+            fireLeft = false;
+        }
+        else if (rotateLeft == true)
+        {
+            player.RotateLeft();
+            rotateLeft = false;
+        }
     }
     private void CheckForInput()
     {
@@ -40,7 +62,7 @@ public class PlayerInput : MonoBehaviour
             // IF NOT HELD, THEN FIRE
             if (!rightKeyHeld)
             {
-                player.FireRight();
+                fireRight = true;
             }
 
             rightKeyPressed = false;
@@ -55,7 +77,7 @@ public class PlayerInput : MonoBehaviour
             {
                 rightKeyHeld = true;
 
-                player.RotateRight();
+                rotateRight = true;
             }
         }
 
@@ -73,7 +95,7 @@ public class PlayerInput : MonoBehaviour
             // IF NOT HELD, THEN FIRE
             if (!leftKeyHeld)
             {
-                player.FireLeft();
+                fireLeft = true;
             }
 
             leftKeyPressed = false;
@@ -88,7 +110,7 @@ public class PlayerInput : MonoBehaviour
             {
                 leftKeyHeld = true;
 
-                player.RotateLeft();
+                rotateLeft = true;
             }
         }
     }
