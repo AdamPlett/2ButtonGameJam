@@ -12,13 +12,17 @@ public class WeaponSlot : MonoBehaviour
     [Header("Weapons in this Slot")]
     public List<GameObject> weapons = new List<GameObject>();
 
+
     public void ShootWeapons()
     {
-        if(weapons.Count > 0)
+        if (weapons.Count > 0)
         {
             foreach (var weapon in weapons)
             {
-                weapon.GetComponent<Weapon>().Shoot(side, zAngle, this.transform.right * -1f);
+                if (weapon != null)
+                {
+                    weapon.GetComponent<Weapon>().Shoot(this.transform.right * -1f);
+                }
             }
         }
     }
