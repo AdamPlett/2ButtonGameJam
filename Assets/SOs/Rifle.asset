@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   fireRate: 10
-  numBullets: 1
+  reloadTime: 5
   clipCapacity: 10
-  reloadTime: 1
+  bulletsPerShot: 1
   shootingPattern: 0
   bulletDamage: 1
   bulletSpeed: 20

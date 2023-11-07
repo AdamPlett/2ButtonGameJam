@@ -11,35 +11,61 @@ public class Weapon : MonoBehaviour
     [SerializeField] int ammoCount;
     [SerializeField] float reloadTimer;
 
+    #region Shooting
+
     public void Shoot(Vector3 bulletForward)
     {
         Vector3 bulletVelocity = GetBulletVelocity(bulletForward);
 
-        // CHECKS THE FIRE PATTERN OF THE WEAPON AND CALLS CORRESPONDING SHOOT FUNCTION
-        switch(weaponType.shootingPattern)
+        if(ammoCount > 0)
         {
-            case eShot.straightShot:
-                ShootStraightShot(bulletVelocity);
-                break;
+            DepleteAmmo(weaponType.bulletsPerShot);
 
-            case eShot.burstShot:
-                //ShootTripleShot(bulletVelocity);
-                break;
+            // CHECKS THE FIRE PATTERN OF THE WEAPON AND CALLS CORRESPONDING SHOOT FUNCTION
+            switch (weaponType.shootingPattern)
+            {
+                case eShot.straightShot:
+                    ShootStraightShot(bulletVelocity);
+                    break;
 
-            case eShot.scatter:
-                //ShootScatterShot(bulletVelocity);
-                break;
+                case eShot.burstShot:
+                    //ShootTripleShot(bulletVelocity);
+                    break;
 
-            case eShot.sweeping:
-                //ShootSweepingShot(bulletVelocity);
-                break;
+                case eShot.scatter:
+                    //ShootScatterShot(bulletVelocity);
+                    break;
 
-            case eShot.beam:
-                //ShootBeam(bulletVelocity);
-                break;
+                case eShot.sweeping:
+                    //ShootSweepingShot(bulletVelocity);
+                    break;
+
+                case eShot.beam:
+                    //ShootBeam(bulletVelocity);
+                    break;
+            }
+        }
+        else
+        {
+            StartCoroutine(Reload());
         }
 
         GameManager.gm.player.KnockbackPlayer(weaponType.recoilForce, bulletForward * -1f);
+    }
+
+    // MULTIPLIES BULLET SPEED BY THE WEAPON BARREL'S "FORWARD" TO GET BULLET VELOCITY
+    private Vector3 GetBulletVelocity(Vector3 direction)
+    {
+        return 100f * weaponType.bulletSpeed * direction;
+    }
+
+    #endregion
+
+    #region Ammo & Reloading
+
+    private void DepleteAmmo(int bullets)
+    {
+        ammoCount -= bullets;
     }
 
     IEnumerator Reload()
@@ -56,11 +82,7 @@ public class Weapon : MonoBehaviour
         ammoCount = weaponType.clipCapacity;
     }
 
-    // MULTIPLIES BULLET SPEED BY THE WEAPON BARREL'S "FORWARD" TO GET BULLET VELOCITY
-    private Vector3 GetBulletVelocity(Vector3 direction)
-    {
-        return 100f * weaponType.bulletSpeed * direction;
-    }
+    #endregion
 
     #region Shooting Functions
 

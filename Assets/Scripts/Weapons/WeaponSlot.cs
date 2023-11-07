@@ -12,6 +12,23 @@ public class WeaponSlot : MonoBehaviour
     [Header("Weapons in this Slot")]
     public List<GameObject> weapons = new List<GameObject>();
 
+    private void Start()
+    {
+        if (weapons != null)
+        {
+            if (weapons.Count > 0)
+            {
+                foreach (var weapon in weapons)
+                {
+                    if (weapon != null)
+                    {
+                        InstantiateWeapon(weapon);
+                    }
+                }
+            }
+        }
+    }
+
     public void ShootWeapons()
     {
         if (weapons != null)
@@ -27,5 +44,11 @@ public class WeaponSlot : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void InstantiateWeapon(GameObject weapon)
+    {
+        GameObject weaponInstance = Instantiate(weapon);
+        weaponInstance.transform.parent = gameObject.transform;
     }
 }
