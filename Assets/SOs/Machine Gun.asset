@@ -21,9 +21,10 @@ MonoBehaviour:
   totalAmmo: 30
   ammoPerShot: 10
   angleBetweenBullets: 0
-  coneAngle: 10
+  coneAngle: 0
   sweepAngle: 20
   beamRange: 0
+  beamDuration: 0
   bulletDamage: 5
   bulletSpeed: 1
   bulletTravelTime: 2

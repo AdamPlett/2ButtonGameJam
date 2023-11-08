@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
   timeBetweenShots: 0
-  timeBetweenBullets: 0
+  timeBetweenBullets: 0.05
   shootingPattern: 4
   linesOfFire: 1
-  requiresAmmo: 1
+  requiresAmmo: 0
   timeToReload: 0
   totalAmmo: 0
   ammoPerShot: 0
@@ -24,13 +24,14 @@ MonoBehaviour:
   coneAngle: 0
   sweepAngle: 0
   beamRange: 0
+  beamDuration: 5
   bulletDamage: 0
-  bulletSpeed: 0
-  bulletTravelTime: 0
+  bulletSpeed: 5
+  bulletTravelTime: 2
   recoilForce: 0
   projectileForce: 0
   piercing: 0
   ignoreArmor: 0
   explodeOnHit: 0
   stunOnHit: 0
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 208993102696529428, guid: c544a5c6c6deb2c489a27e5d183eb55d, type: 3}

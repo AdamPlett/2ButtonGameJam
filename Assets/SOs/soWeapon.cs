@@ -77,7 +77,8 @@ public class soWeapon : ScriptableObject
     [Tooltip("How far out the beam travels from the ship")]
     public float beamRange;
 
-
+    [Tooltip("How long the beam stays active after the fire key has been pressed")]
+    public float beamDuration;
 
 
     [Space(10)] 

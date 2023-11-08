@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Pipes;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -90,22 +91,29 @@ public class Weapon : MonoBehaviour
 
     private void CheckCanFire()
     {
-        if(ammoCount > 0)
+        if(weaponType.requiresAmmo)
         {
-            if (fireTimer > 0)
+            if (ammoCount > 0)
             {
-                canFire = false;
-                fireTimer -= Time.deltaTime;
+                if (fireTimer > 0)
+                {
+                    canFire = false;
+                    fireTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    canFire = true;
+                    fireTimer = 0f;
+                }
             }
             else
             {
-                canFire = true;
-                fireTimer = 0f;
+                canFire = false;
             }
         }
         else
         {
-            canFire = false;
+            canFire = true;
         }
     }
 
@@ -323,17 +331,49 @@ public class Weapon : MonoBehaviour
     // WEAPONS THAT SHOOT ONE, CONINOUS BEAM RATHER THAN INDIVIDUAL BULLETS (EX: FLAMETHROWER)
     private void ShootBeam(Vector3 velocity, Transform spawn)
     {
-
+        StartCoroutine(Beam(velocity, spawn));
     }
 
     IEnumerator Beam(Vector3 bulletVelocity, Transform bulletSpawn)
     {
-        for (int i = 0; i < weaponType.totalAmmo; i++)
-        {
-            
-        }
+        float beamTimer = weaponType.beamDuration;
+        float shotTimer = weaponType.timeBetweenBullets;
+        float releaseTime = shotTimer / 10f;
 
-        yield return null;
+        while (beamTimer > 0f)
+        {
+            if(shotTimer > 0f)
+            {
+                shotTimer -= Time.deltaTime;
+            }
+            else
+            {
+                
+                GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+                Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
+
+                Bullet bullet = bulletInstance.GetComponent<Bullet>();
+                bullet.SetDamage(weaponType.bulletDamage);
+
+                StartCoroutine(UnparentBullet(bulletInstance, releaseTime));
+
+                bulletRB.AddForce(GetBulletVelocity(bulletSpawn.right * -1f));
+                Destroy(bulletInstance, weaponType.bulletTravelTime);
+
+                shotTimer = weaponType.timeBetweenBullets;
+            }
+
+            beamTimer -= Time.deltaTime;
+
+            yield return null;
+        }
+    }
+
+    IEnumerator UnparentBullet(GameObject bullet, float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        bullet.transform.parent = null;
     }
 
     #endregion

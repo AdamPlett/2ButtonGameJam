@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
 {
     public float damage=0;
     public bool piercing = false;
+
     public void SetDamage(float dmg)
     {
         damage = dmg;
