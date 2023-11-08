@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Auto Shotty
   m_EditorClassIdentifier: 
-  range: 5
-  fireRate: 0.2
-  reloadTime: 4
-  clipCapacity: 5
-  bulletsPerShot: 5
-  coneAngle: 0
-  fireAngle: 6
-  linesOfFire: 3
+  timeBetweenShots: 0.2
+  timeBetweenBullets: 0.1
   shootingPattern: 1
+  linesOfFire: 3
+  requiresAmmo: 1
+  timeToReload: 4
+  totalAmmo: 15
+  ammoPerShot: 5
+  angleBetweenBullets: 6
+  coneAngle: 0
+  sweepAngle: 0
+  beamRange: 0
   bulletDamage: 2
   bulletSpeed: 20
   bulletTravelTime: 1
@@ -28,4 +31,6 @@ MonoBehaviour:
   projectileForce: 5
   piercing: 0
   ignoreArmor: 0
+  explodeOnHit: 0
+  stunOnHit: 0
   bulletPrefab: {fileID: 4700913227824733847, guid: 8e4a07ef8b07e444f8e6ef325aa70f14, type: 3}

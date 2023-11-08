@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Machine Gun
   m_EditorClassIdentifier: 
-  range: 10
-  fireRate: 0.1
-  reloadTime: 4
-  clipCapacity: 20
-  bulletsPerShot: 10
-  coneAngle: 10
-  fireAngle: 0
-  linesOfFire: 0
+  timeBetweenShots: 0.1
+  timeBetweenBullets: 0.1
   shootingPattern: 3
+  linesOfFire: 3
+  requiresAmmo: 1
+  timeToReload: 4
+  totalAmmo: 30
+  ammoPerShot: 10
+  angleBetweenBullets: 0
+  coneAngle: 10
+  sweepAngle: 20
+  beamRange: 0
   bulletDamage: 5
   bulletSpeed: 1
   bulletTravelTime: 2
@@ -28,4 +31,6 @@ MonoBehaviour:
   projectileForce: 5
   piercing: 0
   ignoreArmor: 0
+  explodeOnHit: 0
+  stunOnHit: 0
   bulletPrefab: {fileID: 4700913227824733847, guid: 48f46fa0da3d28746b305dbfcc6c5619, type: 3}

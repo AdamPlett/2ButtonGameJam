@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
-        ammoCount = weaponType.clipCapacity;
+        ammoCount = weaponType.totalAmmo;
         reloadTimer = 0f;
         canFire = true;
         fireTimer = 0f;
@@ -48,7 +48,7 @@ public class Weapon : MonoBehaviour
 
         if(canFire)
         {
-            DepleteAmmo(weaponType.bulletsPerShot);
+            DepleteAmmo(weaponType.ammoPerShot);
 
             // CHECKS THE FIRE PATTERN OF THE WEAPON AND CALLS CORRESPONDING SHOOT FUNCTION
             switch (weaponType.shootingPattern)
@@ -66,11 +66,11 @@ public class Weapon : MonoBehaviour
                     break;
 
                 case eShot.sweeping:
-                    //ShootSweepingShot(bulletVelocity);
+                    ShootSweepingShot(bulletVelocity, weaponBarrel);
                     break;
 
                 case eShot.beam:
-                    //ShootBeam(bulletVelocity);
+                    ShootBeam(bulletVelocity, weaponBarrel);
                     break;
             }
         }
@@ -117,12 +117,12 @@ public class Weapon : MonoBehaviour
     {
         ammoCount -= bullets;
 
-        fireTimer = weaponType.fireRate;
+        fireTimer = weaponType.timeBetweenShots;
     }
 
     IEnumerator Reload()
     {
-        reloadTimer = weaponType.reloadTime;
+        reloadTimer = weaponType.timeToReload;
 
         while(reloadTimer > 0)
         {
@@ -131,7 +131,7 @@ public class Weapon : MonoBehaviour
             yield return null;
         }
 
-        ammoCount = weaponType.clipCapacity;
+        ammoCount = weaponType.totalAmmo;
     }
 
     #endregion
@@ -149,7 +149,7 @@ public class Weapon : MonoBehaviour
 
     IEnumerator StraightShot(Vector3 bulletVelocity, Transform bulletSpawn)
     {       
-        for(int i = 0; i < weaponType.bulletsPerShot; i++)
+        for(int i = 0; i < weaponType.ammoPerShot; i++)
         {
             GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
             Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
@@ -162,7 +162,7 @@ public class Weapon : MonoBehaviour
             bulletRB.AddForce(bulletVelocity);
             Destroy(bulletInstance, weaponType.bulletTravelTime);
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(weaponType.timeBetweenBullets);
         }
     }
 
@@ -180,12 +180,12 @@ public class Weapon : MonoBehaviour
     {             
         Vector3 angle1, angle2 = Vector3.zero;
 
-        for (int i = 0; i < weaponType.bulletsPerShot; i++)
+        for (int i = 0; i < weaponType.ammoPerShot; i++)
         {
             for (int j = 0; j < weaponType.linesOfFire; j++)
             {
-                angle1 = Quaternion.AngleAxis(weaponType.fireAngle * j, Vector3.forward) * bulletVelocity;
-                angle2 = Quaternion.AngleAxis(-1f * weaponType.fireAngle * j, Vector3.forward) * bulletVelocity;
+                angle1 = Quaternion.AngleAxis(weaponType.angleBetweenBullets * j, Vector3.forward) * bulletVelocity;
+                angle2 = Quaternion.AngleAxis(-1f * weaponType.angleBetweenBullets * j, Vector3.forward) * bulletVelocity;
 
                 // Remove the * j from above for wild weapon type
 
@@ -215,7 +215,7 @@ public class Weapon : MonoBehaviour
                 //yield return new WaitForSeconds  << Crazy Weapon Variation
             }
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(weaponType.timeBetweenBullets);
         }
     }
 
@@ -233,7 +233,7 @@ public class Weapon : MonoBehaviour
     {
         for (int i = 0; i < weaponType.linesOfFire; i++)
         {
-            for(int j = 0; j < weaponType.bulletsPerShot; j++)
+            for(int j = 0; j < weaponType.ammoPerShot; j++)
             {
                 float randomAngle = Random.Range(weaponType.coneAngle * -1f, weaponType.coneAngle);
 
@@ -251,7 +251,7 @@ public class Weapon : MonoBehaviour
                 Destroy(bulletInstance, weaponType.bulletTravelTime);
             }
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(weaponType.timeBetweenBullets);
         }
     }
 
@@ -260,22 +260,45 @@ public class Weapon : MonoBehaviour
     #region Sweep-Shot
 
     // WEAPONS THAT SHOOT IN A SWEEPING PATTERN (EX: MACHINE GUN)
-    private void ShootSweepingShot(Vector3 velocity, float sweepAngle)
+    private void ShootSweepingShot(Vector3 velocity, Transform spawn)
     {
-
+        StartCoroutine(SweepingShot(velocity, spawn));
     }
 
-    IEnumerator SweepingShot(int numBullets, Vector3 bulletVelocity, Transform bulletSpawn)
+    IEnumerator SweepingShot(Vector3 bulletVelocity, Transform bulletSpawn)
     {
-        Vector3 angle1 = Quaternion.AngleAxis(weaponType.coneAngle, Vector3.forward) * bulletVelocity;
-        Vector3 angle2 = Quaternion.AngleAxis(-1f * weaponType.coneAngle, Vector3.forward) * bulletVelocity;
+        Vector3 angle1 = Quaternion.AngleAxis(weaponType.sweepAngle, Vector3.forward) * bulletVelocity;
+        Vector3 angle2 = Quaternion.AngleAxis(-1f * weaponType.sweepAngle, Vector3.forward) * bulletVelocity;
 
         Vector3 angle = Vector3.zero;
+        float angleBetweenshots = weaponType.sweepAngle * 2f / weaponType.ammoPerShot;
 
-        for (int i = 0; i < weaponType.bulletsPerShot; i++)
+        bool sweepRight = true;
+
+        for (int i = 0; i < weaponType.linesOfFire; i++)
         {
-            for (int j = 0; j < weaponType.linesOfFire; j++)
+            if(sweepRight)
             {
+                sweepRight = false;
+                angle = angle1;
+            }
+            else
+            {
+                sweepRight = true;
+                angle = angle2;
+            }
+
+            for (int j = 0; j < weaponType.ammoPerShot; j++)
+            {
+                if(sweepRight)
+                {
+                    angle = Quaternion.AngleAxis(angleBetweenshots, Vector3.forward) * angle;
+                }
+                else
+                {
+                    angle = Quaternion.AngleAxis(-1f * angleBetweenshots, Vector3.forward) * angle;
+                }
+
                 GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
                 Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
 
@@ -287,9 +310,9 @@ public class Weapon : MonoBehaviour
                 bulletInstance.transform.parent = null;
                 bulletRB.AddForce(angle);
                 Destroy(bulletInstance, weaponType.bulletTravelTime);
-            }
 
-            yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(weaponType.timeBetweenBullets);
+            }
         }
     }
 
@@ -298,14 +321,14 @@ public class Weapon : MonoBehaviour
     #region Beam
 
     // WEAPONS THAT SHOOT ONE, CONINOUS BEAM RATHER THAN INDIVIDUAL BULLETS (EX: FLAMETHROWER)
-    private void ShootBeam(Vector3 velocity, float beamRange, float beamWidth)
+    private void ShootBeam(Vector3 velocity, Transform spawn)
     {
 
     }
 
-    IEnumerator Beam(int numBullets, Vector3 bulletVelocity, Transform bulletSpawn)
+    IEnumerator Beam(Vector3 bulletVelocity, Transform bulletSpawn)
     {
-        for (int i = 0; i < numBullets; i++)
+        for (int i = 0; i < weaponType.totalAmmo; i++)
         {
             
         }

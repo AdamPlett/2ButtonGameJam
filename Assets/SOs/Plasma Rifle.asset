@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Plasma Rifle
   m_EditorClassIdentifier: 
-  range: 0
-  fireRate: 0
-  reloadTime: 0
-  clipCapacity: 0
-  bulletsPerShot: 0
+  timeBetweenShots: 0
+  timeBetweenBullets: 0
   shootingPattern: 0
+  linesOfFire: 1
+  requiresAmmo: 0
+  timeToReload: 0
+  totalAmmo: 0
+  ammoPerShot: 0
+  angleBetweenBullets: 0
+  coneAngle: 0
+  sweepAngle: 0
+  beamRange: 0
   bulletDamage: 0
   bulletSpeed: 0
   bulletTravelTime: 0
@@ -25,4 +31,6 @@ MonoBehaviour:
   projectileForce: 0
   piercing: 0
   ignoreArmor: 0
+  explodeOnHit: 0
+  stunOnHit: 0
   bulletPrefab: {fileID: 0}
