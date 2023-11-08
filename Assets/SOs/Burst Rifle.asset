@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Burst Rifle
   m_EditorClassIdentifier: 
   range: 10
-  fireRate: 5
-  reloadTime: 6
+  fireRate: 0.2
+  reloadTime: 3
   clipCapacity: 12
   bulletsPerShot: 3
+  coneAngle: 0
+  fireAngle: 0
+  linesOfFire: 0
   shootingPattern: 0
   bulletDamage: 5
   bulletSpeed: 20
