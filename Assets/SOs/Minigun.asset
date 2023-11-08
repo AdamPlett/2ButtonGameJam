@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Minigun
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.05
-  timeBetweenBullets: 0
+  timeBetweenBullets: 0.1
   shootingPattern: 2
   linesOfFire: 5
   requiresAmmo: 1
@@ -21,11 +21,12 @@ MonoBehaviour:
   totalAmmo: 50
   ammoPerShot: 10
   angleBetweenBullets: 0
-  coneAngle: 15
+  coneAngle: 20
   sweepAngle: 0
   beamRange: 0
+  beamDuration: 0
   bulletDamage: 0
-  bulletSpeed: 20
+  bulletSpeed: 10
   bulletTravelTime: 2
   recoilForce: 0
   projectileForce: 0

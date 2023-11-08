@@ -24,10 +24,11 @@ MonoBehaviour:
   coneAngle: 0
   sweepAngle: 0
   beamRange: 0
+  beamDuration: 0
   bulletDamage: 5
   bulletSpeed: 20
   bulletTravelTime: 2
-  recoilForce: 10
+  recoilForce: 50
   projectileForce: 10
   piercing: 0
   ignoreArmor: 0

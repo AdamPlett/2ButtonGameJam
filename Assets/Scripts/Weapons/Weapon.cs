@@ -44,6 +44,7 @@ public class Weapon : MonoBehaviour
     public void Shoot(Vector3 bulletForward, Transform weaponBarrel)
     {
         Vector3 bulletVelocity = GetBulletVelocity(bulletForward);
+        Vector3 recoilDirection = bulletForward * -1f;
 
         CheckCanFire();
 
@@ -55,23 +56,23 @@ public class Weapon : MonoBehaviour
             switch (weaponType.shootingPattern)
             {
                 case eShot.straightShot:
-                    ShootStraightShot(bulletVelocity, weaponBarrel);
+                    ShootStraightShot(bulletVelocity, weaponBarrel, recoilDirection);
                     break;
 
                 case eShot.spread:
-                    ShootSpreadShot(bulletVelocity, weaponBarrel);
+                    ShootSpreadShot(bulletVelocity, weaponBarrel, recoilDirection);
                     break;
 
                 case eShot.cone:
-                    ShootConeShot(bulletVelocity, weaponBarrel);
+                    ShootConeShot(bulletVelocity, weaponBarrel, recoilDirection);
                     break;
 
                 case eShot.sweeping:
-                    ShootSweepingShot(bulletVelocity, weaponBarrel);
+                    ShootSweepingShot(bulletVelocity, weaponBarrel, recoilDirection);
                     break;
 
                 case eShot.beam:
-                    ShootBeam(bulletVelocity, weaponBarrel);
+                    ShootBeam(bulletVelocity, weaponBarrel, recoilDirection);
                     break;
             }
         }
@@ -79,8 +80,6 @@ public class Weapon : MonoBehaviour
         {
             StartCoroutine(Reload());
         }
-
-        GameManager.gm.player.KnockbackPlayer(bulletForward * weaponType.recoilForce * -1f);
     }
 
     // MULTIPLIES BULLET SPEED BY THE WEAPON BARREL'S "FORWARD" TO GET BULLET VELOCITY
@@ -150,12 +149,12 @@ public class Weapon : MonoBehaviour
     #region Straight-Shot
 
     // WEAPONS THAT FIRE BULLETS IN A STRIGHT LINE (EX: STANDARD RIFLE)
-    private void ShootStraightShot(Vector3 velocity, Transform spawn)
+    private void ShootStraightShot(Vector3 velocity, Transform spawn, Vector3 recoil)
     {
-        StartCoroutine(StraightShot(velocity, spawn));
+        StartCoroutine(StraightShot(velocity, spawn, recoil));
     }
 
-    IEnumerator StraightShot(Vector3 bulletVelocity, Transform bulletSpawn)
+    IEnumerator StraightShot(Vector3 bulletVelocity, Transform bulletSpawn, Vector3 recoilDir)
     {       
         for(int i = 0; i < weaponType.ammoPerShot; i++)
         {
@@ -170,6 +169,8 @@ public class Weapon : MonoBehaviour
             bulletRB.AddForce(bulletVelocity);
             Destroy(bulletInstance, weaponType.bulletTravelTime);
 
+            GameManager.gm.player.KnockbackPlayer(recoilDir * weaponType.recoilForce);
+
             yield return new WaitForSeconds(weaponType.timeBetweenBullets);
         }
     }
@@ -179,12 +180,12 @@ public class Weapon : MonoBehaviour
     #region Spread-Shot
 
     // WEAPONS THAT SHOOT SEVERAL LINES OF BULLETS IN A CONE-LIKE FASHION (EX: SHOTGUN)
-    private void ShootSpreadShot(Vector3 velocity, Transform spawn)
+    private void ShootSpreadShot(Vector3 velocity, Transform spawn, Vector3 recoil)
     {
-        StartCoroutine(SpreadShot(velocity, spawn));
+        StartCoroutine(SpreadShot(velocity, spawn, recoil));
     }
 
-    IEnumerator SpreadShot(Vector3 bulletVelocity, Transform bulletSpawn)
+    IEnumerator SpreadShot(Vector3 bulletVelocity, Transform bulletSpawn, Vector3 recoilDir)
     {             
         Vector3 angle1, angle2 = Vector3.zero;
 
@@ -208,6 +209,7 @@ public class Weapon : MonoBehaviour
 
                 bulletRB1.AddForce(angle1);
                 Destroy(bulletInstance1, weaponType.bulletTravelTime);
+                GameManager.gm.player.KnockbackPlayer(recoilDir * weaponType.recoilForce);
 
                 GameObject bulletInstance2 = Instantiate(weaponType.bulletPrefab, bulletSpawn);
                 Rigidbody2D bulletRB2 = bulletInstance2.GetComponent<Rigidbody2D>();
@@ -223,6 +225,7 @@ public class Weapon : MonoBehaviour
                 //yield return new WaitForSeconds  << Crazy Weapon Variation
             }
 
+            GameManager.gm.player.KnockbackPlayer(recoilDir * weaponType.recoilForce);
             yield return new WaitForSeconds(weaponType.timeBetweenBullets);
         }
     }
@@ -232,12 +235,12 @@ public class Weapon : MonoBehaviour
     #region Cone-Shot
 
     // WEAPONS THAT SHOOTS BULLET AT A RANDOM PATH WITHIN A SPECIFIED CONE
-    private void ShootConeShot(Vector3 velocity, Transform spawn)
+    private void ShootConeShot(Vector3 velocity, Transform spawn, Vector3 recoil)
     {
-        StartCoroutine(ShootCone(velocity, spawn));
+        StartCoroutine(ShootCone(velocity, spawn, recoil));
     }
 
-    IEnumerator ShootCone(Vector3 bulletVelocity, Transform bulletSpawn)
+    IEnumerator ShootCone(Vector3 bulletVelocity, Transform bulletSpawn, Vector3 recoilDir)
     {
         for (int i = 0; i < weaponType.linesOfFire; i++)
         {
@@ -246,6 +249,7 @@ public class Weapon : MonoBehaviour
                 float randomAngle = Random.Range(weaponType.coneAngle * -1f, weaponType.coneAngle);
 
                 Vector3 angle = Quaternion.AngleAxis(randomAngle, Vector3.forward) * bulletVelocity;
+                Vector3 recoil = Quaternion.AngleAxis(-1f * randomAngle, Vector3.forward) * recoilDir;
 
                 GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
                 Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
@@ -257,6 +261,8 @@ public class Weapon : MonoBehaviour
                 bulletInstance.transform.parent = null;
                 bulletRB.AddForce(angle);
                 Destroy(bulletInstance, weaponType.bulletTravelTime);
+
+                GameManager.gm.player.KnockbackPlayer(recoil * weaponType.recoilForce);
             }
 
             yield return new WaitForSeconds(weaponType.timeBetweenBullets);
@@ -268,17 +274,17 @@ public class Weapon : MonoBehaviour
     #region Sweep-Shot
 
     // WEAPONS THAT SHOOT IN A SWEEPING PATTERN (EX: MACHINE GUN)
-    private void ShootSweepingShot(Vector3 velocity, Transform spawn)
+    private void ShootSweepingShot(Vector3 velocity, Transform spawn, Vector3 recoil)
     {
-        StartCoroutine(SweepingShot(velocity, spawn));
+        StartCoroutine(SweepingShot(velocity, spawn, recoil));
     }
 
-    IEnumerator SweepingShot(Vector3 bulletVelocity, Transform bulletSpawn)
+    IEnumerator SweepingShot(Vector3 bulletVelocity, Transform bulletSpawn, Vector3 recoilDir)
     {
         Vector3 angle1 = Quaternion.AngleAxis(weaponType.sweepAngle, Vector3.forward) * bulletVelocity;
         Vector3 angle2 = Quaternion.AngleAxis(-1f * weaponType.sweepAngle, Vector3.forward) * bulletVelocity;
 
-        Vector3 angle = Vector3.zero;
+        Vector3 angle = Vector3.zero, recoil = Vector3.zero;
         float angleBetweenshots = weaponType.sweepAngle * 2f / weaponType.ammoPerShot;
 
         bool sweepRight = true;
@@ -319,6 +325,8 @@ public class Weapon : MonoBehaviour
                 bulletRB.AddForce(angle);
                 Destroy(bulletInstance, weaponType.bulletTravelTime);
 
+                GameManager.gm.player.KnockbackPlayer(angle.normalized * -1f * weaponType.recoilForce);
+
                 yield return new WaitForSeconds(weaponType.timeBetweenBullets);
             }
         }
@@ -329,12 +337,12 @@ public class Weapon : MonoBehaviour
     #region Beam
 
     // WEAPONS THAT SHOOT ONE, CONINOUS BEAM RATHER THAN INDIVIDUAL BULLETS (EX: FLAMETHROWER)
-    private void ShootBeam(Vector3 velocity, Transform spawn)
+    private void ShootBeam(Vector3 velocity, Transform spawn, Vector3 recoil)
     {
-        StartCoroutine(Beam(velocity, spawn));
+        StartCoroutine(Beam(velocity, spawn, recoil));
     }
 
-    IEnumerator Beam(Vector3 bulletVelocity, Transform bulletSpawn)
+    IEnumerator Beam(Vector3 bulletVelocity, Transform bulletSpawn, Vector3 recoilDir)
     {
         float beamTimer = weaponType.beamDuration;
         float shotTimer = weaponType.timeBetweenBullets;
@@ -347,8 +355,7 @@ public class Weapon : MonoBehaviour
                 shotTimer -= Time.deltaTime;
             }
             else
-            {
-                
+            {              
                 GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
                 Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
 
@@ -361,6 +368,9 @@ public class Weapon : MonoBehaviour
                 Destroy(bulletInstance, weaponType.bulletTravelTime);
 
                 shotTimer = weaponType.timeBetweenBullets;
+
+                GameManager.gm.player.KnockbackPlayer(recoilDir * weaponType.recoilForce);
+
             }
 
             beamTimer -= Time.deltaTime;
