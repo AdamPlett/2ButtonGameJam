@@ -248,12 +248,24 @@ public class Weapon : MonoBehaviour
 
     IEnumerator SweepingShot(int numBullets, Vector3 bulletVelocity, Transform bulletSpawn)
     {
-        for (int i = 0; i < numBullets; i++)
-        {
-            
-        }
+        Vector3 angle1 = Quaternion.AngleAxis(weaponType.coneAngle, Vector3.forward) * bulletVelocity;
+        Vector3 angle2 = Quaternion.AngleAxis(-1f * weaponType.coneAngle, Vector3.forward) * bulletVelocity;
 
-        yield return null;
+        Vector3 angle = Vector3.zero;
+
+        for (int i = 0; i < weaponType.bulletsPerShot; i++)
+        {
+            for (int j = 0; j < weaponType.linesOfFire; j++)
+            {
+                GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+                Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
+                bulletInstance.transform.parent = null;
+                bulletRB.AddForce(angle);
+                Destroy(bulletInstance, weaponType.bulletTravelTime);
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     #endregion

@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   range: 10
-  fireRate: 1
+  fireRate: 0.5
   reloadTime: 5
   clipCapacity: 10
-  bulletsPerShot: 1
-  fireAngle: 10
-  linesOfFire: 3
+  bulletsPerShot: 5
+  coneAngle: 5
+  fireAngle: 5
+  linesOfFire: 5
   shootingPattern: 1
   bulletDamage: 1
-  bulletSpeed: 20
+  bulletSpeed: 15
   bulletTravelTime: 2
   recoilForce: 15
   projectileForce: 15
