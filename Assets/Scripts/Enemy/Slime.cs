@@ -43,6 +43,7 @@ public class Slime : Enemy
     }
     public override void Death()
     {
+        if (dead) return;
         //spawns the two smaller slimes
         Instantiate(slimeSmaller, transform.position+transform.right*spawnOffset, transform.rotation);
         Instantiate(slimeSmaller, transform.position+transform.right*-spawnOffset, transform.rotation);

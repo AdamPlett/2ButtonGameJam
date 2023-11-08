@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public Slider slider;
     public AudioSource hit;
     public AudioSource death;
+
     // Start is called before the first frame update
 
     public void SetHealth()

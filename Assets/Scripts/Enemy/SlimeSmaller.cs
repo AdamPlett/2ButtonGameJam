@@ -69,6 +69,7 @@ public class SlimeSmaller : Enemy
     }
     public override void Death()
     {
+        if (dead) return;
         //spawns the two smallest slime enemy types
         Instantiate(slimeSmallest, transform.position + transform.right * spawnOffset, transform.rotation);
         Instantiate(slimeSmallest, transform.position + transform.right * -spawnOffset, transform.rotation);
