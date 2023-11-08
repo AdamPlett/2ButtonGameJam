@@ -13,17 +13,18 @@ MonoBehaviour:
   m_Name: Auto Shotty
   m_EditorClassIdentifier: 
   range: 5
-  fireRate: 5
-  reloadTime: 8
-  clipCapacity: 20
+  fireRate: 0.2
+  reloadTime: 4
+  clipCapacity: 5
   bulletsPerShot: 5
+  coneAngle: 0
   fireAngle: 6
   linesOfFire: 3
   shootingPattern: 1
   bulletDamage: 2
   bulletSpeed: 20
   bulletTravelTime: 1
-  recoilForce: 20
+  recoilForce: 5
   projectileForce: 5
   piercing: 0
   ignoreArmor: 0

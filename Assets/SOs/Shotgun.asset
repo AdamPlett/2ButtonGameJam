@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   fireRate: 0.5
-  reloadTime: 5
-  clipCapacity: 10
-  bulletsPerShot: 5
+  reloadTime: 3
+  clipCapacity: 2
+  bulletsPerShot: 1
   coneAngle: 5
-  fireAngle: 5
+  fireAngle: 3
   linesOfFire: 5
   shootingPattern: 1
-  bulletDamage: 1
+  bulletDamage: 3
   bulletSpeed: 15
-  bulletTravelTime: 2
+  bulletTravelTime: 1
   recoilForce: 15
   projectileForce: 15
   piercing: 0
   ignoreArmor: 0
-  bulletPrefab: {fileID: 4700913227824733847, guid: 48f46fa0da3d28746b305dbfcc6c5619, type: 3}
+  bulletPrefab: {fileID: 4700913227824733847, guid: 8e4a07ef8b07e444f8e6ef325aa70f14, type: 3}
