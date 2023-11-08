@@ -49,7 +49,7 @@ public abstract class Enemy : MonoBehaviour
         if (attacking == true) return;
         //sets that the enemy is attacking to true and waits the time between attacks(fireRate) before resetting back to false
         attacking = true;
-        Debug.Log("Enemy Attack!");
+        Debug.Log("Enemy Attacked!");
         Invoke(nameof(ResetAttack), fireRate);
     }
     public virtual void TakeDamage(float dmgTaken)

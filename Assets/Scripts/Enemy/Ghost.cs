@@ -24,4 +24,13 @@ public class Ghost : Enemy
         //rotates towards the player
         //transform.rotation = Quaternion.Euler(Vector3.forward*angle);
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.Damage(damage);
+            Debug.Log("damage applied");
+        }
+    }
 }

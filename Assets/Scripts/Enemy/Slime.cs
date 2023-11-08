@@ -16,23 +16,20 @@ public class Slime : Enemy
     }
     void Update()
     {
-        Move();
+        if (isMoving == true) Move();
     }
     public override void Move()
     {
-        if (isMoving == true)
-        {
-            //makes a vector in the direction of the player and sets its magnitiude to 1
-            Vector2 direction = player.transform.position - transform.position;
-            direction.Normalize();
-            //flips sprite in the direction of movement
-            if (direction.x < 0) transform.localScale = new Vector3(1, 1, 1);
-            if (direction.x > 0) transform.localScale = new Vector3(-1, 1, 1);
+        //makes a vector in the direction of the player and sets its magnitiude to 1
+        Vector2 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        //flips sprite in the direction of movement
+        if (direction.x < 0) transform.localScale = new Vector3(1, 1, 1);
+        if (direction.x > 0) transform.localScale = new Vector3(-1, 1, 1);
             //turns the direction into an angle
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             //moves towards the player
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-        }
     }
     private void setMovingFalse()
     {
@@ -51,5 +48,14 @@ public class Slime : Enemy
         Instantiate(slimeSmaller, transform.position+transform.right*-spawnOffset, transform.rotation);
         //calls the base function to destory the game object
         base.Death();
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.Damage(damage);
+            Debug.Log("damage applied");
+        }
     }
 }
