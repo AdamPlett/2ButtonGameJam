@@ -45,10 +45,17 @@ public class SlimeSmaller : Enemy
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+        //exit if already attacking
+        if (attacking == true) return;
+        //makes sure other has a playerHealth component 
         if (playerHealth != null)
         {
+            //sets that the enemy is attacking to true and waits the time between attacks(fireRate) before resetting back to false
+            attacking = true;
+            Debug.Log("Enemy Attacked!");
+            Invoke(nameof(ResetAttack), fireRate);
+            //applies damage to player
             playerHealth.Damage(damage);
-            Debug.Log("damage applied");
         }
     }
     public override void Death()

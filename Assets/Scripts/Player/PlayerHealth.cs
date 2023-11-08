@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //hit.Play();
         playerHP -= damage;
-        Debug.Log(playerHP);
+        Debug.Log("Current Player HP:" + playerHP);
         //SetHealth();
     }
     public void giveHealth(float addedHealth)
