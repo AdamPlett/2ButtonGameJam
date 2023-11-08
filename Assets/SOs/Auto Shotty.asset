@@ -17,7 +17,9 @@ MonoBehaviour:
   reloadTime: 8
   clipCapacity: 20
   bulletsPerShot: 5
-  shootingPattern: 2
+  fireAngle: 6
+  linesOfFire: 3
+  shootingPattern: 1
   bulletDamage: 2
   bulletSpeed: 20
   bulletTravelTime: 1
