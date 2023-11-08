@@ -1794,6 +1794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInstance: {fileID: 2012333127}
   playerTransform: {fileID: 2012333128}
+  playerForward: {x: 0, y: 0, z: 0}
   playerRB: {fileID: 2012333132}
   rotateSpeed: 0.25
   knockbackForce: 10
@@ -1839,6 +1840,11 @@ MonoBehaviour:
   rightKeyHeld: 0
   leftKeyPressed: 0
   leftKeyHeld: 0
+  fireRight: 0
+  fireLeft: 0
+  rotateRight: 0
+  rotateLeft: 0
+  boostActive: 0
 --- !u!50 &2012333132
 Rigidbody2D:
   serializedVersion: 4
@@ -1889,6 +1895,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCollider: {fileID: 0}
+  maelstrom: {fileID: 0}
+  inMaelstrom: 0
+  allowShipRotation: 0
 --- !u!1 &2082678177
 GameObject:
   m_ObjectHideFlags: 0
