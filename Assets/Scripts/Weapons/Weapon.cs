@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Pipes;
@@ -13,6 +14,14 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] bool canFire;
     [SerializeField] float fireTimer;
+
+    private void Start()
+    {
+        ammoCount = weaponType.clipCapacity;
+        reloadTimer = 0f;
+        canFire = true;
+        fireTimer = 0f;
+    }
 
     void Update()
     {
@@ -48,7 +57,7 @@ public class Weapon : MonoBehaviour
                     break;
 
                 case eShot.spread:
-                    //ShootScatterShot(bulletVelocity);
+                    ShootSpreadShot(bulletVelocity, weaponBarrel);
                     break;
 
                 case eShot.sweeping:
@@ -127,12 +136,12 @@ public class Weapon : MonoBehaviour
     // WEAPONS THAT FIRE BULLETS IN A STRIGHT LINE (EX: STANDARD RIFLE)
     private void ShootStraightShot(Vector3 velocity, Transform spawn)
     {
-        StartCoroutine(ShootBullets(weaponType.bulletsPerShot, velocity, spawn));
+        StartCoroutine(StraightShot(velocity, spawn));
     }
 
-    IEnumerator ShootBullets(int numBullets, Vector3 bulletVelocity, Transform bulletSpawn)
+    IEnumerator StraightShot(Vector3 bulletVelocity, Transform bulletSpawn)
     {       
-        for(int i = 0; i < numBullets; i++)
+        for(int i = 0; i < weaponType.bulletsPerShot; i++)
         {
             GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
             Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
@@ -146,9 +155,41 @@ public class Weapon : MonoBehaviour
     }
 
     // WEAPONS THAT SHOOT SEVERAL LINES OF BULLETS IN A CONE-LIKE FASHION (EX: SHOTGUN)
-    private void ShootSpreadShot(Vector3 velocity, int bulletsPerShot, float spreadAngle)
+    private void ShootSpreadShot(Vector3 velocity, Transform spawn)
     {
+        StartCoroutine(SpreadShot(velocity, spawn));
+    }
 
+    IEnumerator SpreadShot(Vector3 bulletVelocity, Transform bulletSpawn)
+    {             
+        Vector3 angle1, angle2 = Vector3.zero;
+
+        for (int i = 0; i < weaponType.bulletsPerShot; i++)
+        {
+            for (int j = 0; j < weaponType.linesOfFire; j++)
+            {
+                angle1 = Quaternion.AngleAxis(weaponType.fireAngle * j, Vector3.forward) * bulletVelocity;
+                angle2 = Quaternion.AngleAxis(-1f * weaponType.fireAngle * j, Vector3.forward) * bulletVelocity;
+
+                // Remove the * j from above for wild weapon type
+
+                GameObject bulletInstance1 = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+                Rigidbody2D bulletRB1 = bulletInstance1.GetComponent<Rigidbody2D>();
+                bulletInstance1.transform.parent = null;
+                bulletRB1.AddForce(angle1);
+                Destroy(bulletInstance1, weaponType.bulletTravelTime);
+
+                GameObject bulletInstance2 = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+                Rigidbody2D bulletRB2 = bulletInstance2.GetComponent<Rigidbody2D>();
+                bulletInstance2.transform.parent = null;
+                bulletRB2.AddForce(angle2);
+                Destroy(bulletInstance2, weaponType.bulletTravelTime);
+
+                //yield return new WaitForSeconds  << Crazy Weapon Variation
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     // WEAPONS THAT SHOOT IN A SWEEPING PATTERN (EX: MACHINE GUN)
@@ -157,10 +198,30 @@ public class Weapon : MonoBehaviour
 
     }
 
+    IEnumerator SweepingShot(int numBullets, Vector3 bulletVelocity, Transform bulletSpawn)
+    {
+        for (int i = 0; i < numBullets; i++)
+        {
+            
+        }
+
+        yield return null;
+    }
+
     // WEAPONS THAT SHOOT ONE, CONINOUS BEAM RATHER THAN INDIVIDUAL BULLETS (EX: FLAMETHROWER)
     private void ShootBeam(Vector3 velocity, float beamRange, float beamWidth)
     {
 
+    }
+
+    IEnumerator Beam(int numBullets, Vector3 bulletVelocity, Transform bulletSpawn)
+    {
+        for (int i = 0; i < numBullets; i++)
+        {
+            
+        }
+
+        yield return null;
     }
 
     #endregion

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum eShot { straightShot, spread, sweeping, beam}
+public enum eShot { straightShot, spread, cone, sweeping, beam}
 
 [CreateAssetMenu(fileName = "New Weapon", menuName = "ScriptableObjects/Weapons")]
 public class soWeapon : ScriptableObject
@@ -23,6 +23,12 @@ public class soWeapon : ScriptableObject
 
     [Tooltip("Number of bullets shot each time the fire button is pressed")]
     public int bulletsPerShot;
+
+    [Tooltip("For spread / cone style weapons; The angle between bullets")]
+    public int fireAngle;
+
+    [Tooltip("For spread style weapons; The number of bullets per row of the spread")]
+    public int linesOfFire;
 
     [Tooltip("Dictates what pattern bullets travel after being shot")]
     public eShot shootingPattern;
