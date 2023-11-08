@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0
+  timeBetweenShots: 6
   timeBetweenBullets: 0.05
   shootingPattern: 4
   linesOfFire: 1
-  requiresAmmo: 0
-  timeToReload: 0
-  totalAmmo: 0
-  ammoPerShot: 0
+  requiresAmmo: 1
+  timeToReload: 3
+  totalAmmo: 1
+  ammoPerShot: 1
   angleBetweenBullets: 0
   coneAngle: 0
   sweepAngle: 0
-  beamRange: 0
-  beamDuration: 5
-  bulletDamage: 0
+  beamRange: 3
+  beamDuration: 3
+  bulletDamage: 2
   bulletSpeed: 5
   bulletTravelTime: 2
   recoilForce: 0
