@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Machine Gun
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.1
-  timeBetweenBullets: 0.1
+  timeBetweenBullets: 0.025
   shootingPattern: 3
-  linesOfFire: 3
+  linesOfFire: 5
   requiresAmmo: 1
   timeToReload: 4
-  totalAmmo: 30
-  ammoPerShot: 10
+  totalAmmo: 50
+  ammoPerShot: 5
   angleBetweenBullets: 0
   coneAngle: 0
-  sweepAngle: 20
+  sweepAngle: 15
   beamRange: 0
   beamDuration: 0
   bulletDamage: 5
-  bulletSpeed: 1
-  bulletTravelTime: 2
+  bulletSpeed: 5
+  bulletTravelTime: 3
   recoilForce: 5
   projectileForce: 5
   piercing: 0

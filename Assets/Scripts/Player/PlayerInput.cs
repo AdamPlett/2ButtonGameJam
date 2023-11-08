@@ -81,6 +81,8 @@ public class PlayerInput : MonoBehaviour
             leftKeyHeld = false;
             rightKeyPressed = false;
             rightKeyHeld = false;
+
+            player.ActivateBooster(false);
         }
         else if (DetectLeftKey() && DetectRightKey())
         {
@@ -91,6 +93,8 @@ public class PlayerInput : MonoBehaviour
                 leftKeyHeld = true;
                 rightKeyPressed = true;
                 rightKeyHeld = true;
+
+                player.ActivateBooster(true);
             }
         }
         else
@@ -115,6 +119,8 @@ public class PlayerInput : MonoBehaviour
                 rightKeyPressed = false;
                 rightKeyHeld = false;
                 boostActive = false;
+
+                player.ActivateBooster(false);
             }
 
             // CHECKS TO SEE IF RIGHT KEY HAS BEEN PRESSED LONG ENOUGH TO BE CONSIDERED HELD
@@ -149,6 +155,8 @@ public class PlayerInput : MonoBehaviour
                 leftKeyPressed = false;
                 leftKeyHeld = false;
                 boostActive = false;
+
+                player.ActivateBooster(false);
             }
 
             // CHECKS TO SEE IF LEFT KEY HAS BEEN PRESSED LONG ENOUGH TO BE CONSIDERED HELD

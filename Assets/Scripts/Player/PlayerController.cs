@@ -18,9 +18,46 @@ public class PlayerController : MonoBehaviour
     [Header("Booster Variables")]
     [SerializeField] float boosterForce;
     [SerializeField] float boosterFuel;
+    [SerializeField] float boosterDepletion;  
+    [SerializeField] float boosterRegeneration;
+    [SerializeField] GameObject booster;
+    [SerializeField] bool boosterActive;
 
     [Header("Weapons")]
     [SerializeField] PlayerWeapons weapons;
+
+    private void Start()
+    {
+        ActivateBooster(false);
+    }
+
+    private void FixedUpdate()
+    {
+        if(boosterActive)
+        {
+            DepleteBooster();
+        }
+        else
+        {
+            ChargeBooster();
+        }
+    }
+
+    private void ChargeBooster()
+    {
+        if(boosterFuel <= 100)
+        {
+            boosterFuel += (boosterRegeneration * Time.deltaTime);
+        }
+    }
+
+    private void DepleteBooster()
+    {
+        if(boosterFuel > 0)
+        {
+            boosterFuel -= (boosterDepletion * Time.deltaTime);
+        }
+    }
 
     public void KnockbackPlayer(Vector3 velocity)
     {
@@ -40,6 +77,13 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(GameManager.gm.player.playerForward * boosterForce);
         }
+    }
+
+    public void ActivateBooster(bool activate)
+    {
+        booster.SetActive(activate);
+
+        boosterActive = activate;
     }
 
     public void FireLeft()
