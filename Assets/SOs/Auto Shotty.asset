@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
-  m_Name: Rifle
+  m_Name: Auto Shotty
   m_EditorClassIdentifier: 
-  range: 10
+  range: 5
   fireRate: 0.2
-  reloadTime: 2
-  clipCapacity: 10
-  bulletsPerShot: 1
+  reloadTime: 4
+  clipCapacity: 5
+  bulletsPerShot: 5
   coneAngle: 0
-  fireAngle: 0
-  linesOfFire: 0
-  shootingPattern: 0
-  bulletDamage: 5
+  fireAngle: 6
+  linesOfFire: 3
+  shootingPattern: 1
+  bulletDamage: 2
   bulletSpeed: 20
-  bulletTravelTime: 2
-  recoilForce: 10
-  projectileForce: 10
+  bulletTravelTime: 1
+  recoilForce: 5
+  projectileForce: 5
   piercing: 0
   ignoreArmor: 0
-  bulletPrefab: {fileID: 4700913227824733847, guid: 48f46fa0da3d28746b305dbfcc6c5619, type: 3}
+  bulletPrefab: {fileID: 4700913227824733847, guid: 8e4a07ef8b07e444f8e6ef325aa70f14, type: 3}

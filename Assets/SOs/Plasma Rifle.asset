@@ -10,22 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
-  m_Name: Rifle
+  m_Name: Plasma Rifle
   m_EditorClassIdentifier: 
-  range: 10
-  fireRate: 0.2
-  reloadTime: 2
-  clipCapacity: 10
-  bulletsPerShot: 1
-  coneAngle: 0
-  fireAngle: 0
-  linesOfFire: 0
+  range: 0
+  fireRate: 0
+  reloadTime: 0
+  clipCapacity: 0
+  bulletsPerShot: 0
   shootingPattern: 0
-  bulletDamage: 5
-  bulletSpeed: 20
-  bulletTravelTime: 2
-  recoilForce: 10
-  projectileForce: 10
+  bulletDamage: 0
+  bulletSpeed: 0
+  bulletTravelTime: 0
+  recoilForce: 0
+  projectileForce: 0
   piercing: 0
   ignoreArmor: 0
-  bulletPrefab: {fileID: 4700913227824733847, guid: 48f46fa0da3d28746b305dbfcc6c5619, type: 3}
+  bulletPrefab: {fileID: 0}

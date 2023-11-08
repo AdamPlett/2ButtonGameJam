@@ -33,7 +33,7 @@ public class PlayerInput : MonoBehaviour
     {
         if(boostActive)
         {
-            // ACTIVATE MEGA HYPER DEATH LASER OR WHATEVER YA CALL IT
+            player.UseBoost();
         }
         else if (fireRight == true)
         {
@@ -63,7 +63,7 @@ public class PlayerInput : MonoBehaviour
         { 
             if(!boostActive)
             {
-                Debug.Log("ACTIVATE POWER-UP");
+                player.UsePowerup();
 
                 leftKeyPressed = true;
                 rightKeyPressed = true;
