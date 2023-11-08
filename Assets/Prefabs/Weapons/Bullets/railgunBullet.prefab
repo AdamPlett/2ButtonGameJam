@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4700913227824733846}
   - component: {fileID: 3906645446472365880}
   - component: {fileID: 6887798688484224634}
+  - component: {fileID: 1382757472759520490}
   m_Layer: 8
   m_Name: railgunBullet
   m_TagString: Untagged
@@ -98,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6543166a8285d8541829f9b5f4df2352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
 --- !u!50 &6887798688484224634
 Rigidbody2D:
   serializedVersion: 4
@@ -119,3 +121,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &1382757472759520490
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700913227824733847}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 1

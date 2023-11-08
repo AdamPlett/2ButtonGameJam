@@ -26,4 +26,26 @@ public class Eye : Enemy
         //rotates towards the player
         //transform.rotation = Quaternion.Euler(Vector3.forward*angle);
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //take damage from player bullets
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        {
+            Bullet bullet = other.gameObject.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                TakeDamage(bullet.GetDamage());
+            }
+        }
+        PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+        //exit if already attacking
+        //makes sure other has a playerHealth component 
+        if (playerHealth != null)
+        {
+            //sets that the enemy is attacking to true and waits the time between attacks(fireRate) before resetting back to false
+            Debug.Log("Enemy Attacked!");
+            //applies damage to player
+            playerHealth.Damage(damage);
+        }
+    }
 }

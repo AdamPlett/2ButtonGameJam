@@ -44,6 +44,15 @@ public class SlimeSmaller : Enemy
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //take damage from player bullets
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        {
+            Bullet bullet = other.gameObject.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                TakeDamage(bullet.GetDamage());
+            }
+        }
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
         //exit if already attacking
         if (attacking == true) return;

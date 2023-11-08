@@ -154,6 +154,10 @@ public class Weapon : MonoBehaviour
             GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
             Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
 
+            //sets the bullets damage
+            Bullet bullet = bulletInstance.GetComponent<Bullet>();
+            bullet.SetDamage(weaponType.bulletDamage);
+
             bulletInstance.transform.parent = null;
             bulletRB.AddForce(bulletVelocity);
             Destroy(bulletInstance, weaponType.bulletTravelTime);
@@ -187,12 +191,23 @@ public class Weapon : MonoBehaviour
 
                 GameObject bulletInstance1 = Instantiate(weaponType.bulletPrefab, bulletSpawn);
                 Rigidbody2D bulletRB1 = bulletInstance1.GetComponent<Rigidbody2D>();
+
+                //sets the bullets damage
+                Bullet bullet1 = bulletInstance1.GetComponent<Bullet>();
+                bullet1.SetDamage(weaponType.bulletDamage);
+
                 bulletInstance1.transform.parent = null;
+
                 bulletRB1.AddForce(angle1);
                 Destroy(bulletInstance1, weaponType.bulletTravelTime);
 
                 GameObject bulletInstance2 = Instantiate(weaponType.bulletPrefab, bulletSpawn);
                 Rigidbody2D bulletRB2 = bulletInstance2.GetComponent<Rigidbody2D>();
+
+                //sets the bullets damage
+                Bullet bullet2 = bulletInstance2.GetComponent<Bullet>();
+                bullet2.SetDamage(weaponType.bulletDamage);
+
                 bulletInstance2.transform.parent = null;
                 bulletRB2.AddForce(angle2);
                 Destroy(bulletInstance2, weaponType.bulletTravelTime);
@@ -227,6 +242,10 @@ public class Weapon : MonoBehaviour
                 GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
                 Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
 
+                //sets the bullets damage
+                Bullet bullet = bulletInstance.GetComponent<Bullet>();
+                bullet.SetDamage(weaponType.bulletDamage);
+
                 bulletInstance.transform.parent = null;
                 bulletRB.AddForce(angle);
                 Destroy(bulletInstance, weaponType.bulletTravelTime);
@@ -259,6 +278,11 @@ public class Weapon : MonoBehaviour
             {
                 GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
                 Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
+
+                //sets the bullets damage
+                Bullet bullet = bulletInstance.GetComponent<Bullet>();
+                bullet.SetDamage(weaponType.bulletDamage);
+
                 bulletInstance.transform.parent = null;
                 bulletRB.AddForce(angle);
                 Destroy(bulletInstance, weaponType.bulletTravelTime);

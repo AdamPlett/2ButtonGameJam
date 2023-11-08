@@ -39,7 +39,8 @@ public abstract class Enemy : MonoBehaviour
     //destroys the enemy gameobject when health reaches 0
     public virtual void Death()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        Destroy(gameObject, 1);
         Debug.Log("Enemy Killed!");
     }
     //checks if enemy is already attacking, if not than it attacks

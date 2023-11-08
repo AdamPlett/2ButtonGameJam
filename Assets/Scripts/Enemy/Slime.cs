@@ -51,6 +51,18 @@ public class Slime : Enemy
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("on trigger enter detected");
+        //take damage from player bullets
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        {
+            Debug.Log("layer mask detected");
+            Bullet bullet = other.gameObject.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                TakeDamage(bullet.GetDamage());
+                Debug.Log("Enemy hit for " +bullet.GetDamage()+ ", HP remaining: "+health);
+            }
+        }
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
         //exit if already attacking
         if (attacking == true) return;
