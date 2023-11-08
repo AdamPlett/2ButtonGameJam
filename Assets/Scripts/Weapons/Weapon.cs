@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
 
     #region Shooting
 
-    public void Shoot(Vector3 bulletForward)
+    public void Shoot(Vector3 bulletForward, Transform weaponBarrel)
     {
         Vector3 bulletVelocity = GetBulletVelocity(bulletForward);
 
@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
             switch (weaponType.shootingPattern)
             {
                 case eShot.straightShot:
-                    ShootStraightShot(bulletVelocity);
+                    ShootStraightShot(bulletVelocity, weaponBarrel);
                     break;
 
                 case eShot.burstShot:
@@ -50,7 +50,7 @@ public class Weapon : MonoBehaviour
             StartCoroutine(Reload());
         }
 
-        GameManager.gm.player.KnockbackPlayer(weaponType.recoilForce, bulletForward * -1f);
+        GameManager.gm.player.KnockbackPlayer(bulletForward * weaponType.recoilForce * -1f);
     }
 
     // MULTIPLIES BULLET SPEED BY THE WEAPON BARREL'S "FORWARD" TO GET BULLET VELOCITY
@@ -87,13 +87,8 @@ public class Weapon : MonoBehaviour
     #region Shooting Functions
 
     // CALLED FOR STRAIGHT SHOOTING WEAPONS THAT FIRE A SINGULAR BULLET AT A TIME (EX: STANDARD RIFLE)
-    private void ShootStraightShot(Vector3 velocity)
+    private void ShootStraightShot(Vector3 velocity, Transform bulletSpawn)
     {
-        Transform bulletSpawn = GameManager.gm.player.playerTransform;
-        Vector3 bulletSpawnPos = bulletSpawn.position;
-        bulletSpawnPos.y += 0.5f;
-        bulletSpawn.position = bulletSpawnPos;
-
         GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
         Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
 

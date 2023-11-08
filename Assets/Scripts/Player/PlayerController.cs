@@ -34,9 +34,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void KnockbackPlayer(float knockbackForce, Vector3 direction)
+    public void KnockbackPlayer(Vector3 velocity)
     {
-        Vector3 velocity =  direction * knockbackForce;
+        Debug.Log("Knocking back player, with a force of " + velocity);
 
         playerRB.AddForce(velocity);
     }
