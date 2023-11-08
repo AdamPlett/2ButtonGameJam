@@ -279,9 +279,10 @@ public class Weapon : MonoBehaviour
                 GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
                 Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
 
-                //sets the bullets damage
+                //sets the bullets damage and piercing
                 Bullet bullet = bulletInstance.GetComponent<Bullet>();
                 bullet.SetDamage(weaponType.bulletDamage);
+                if (weaponType.piercing) bullet.setPiercing(weaponType.piercing);
 
                 bulletInstance.transform.parent = null;
                 bulletRB.AddForce(angle);

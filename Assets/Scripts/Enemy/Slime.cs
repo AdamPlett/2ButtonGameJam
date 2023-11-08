@@ -62,6 +62,10 @@ public class Slime : Enemy
             {
                 TakeDamage(bullet.GetDamage());
                 Debug.Log("Enemy hit for " +bullet.GetDamage()+ ", HP remaining: "+health);
+                if (!bullet.GetPiercing())
+                {
+                    Destroy(other.gameObject);
+                }
             }
         }
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();

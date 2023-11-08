@@ -35,6 +35,10 @@ public class Eye : Enemy
             if (bullet != null)
             {
                 TakeDamage(bullet.GetDamage());
+                if (!bullet.GetPiercing())
+                {
+                    Destroy(other.gameObject);
+                }
             }
         }
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
