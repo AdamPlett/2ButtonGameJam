@@ -26,7 +26,7 @@ public abstract class Enemy : MonoBehaviour
     //on attack SFX
     public AudioSource attackSFX;
 
-
+    protected bool dead = false;
 
     //when spawned finds the transform for the player
     public virtual void Awake()
@@ -39,8 +39,10 @@ public abstract class Enemy : MonoBehaviour
     //destroys the enemy gameobject when health reaches 0
     public virtual void Death()
     {
+        //gameObject.SetActive(false);
         Destroy(gameObject);
         Debug.Log("Enemy Killed!");
+        dead = true;
     }
     //checks if enemy is already attacking, if not than it attacks
     public virtual void Attack()

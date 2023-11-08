@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public Slider slider;
     public AudioSource hit;
     public AudioSource death;
+
     // Start is called before the first frame update
 
     public void SetHealth()
@@ -31,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //hit.Play();
         playerHP -= damage;
-        Debug.Log(playerHP);
+        Debug.Log("Current Player HP:" + playerHP);
         //SetHealth();
     }
     public void giveHealth(float addedHealth)

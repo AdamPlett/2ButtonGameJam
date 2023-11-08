@@ -43,6 +43,7 @@ public class Slime : Enemy
     }
     public override void Death()
     {
+        if (dead) return;
         //spawns the two smaller slimes
         Instantiate(slimeSmaller, transform.position+transform.right*spawnOffset, transform.rotation);
         Instantiate(slimeSmaller, transform.position+transform.right*-spawnOffset, transform.rotation);
@@ -51,11 +52,30 @@ public class Slime : Enemy
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("on trigger enter detected");
+        //take damage from player bullets
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        {
+            Debug.Log("layer mask detected");
+            Bullet bullet = other.gameObject.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                TakeDamage(bullet.GetDamage());
+                Debug.Log("Enemy hit for " +bullet.GetDamage()+ ", HP remaining: "+health);
+            }
+        }
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+        //exit if already attacking
+        if (attacking == true) return;
+        //makes sure other has a playerHealth component 
         if (playerHealth != null)
         {
+            //sets that the enemy is attacking to true and waits the time between attacks(fireRate) before resetting back to false
+            attacking = true;
+            Debug.Log("Enemy Attacked!");
+            Invoke(nameof(ResetAttack), fireRate);
+            //applies damage to player
             playerHealth.Damage(damage);
-            Debug.Log("damage applied");
         }
     }
 }
