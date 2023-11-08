@@ -37,6 +37,8 @@ public class Weapon : MonoBehaviour
             canFire = true;
             fireTimer = 0f;
         }
+        CheckCanFire();
+        if (!canFire) StartCoroutine(Reload());
     }
 
     #region General Shooting
@@ -75,11 +77,6 @@ public class Weapon : MonoBehaviour
                     break;
             }
         }
-        else
-        {
-            StartCoroutine(Reload());
-        }
-
         GameManager.gm.player.KnockbackPlayer(bulletForward * weaponType.recoilForce * -1f);
     }
 
