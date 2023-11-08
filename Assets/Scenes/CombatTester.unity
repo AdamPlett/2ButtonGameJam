@@ -887,6 +887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 3678853597353328952, guid: 9932564942f29f94898a9c35adac5a78, type: 3}
+      propertyPath: spriteArray.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3678853597353328953, guid: 9932564942f29f94898a9c35adac5a78, type: 3}
       propertyPath: m_RootOrder
       value: 3

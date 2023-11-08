@@ -21,18 +21,23 @@ public abstract class Enemy : MonoBehaviour
     public float attackRange;
 
     [Header("Setup")]
+    //sprite array for on hit for enemies
+    public Sprite[] spriteArray;
     //the player characters transform 
     public Transform player;
     //on attack SFX
     public AudioSource attackSFX;
 
     protected bool dead = false;
+    protected SpriteRenderer currentSprite = null;
 
     //when spawned finds the transform for the player
     public virtual void Awake()
     {
         player = GameObject.Find("Player").transform;
         //agent = GetComponent<NavMeshAgent>();
+        //gets sprite render for changing sprite on enemy hit
+        currentSprite = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
     //enemy movement
     public abstract void Move();
@@ -65,5 +70,9 @@ public abstract class Enemy : MonoBehaviour
     public virtual void ResetAttack()
     {
         attacking = false;
+    }
+    public virtual void ResetSprite()
+    {
+        currentSprite.sprite = spriteArray[0];
     }
 }

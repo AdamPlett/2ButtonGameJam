@@ -40,6 +40,10 @@ public class SlimeSmallest : Enemy
             if (bullet != null)
             {
                 TakeDamage(bullet.GetDamage());
+                //changes sprite to take enemy hit than resets back to default sprite
+                currentSprite.sprite = spriteArray[1];
+                Invoke(nameof(ResetSprite), .25f);
+                //if bullet is not piercing than destroy bullet
                 if (!bullet.GetPiercing())
                 {
                     Destroy(other.gameObject);

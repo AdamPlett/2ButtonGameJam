@@ -413,6 +413,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: EyeSheet_13
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc246166ce136f94f9f7b833337aa552
+      internalID: -1222756592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -429,6 +450,7 @@ TextureImporter:
       EyeSheet_10: 747532344
       EyeSheet_11: 2142248827
       EyeSheet_12: 308159231
+      EyeSheet_13: -1222756592
       EyeSheet_2: 333430426
       EyeSheet_3: 954262082
       EyeSheet_4: 1513479181

@@ -53,6 +53,9 @@ MonoBehaviour:
   health: 5
   killPoints: 5
   attackRange: 0
+  spriteArray:
+  - {fileID: 1317098086, guid: c8cebf59a266e0b45bca7dea4d0b335a, type: 3}
+  - {fileID: 1106938809, guid: c8cebf59a266e0b45bca7dea4d0b335a, type: 3}
   player: {fileID: 0}
   attackSFX: {fileID: 0}
   slimeSmallest: {fileID: 1546724001968400405, guid: bc63a549b4f1ab44396c2c92a0c1bf10, type: 3}

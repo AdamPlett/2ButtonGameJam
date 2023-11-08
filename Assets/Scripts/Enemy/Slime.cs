@@ -24,8 +24,8 @@ public class Slime : Enemy
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
         //flips sprite in the direction of movement
-        if (direction.x < 0) transform.localScale = new Vector3(1, 1, 1);
-        if (direction.x > 0) transform.localScale = new Vector3(-1, 1, 1);
+        if (direction.x < 0) transform.localScale = new Vector3(-1, 1, 1);
+        if (direction.x > 0) transform.localScale = new Vector3(1, 1, 1);
             //turns the direction into an angle
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             //moves towards the player
@@ -62,6 +62,10 @@ public class Slime : Enemy
             {
                 TakeDamage(bullet.GetDamage());
                 Debug.Log("Enemy hit for " +bullet.GetDamage()+ ", HP remaining: "+health);
+                //changes sprite to take enemy hit than resets back to default sprite
+                currentSprite.sprite = spriteArray[1];
+                Invoke(nameof(ResetSprite), .25f);
+                //if bullet is not piercing than destory bullet
                 if (!bullet.GetPiercing())
                 {
                     Destroy(other.gameObject);

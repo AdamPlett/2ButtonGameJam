@@ -143,6 +143,9 @@ MonoBehaviour:
   spawnOffset: 1
   timeMoving: 1.25
   timeStill: 0.5
+  spriteArray:
+  - {fileID: 1094593071, guid: c8cebf59a266e0b45bca7dea4d0b335a, type: 3}
+  - {fileID: 1690399823, guid: c8cebf59a266e0b45bca7dea4d0b335a, type: 3}
 --- !u!50 &7890524057104589362
 Rigidbody2D:
   serializedVersion: 4

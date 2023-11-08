@@ -53,6 +53,9 @@ MonoBehaviour:
   health: 5
   killPoints: 5
   attackRange: 0
+  spriteArray:
+  - {fileID: 314597329, guid: c8cebf59a266e0b45bca7dea4d0b335a, type: 3}
+  - {fileID: -2037765040, guid: c8cebf59a266e0b45bca7dea4d0b335a, type: 3}
   player: {fileID: 0}
   attackSFX: {fileID: 0}
   timeMoving: 0.75

@@ -53,6 +53,9 @@ MonoBehaviour:
   health: 5
   killPoints: 5
   attackRange: 0
+  spriteArray:
+  - {fileID: 1668126617, guid: 6823b821290f63c48a192c3ded31882a, type: 3}
+  - {fileID: 877658546, guid: 6823b821290f63c48a192c3ded31882a, type: 3}
   player: {fileID: 0}
   attackSFX: {fileID: 0}
 --- !u!50 &6060311697587609893
