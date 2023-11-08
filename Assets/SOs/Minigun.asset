@@ -12,23 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Minigun
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.05
-  timeBetweenBullets: 0
+  timeBetweenShots: 1
+  timeBetweenBullets: 0.02
   shootingPattern: 2
-  linesOfFire: 5
+  linesOfFire: 50
   requiresAmmo: 1
-  timeToReload: 8
-  totalAmmo: 50
-  ammoPerShot: 10
+  timeToReload: 5
+  totalAmmo: 1
+  ammoPerShot: 1
   angleBetweenBullets: 0
-  coneAngle: 15
+  coneAngle: 10
   sweepAngle: 0
   beamRange: 0
-  bulletDamage: 0
+  beamDuration: 0
+  bulletDamage: 1
   bulletSpeed: 20
   bulletTravelTime: 2
-  recoilForce: 0
-  projectileForce: 0
+  recoilForce: 2
+  projectileForce: 2
   piercing: 0
   ignoreArmor: 0
   explodeOnHit: 0
