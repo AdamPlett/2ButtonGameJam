@@ -11,13 +11,32 @@ public class Weapon : MonoBehaviour
     [SerializeField] int ammoCount;
     [SerializeField] float reloadTimer;
 
+    [SerializeField] bool canFire;
+    [SerializeField] float fireTimer;
+
+    void Update()
+    {
+        if (fireTimer > 0)
+        {
+            canFire = false;
+            fireTimer -= Time.deltaTime;
+        }
+        else
+        {
+            canFire = true;
+            fireTimer = 0f;
+        }
+    }
+
     #region Shooting
 
     public void Shoot(Vector3 bulletForward, Transform weaponBarrel)
     {
         Vector3 bulletVelocity = GetBulletVelocity(bulletForward);
 
-        if(ammoCount > 0)
+        CheckCanFire();
+
+        if(canFire)
         {
             DepleteAmmo(weaponType.bulletsPerShot);
 
@@ -28,11 +47,7 @@ public class Weapon : MonoBehaviour
                     ShootStraightShot(bulletVelocity, weaponBarrel);
                     break;
 
-                case eShot.burstShot:
-                    //ShootTripleShot(bulletVelocity);
-                    break;
-
-                case eShot.scatter:
+                case eShot.spread:
                     //ShootScatterShot(bulletVelocity);
                     break;
 
@@ -59,6 +74,27 @@ public class Weapon : MonoBehaviour
         return 100f * weaponType.bulletSpeed * direction;
     }
 
+    private void CheckCanFire()
+    {
+        if(ammoCount > 0)
+        {
+            if (fireTimer > 0)
+            {
+                canFire = false;
+                fireTimer -= Time.deltaTime;
+            }
+            else
+            {
+                canFire = true;
+                fireTimer = 0f;
+            }
+        }
+        else
+        {
+            canFire = false;
+        }
+    }
+
     #endregion
 
     #region Ammo & Reloading
@@ -66,15 +102,17 @@ public class Weapon : MonoBehaviour
     private void DepleteAmmo(int bullets)
     {
         ammoCount -= bullets;
+
+        fireTimer = weaponType.fireRate;
     }
 
     IEnumerator Reload()
     {
-        reloadTimer = 0f;
+        reloadTimer = weaponType.reloadTime;
 
-        while(reloadTimer < weaponType.reloadTime)
+        while(reloadTimer > 0)
         {
-            reloadTimer += Time.deltaTime;
+            reloadTimer -= Time.deltaTime;
             
             yield return null;
         }
@@ -86,36 +124,40 @@ public class Weapon : MonoBehaviour
 
     #region Shooting Functions
 
-    // CALLED FOR STRAIGHT SHOOTING WEAPONS THAT FIRE A SINGULAR BULLET AT A TIME (EX: STANDARD RIFLE)
-    private void ShootStraightShot(Vector3 velocity, Transform bulletSpawn)
+    // WEAPONS THAT FIRE BULLETS IN A STRIGHT LINE (EX: STANDARD RIFLE)
+    private void ShootStraightShot(Vector3 velocity, Transform spawn)
     {
-        GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
-        Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
-
-        bulletInstance.transform.parent = null;
-        bulletRB.AddForce(velocity);
-        Destroy(bulletInstance, weaponType.bulletTravelTime);
+        StartCoroutine(ShootBullets(weaponType.bulletsPerShot, velocity, spawn));
     }
 
-    // CALLED FOR STRAIGHT SHOOTING WEAPONS THAT FIRE NUMEROUS BULLETS AT A TIME (EX: BURST RIFLE)
-    private void ShootBurstShot(Vector3 velocity, int bulletsPerShot)
-    {
-        
+    IEnumerator ShootBullets(int numBullets, Vector3 bulletVelocity, Transform bulletSpawn)
+    {       
+        for(int i = 0; i < numBullets; i++)
+        {
+            GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+            Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
+
+            bulletInstance.transform.parent = null;
+            bulletRB.AddForce(bulletVelocity);
+            Destroy(bulletInstance, weaponType.bulletTravelTime);
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
-    // CALLED FOR SPREAD WEAPONS THAT SHOOT MULTIPLE BULLETS AT A TIME, WITH SEVERAL ANGLES OF FIRE (EX: SHOTGUN)
-    private void ShootScatterShot(Vector3 velocity, int bulletsPerShot, float spreadAngle)
+    // WEAPONS THAT SHOOT SEVERAL LINES OF BULLETS IN A CONE-LIKE FASHION (EX: SHOTGUN)
+    private void ShootSpreadShot(Vector3 velocity, int bulletsPerShot, float spreadAngle)
     {
 
     }
 
-    // CALLED FOR WEAPONS THAT SHOOT IN A SWEEPING PATTERN (EX: MACHINE GUN)
+    // WEAPONS THAT SHOOT IN A SWEEPING PATTERN (EX: MACHINE GUN)
     private void ShootSweepingShot(Vector3 velocity, float sweepAngle)
     {
 
     }
 
-    // CALLED FOR WEAPONS THAT SHOOT ONE, CONINOUS BEAM RATHER THAN INDIVIDUAL BULLETS (EX: FLAMETHROWER)
+    // WEAPONS THAT SHOOT ONE, CONINOUS BEAM RATHER THAN INDIVIDUAL BULLETS (EX: FLAMETHROWER)
     private void ShootBeam(Vector3 velocity, float beamRange, float beamWidth)
     {
 

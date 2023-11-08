@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   range: 10
-  fireRate: 10
+  fireRate: 1
   reloadTime: 5
   clipCapacity: 10
-  bulletsPerShot: 1
+  bulletsPerShot: 3
   shootingPattern: 0
   bulletDamage: 1
   bulletSpeed: 20

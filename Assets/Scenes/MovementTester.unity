@@ -2699,6 +2699,8 @@ MonoBehaviour:
   playerRB: {fileID: 2012333132}
   rotateSpeed: 1
   knockbackForce: 10
+  boosterForce: 20
+  boosterFuel: 100
   weapons: {fileID: 2012333135}
 --- !u!114 &2012333131
 MonoBehaviour:

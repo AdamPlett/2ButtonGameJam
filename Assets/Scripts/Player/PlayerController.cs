@@ -11,12 +11,36 @@ public class PlayerController : MonoBehaviour
     public Vector3 playerForward;
     public Rigidbody2D playerRB;
 
-    [Header("Player Variables")]
+    [Header("Movement Variables")]
     [SerializeField] float rotateSpeed;
     [SerializeField] float knockbackForce;
 
+    [Header("Booster Variables")]
+    [SerializeField] float boosterForce;
+    [SerializeField] float boosterFuel;
+
     [Header("Weapons")]
     [SerializeField] PlayerWeapons weapons;
+
+    public void KnockbackPlayer(Vector3 velocity)
+    {
+        //Debug.Log("Knocking back player, with a force of " + velocity);
+
+        playerRB.AddForce(velocity);
+    }
+
+    public void UsePowerup()
+    {
+        Debug.Log("ACTIVATE POWER-UP");
+    }
+
+    public void UseBoost()
+    {
+        if(boosterFuel > 0)
+        {
+            playerRB.AddForce(GameManager.gm.player.playerForward * boosterForce);
+        }
+    }
 
     public void FireLeft()
     {
@@ -32,13 +56,6 @@ public class PlayerController : MonoBehaviour
         {
             slot.ShootWeapons();
         }
-    }
-
-    public void KnockbackPlayer(Vector3 velocity)
-    {
-        Debug.Log("Knocking back player, with a force of " + velocity);
-
-        playerRB.AddForce(velocity);
     }
 
     public void RotateLeft()
