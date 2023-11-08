@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO.Pipes;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Weapon : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    #region Shooting
+    #region General Shooting
 
     public void Shoot(Vector3 bulletForward, Transform weaponBarrel)
     {
@@ -58,6 +59,10 @@ public class Weapon : MonoBehaviour
 
                 case eShot.spread:
                     ShootSpreadShot(bulletVelocity, weaponBarrel);
+                    break;
+
+                case eShot.cone:
+                    ShootConeShot(bulletVelocity, weaponBarrel);
                     break;
 
                 case eShot.sweeping:
@@ -131,7 +136,10 @@ public class Weapon : MonoBehaviour
 
     #endregion
 
-    #region Shooting Functions
+
+    // SPECIFIC FUNCTIONS FOR FIRING PATTERNS
+
+    #region Straight-Shot
 
     // WEAPONS THAT FIRE BULLETS IN A STRIGHT LINE (EX: STANDARD RIFLE)
     private void ShootStraightShot(Vector3 velocity, Transform spawn)
@@ -153,6 +161,10 @@ public class Weapon : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
+
+    #endregion
+
+    #region Spread-Shot
 
     // WEAPONS THAT SHOOT SEVERAL LINES OF BULLETS IN A CONE-LIKE FASHION (EX: SHOTGUN)
     private void ShootSpreadShot(Vector3 velocity, Transform spawn)
@@ -192,6 +204,42 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Cone-Shot
+
+    // WEAPONS THAT SHOOTS BULLET AT A RANDOM PATH WITHIN A SPECIFIED CONE
+    private void ShootConeShot(Vector3 velocity, Transform spawn)
+    {
+        StartCoroutine(ShootCone(velocity, spawn));
+    }
+
+    IEnumerator ShootCone(Vector3 bulletVelocity, Transform bulletSpawn)
+    {
+        for (int i = 0; i < weaponType.linesOfFire; i++)
+        {
+            for(int j = 0; j < weaponType.bulletsPerShot; j++)
+            {
+                float randomAngle = Random.Range(weaponType.coneAngle * -1f, weaponType.coneAngle);
+
+                Vector3 angle = Quaternion.AngleAxis(randomAngle, Vector3.forward) * bulletVelocity;
+
+                GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+                Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
+
+                bulletInstance.transform.parent = null;
+                bulletRB.AddForce(angle);
+                Destroy(bulletInstance, weaponType.bulletTravelTime);
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    #endregion
+
+    #region Sweep-Shot
+
     // WEAPONS THAT SHOOT IN A SWEEPING PATTERN (EX: MACHINE GUN)
     private void ShootSweepingShot(Vector3 velocity, float sweepAngle)
     {
@@ -207,6 +255,10 @@ public class Weapon : MonoBehaviour
 
         yield return null;
     }
+
+    #endregion
+
+    #region Beam
 
     // WEAPONS THAT SHOOT ONE, CONINOUS BEAM RATHER THAN INDIVIDUAL BULLETS (EX: FLAMETHROWER)
     private void ShootBeam(Vector3 velocity, float beamRange, float beamWidth)

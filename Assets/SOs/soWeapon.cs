@@ -25,6 +25,9 @@ public class soWeapon : ScriptableObject
     public int bulletsPerShot;
 
     [Tooltip("For spread / cone style weapons; The angle between bullets")]
+    public int coneAngle;
+
+    [Tooltip("For spread style weapons; The angle between bullets")]
     public int fireAngle;
 
     [Tooltip("For spread style weapons; The number of bullets per row of the spread")]
