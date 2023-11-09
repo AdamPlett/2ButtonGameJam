@@ -44,8 +44,8 @@ public class Eye : Enemy
         /*Transform fireballStart = gameObject.transform;
         fireballStart.position = fireballStart.position + directionV3;*/
         GameObject fireballInstance = Instantiate(fireball, gameObject.transform);
-        EyeFireBall eyeFireball = fireballInstance.GetComponent<EyeFireBall>();
-        eyeFireball.setDamage(damage);
+        EyeFireball eyeFireball = fireballInstance.GetComponent<EyeFireball>();
+        eyeFireball.SetDamage(damage);
         Rigidbody2D fireballRB = fireballInstance.GetComponent<Rigidbody2D>();
         fireballInstance.transform.parent = null;
         fireballRB.AddForce(fireballVelocity);
