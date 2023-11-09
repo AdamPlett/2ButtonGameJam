@@ -26,12 +26,12 @@ MonoBehaviour:
   beamRange: 0
   beamDuration: 0
   bulletDamage: 20
-  bulletSpeed: 25
-  bulletTravelTime: 1.5
+  bulletSpeed: 20
+  bulletTravelTime: 1
   recoilForce: 20
   projectileForce: 1
   piercing: 0
   ignoreArmor: 0
   explodeOnHit: 1
   stunOnHit: 0
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 7127093362250943011, guid: 6bf39d4b610d6b148be876929760f8d1, type: 3}
