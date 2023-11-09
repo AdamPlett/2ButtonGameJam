@@ -17,9 +17,9 @@ MonoBehaviour:
   shootingPattern: 3
   linesOfFire: 10
   requiresAmmo: 1
-  timeToReload: 3
-  totalAmmo: 10
-  ammoPerShot: 10
+  timeToReload: 4
+  totalAmmo: 5
+  ammoPerShot: 5
   angleBetweenBullets: 0
   coneAngle: 0
   sweepAngle: 15

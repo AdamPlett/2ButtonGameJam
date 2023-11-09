@@ -2512,6 +2512,10 @@ MonoBehaviour:
   knockbackForce: 10
   boosterForce: 0
   boosterFuel: 0
+  boosterDepletion: 0
+  boosterRegeneration: 0
+  booster: {fileID: 810309480392035316, guid: 6df2474c6da91884cb649ece035be5bd, type: 3}
+  boosterActive: 0
   weapons: {fileID: 2012333130}
 --- !u!114 &2012333130
 MonoBehaviour:
