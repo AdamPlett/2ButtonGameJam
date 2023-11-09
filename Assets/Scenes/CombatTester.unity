@@ -889,7 +889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3678853597353328950, guid: 9932564942f29f94898a9c35adac5a78, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3678853597353328952, guid: 9932564942f29f94898a9c35adac5a78, type: 3}
       propertyPath: spriteArray.Array.size
@@ -2666,7 +2666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 40889222336906130, guid: 7ccd6c8d9e68dc74182f5ba47f93ce0f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ccd6c8d9e68dc74182f5ba47f93ce0f, type: 3}
@@ -2798,6 +2798,10 @@ MonoBehaviour:
   knockbackForce: 10
   boosterForce: 20
   boosterFuel: 100
+  boosterDepletion: 0
+  boosterRegeneration: 0
+  booster: {fileID: 0}
+  boosterActive: 0
   weapons: {fileID: 2012333135}
 --- !u!114 &2012333131
 MonoBehaviour:

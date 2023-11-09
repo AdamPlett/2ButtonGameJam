@@ -41,8 +41,8 @@ public class Eye : Enemy
         Vector2 fireballVelocity = direction * fireballSpeed *100;
         //sets that the enemy is attacking to true and waits the time between attacks(fireRate) before resetting back to false
         attacking = true;
-        Transform fireballStart = gameObject.transform;
-        fireballStart.position = fireballStart.position + directionV3 * 15;
+        /*Transform fireballStart = gameObject.transform;
+        fireballStart.position = fireballStart.position + directionV3;*/
         GameObject fireballInstance = Instantiate(fireball, gameObject.transform);
         EyeFireBall eyeFireball = fireballInstance.GetComponent<EyeFireBall>();
         eyeFireball.setDamage(damage);

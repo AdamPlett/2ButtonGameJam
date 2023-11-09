@@ -9,6 +9,7 @@ public class EyeFireBall : MonoBehaviour
     int collisions = 0;
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Trigger Detected");
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
