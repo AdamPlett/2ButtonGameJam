@@ -62,7 +62,10 @@ public class SlimeSmaller : Enemy
                 }
             }
         }
-        PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+    PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
         //exit if already attacking
         if (attacking == true) return;
         //makes sure other has a playerHealth component 
@@ -74,6 +77,8 @@ public class SlimeSmaller : Enemy
             Invoke(nameof(ResetAttack), fireRate);
             //applies damage to player
             playerHealth.Damage(damage);
+            //play attack sfx
+            attackSFX?.Play();
         }
     }
     public override void Death()

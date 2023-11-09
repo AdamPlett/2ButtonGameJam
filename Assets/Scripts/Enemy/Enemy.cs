@@ -49,16 +49,6 @@ public abstract class Enemy : MonoBehaviour
         Destroy(gameObject,.25f);
         Debug.Log("Enemy Killed!");
     }
-    //checks if enemy is already attacking, if not than it attacks
-    public virtual void Attack()
-    {
-        //exit if already attacking
-        if (attacking == true) return;
-        //sets that the enemy is attacking to true and waits the time between attacks(fireRate) before resetting back to false
-        attacking = true;
-        Debug.Log("Enemy Attack!");
-        Invoke(nameof(ResetAttack), fireRate);
-    }
     public virtual void TakeDamage(float dmgTaken)
     {
         //put enemy take damage FX here

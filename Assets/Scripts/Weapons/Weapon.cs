@@ -17,6 +17,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] bool canFire;
     [SerializeField] float fireTimer;
 
+    private bool isReloading = false;
+
     private void Start()
     {
         ammoCount = weaponType.totalAmmo;
@@ -37,8 +39,11 @@ public class Weapon : MonoBehaviour
             canFire = true;
             fireTimer = 0f;
         }
-        CheckCanFire();
-        if (!canFire) StartCoroutine(Reload());
+        if (!isReloading)
+        {
+            CheckCanFire();
+            if (!canFire) StartCoroutine(Reload());
+        }
     }
 
     #region General Shooting
@@ -127,6 +132,7 @@ public class Weapon : MonoBehaviour
 
     IEnumerator Reload()
     {
+        isReloading = true;
         reloadTimer = weaponType.timeToReload;
 
         while(reloadTimer > 0)
@@ -137,6 +143,7 @@ public class Weapon : MonoBehaviour
         }
 
         ammoCount = weaponType.totalAmmo;
+        isReloading = false;
     }
 
     #endregion
