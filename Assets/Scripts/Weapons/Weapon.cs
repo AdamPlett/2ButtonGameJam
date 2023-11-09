@@ -41,8 +41,7 @@ public class Weapon : MonoBehaviour
         }
         if (!isReloading)
         {
-            CheckCanFire();
-            if (!canFire) StartCoroutine(Reload());
+            if (ammoCount==0) StartCoroutine(Reload());
         }
     }
 
