@@ -17,17 +17,18 @@ MonoBehaviour:
   shootingPattern: 0
   linesOfFire: 1
   requiresAmmo: 1
-  timeToReload: 20
+  timeToReload: 5
   totalAmmo: 1
   ammoPerShot: 1
   angleBetweenBullets: 0
   coneAngle: 0
   sweepAngle: 0
   beamRange: 0
+  beamDuration: 0
   bulletDamage: 20
   bulletSpeed: 25
   bulletTravelTime: 1.5
-  recoilForce: 30
+  recoilForce: 20
   projectileForce: 1
   piercing: 0
   ignoreArmor: 0

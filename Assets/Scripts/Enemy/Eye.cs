@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Eye : Enemy
 {
+    public float timeFireballIsActive=2;
+    [SerializeField] float fireballSpeed = 5;
+    public GameObject fireball;
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +29,31 @@ public class Eye : Enemy
         //rotates towards the player
         //transform.rotation = Quaternion.Euler(Vector3.forward*angle);
     }
+    //checks if enemy is already attacking, if not than it attacks
+    private void Attack()
+    {
+        //exit if already attacking
+        if (attacking == true) return;
+        //sets fireball velocity in direction of the player
+        Vector2 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        Vector3 directionV3 = direction;
+        Vector2 fireballVelocity = direction * fireballSpeed *100;
+        //sets that the enemy is attacking to true and waits the time between attacks(fireRate) before resetting back to false
+        attacking = true;
+        Transform fireballStart = gameObject.transform;
+        fireballStart.position = fireballStart.position + directionV3 * 15;
+        GameObject fireballInstance = Instantiate(fireball, gameObject.transform);
+        EyeFireBall eyeFireball = fireballInstance.GetComponent<EyeFireBall>();
+        eyeFireball.setDamage(damage);
+        Rigidbody2D fireballRB = fireballInstance.GetComponent<Rigidbody2D>();
+        fireballInstance.transform.parent = null;
+        fireballRB.AddForce(fireballVelocity);
+        Destroy(fireballInstance, timeFireballIsActive);
+
+        Debug.Log("Enemy Fireball!");
+        Invoke(nameof(ResetAttack), fireRate);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         //take damage from player bullets
@@ -45,7 +73,10 @@ public class Eye : Enemy
                 }
             }
         }
-        PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+    PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
         //exit if already attacking
         //makes sure other has a playerHealth component 
         if (playerHealth != null)
@@ -54,6 +85,8 @@ public class Eye : Enemy
             Debug.Log("Enemy Attacked!");
             //applies damage to player
             playerHealth.Damage(damage);
+            //play attack sfx
+            //attackSFX?.Play();
         }
     }
 }

@@ -13,22 +13,23 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.5
-  timeBetweenBullets: 0.1
+  timeBetweenBullets: 0
   shootingPattern: 1
   linesOfFire: 5
   requiresAmmo: 1
-  timeToReload: 3
-  totalAmmo: 15
-  ammoPerShot: 5
+  timeToReload: 2.5
+  totalAmmo: 2
+  ammoPerShot: 1
   angleBetweenBullets: 3
   coneAngle: 0
   sweepAngle: 0
   beamRange: 0
+  beamDuration: 0
   bulletDamage: 3
   bulletSpeed: 15
   bulletTravelTime: 1
-  recoilForce: 15
-  projectileForce: 15
+  recoilForce: 8
+  projectileForce: 8
   piercing: 0
   ignoreArmor: 0
   explodeOnHit: 0

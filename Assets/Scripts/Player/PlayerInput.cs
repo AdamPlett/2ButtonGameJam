@@ -35,22 +35,22 @@ public class PlayerInput : MonoBehaviour
         {
             player.UseBoost();
         }
-        else if (fireRight == true)
+        else if (fireRight)
         {
             player.FireRight();
             fireRight = false;
         }
-        else if (rotateRight == true )
+        else if (rotateRight)
         {
             player.RotateRight();
             rotateRight = false;
         }
-        if (fireLeft == true)
+        if (fireLeft)
         {
             player.FireLeft();
             fireLeft = false;
         }
-        else if (rotateLeft == true)
+        else if (rotateLeft)
         {
             player.RotateLeft();
             rotateLeft = false;

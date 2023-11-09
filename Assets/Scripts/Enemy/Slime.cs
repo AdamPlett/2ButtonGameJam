@@ -5,7 +5,7 @@ using UnityEngine;
 public class Slime : Enemy
 {
     public GameObject slimeSmaller;
-    [SerializeField] float spawnOffset=1, timeMoving=1.25f, timeStill=.5f;
+    [SerializeField] float spawnOffset = 1, timeMoving = 1.25f, timeStill = .5f;
 
     private bool isMoving = false;
     // Update is called once per frame
@@ -26,10 +26,10 @@ public class Slime : Enemy
         //flips sprite in the direction of movement
         if (direction.x < 0) transform.localScale = new Vector3(-1, 1, 1);
         if (direction.x > 0) transform.localScale = new Vector3(1, 1, 1);
-            //turns the direction into an angle
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            //moves towards the player
-            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+        //turns the direction into an angle
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        //moves towards the player
+        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
     }
     private void setMovingFalse()
     {
@@ -45,8 +45,8 @@ public class Slime : Enemy
     {
         if (dead) return;
         //spawns the two smaller slimes
-        Instantiate(slimeSmaller, transform.position+transform.right*spawnOffset, transform.rotation);
-        Instantiate(slimeSmaller, transform.position+transform.right*-spawnOffset, transform.rotation);
+        Instantiate(slimeSmaller, transform.position + transform.right * spawnOffset, transform.rotation);
+        Instantiate(slimeSmaller, transform.position + transform.right * -spawnOffset, transform.rotation);
         //calls the base function to destory the game object
         base.Death();
     }
@@ -61,7 +61,7 @@ public class Slime : Enemy
             if (bullet != null)
             {
                 TakeDamage(bullet.GetDamage());
-                Debug.Log("Enemy hit for " +bullet.GetDamage()+ ", HP remaining: "+health);
+                Debug.Log("Enemy hit for " + bullet.GetDamage() + ", HP remaining: " + health);
                 //changes sprite to take enemy hit than resets back to default sprite
                 currentSprite.sprite = spriteArray[1];
                 Invoke(nameof(ResetSprite), .25f);
@@ -72,6 +72,9 @@ public class Slime : Enemy
                 }
             }
         }
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
         //exit if already attacking
         if (attacking == true) return;
@@ -84,6 +87,8 @@ public class Slime : Enemy
             Invoke(nameof(ResetAttack), fireRate);
             //applies damage to player
             playerHealth.Damage(damage);
+            //play attack sfx
+            attackSFX?.Play();
         }
     }
 }

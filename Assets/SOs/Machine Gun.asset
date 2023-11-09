@@ -12,24 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Machine Gun
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.1
-  timeBetweenBullets: 0.025
+  timeBetweenShots: 0.8
+  timeBetweenBullets: 0.05
   shootingPattern: 3
-  linesOfFire: 5
+  linesOfFire: 1
   requiresAmmo: 1
-  timeToReload: 4
-  totalAmmo: 50
-  ammoPerShot: 5
+  timeToReload: 3
+  totalAmmo: 45
+  ammoPerShot: 15
   angleBetweenBullets: 0
   coneAngle: 0
   sweepAngle: 15
   beamRange: 0
   beamDuration: 0
   bulletDamage: 5
-  bulletSpeed: 5
-  bulletTravelTime: 3
-  recoilForce: 5
-  projectileForce: 5
+  bulletSpeed: 10
+  bulletTravelTime: 2
+  recoilForce: 3
+  projectileForce: 3
   piercing: 0
   ignoreArmor: 0
   explodeOnHit: 0

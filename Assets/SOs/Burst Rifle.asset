@@ -12,23 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Burst Rifle
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.2
-  timeBetweenBullets: 0.1
+  timeBetweenShots: 0.3
+  timeBetweenBullets: 0.05
   shootingPattern: 0
   linesOfFire: 1
   requiresAmmo: 1
-  timeToReload: 3
-  totalAmmo: 12
+  timeToReload: 2
+  totalAmmo: 15
   ammoPerShot: 3
   angleBetweenBullets: 0
   coneAngle: 0
   sweepAngle: 0
   beamRange: 0
+  beamDuration: 0
   bulletDamage: 5
   bulletSpeed: 20
   bulletTravelTime: 2
-  recoilForce: 10
-  projectileForce: 15
+  recoilForce: 5
+  projectileForce: 5
   piercing: 0
   ignoreArmor: 0
   explodeOnHit: 0

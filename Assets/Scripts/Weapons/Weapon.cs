@@ -17,6 +17,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] bool canFire;
     [SerializeField] float fireTimer;
 
+    private bool isReloading = false;
+
     private void Start()
     {
         ammoCount = weaponType.totalAmmo;
@@ -36,6 +38,11 @@ public class Weapon : MonoBehaviour
         {
             canFire = true;
             fireTimer = 0f;
+        }
+        if (!isReloading)
+        {
+            CheckCanFire();
+            if (!canFire) StartCoroutine(Reload());
         }
     }
 
@@ -76,10 +83,7 @@ public class Weapon : MonoBehaviour
                     break;
             }
         }
-        else
-        {
-            StartCoroutine(Reload());
-        }
+        GameManager.gm.player.KnockbackPlayer(bulletForward * weaponType.recoilForce * -1f);
     }
 
     // MULTIPLIES BULLET SPEED BY THE WEAPON BARREL'S "FORWARD" TO GET BULLET VELOCITY
@@ -129,6 +133,7 @@ public class Weapon : MonoBehaviour
 
     IEnumerator Reload()
     {
+        isReloading = true;
         reloadTimer = weaponType.timeToReload;
 
         while(reloadTimer > 0)
@@ -139,6 +144,7 @@ public class Weapon : MonoBehaviour
         }
 
         ammoCount = weaponType.totalAmmo;
+        isReloading = false;
     }
 
     #endregion
