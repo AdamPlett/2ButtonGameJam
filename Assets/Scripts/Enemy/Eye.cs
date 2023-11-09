@@ -49,6 +49,7 @@ public class Eye : Enemy
         Rigidbody2D fireballRB = fireballInstance.GetComponent<Rigidbody2D>();
         fireballInstance.transform.parent = null;
         fireballRB.AddForce(fireballVelocity);
+        attackSFX?.Play();
         Destroy(fireballInstance, timeFireballIsActive);
 
         Debug.Log("Enemy Fireball!");

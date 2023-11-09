@@ -14,7 +14,7 @@ public class EyeFireball : MonoBehaviour
     {
         return damage;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Trigger Detected");
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
