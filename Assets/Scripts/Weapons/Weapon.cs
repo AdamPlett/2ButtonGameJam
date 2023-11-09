@@ -86,9 +86,16 @@ public class Weapon : MonoBehaviour
     }
 
     // MULTIPLIES BULLET SPEED BY THE WEAPON BARREL'S "FORWARD" TO GET BULLET VELOCITY
+    // ALSO ADDS PLAYER VELOCITY TO PRESERVE SHIP MOMENTUM
     private Vector3 GetBulletVelocity(Vector3 direction)
     {
-        return 100f * weaponType.bulletSpeed * direction;
+        Vector3 playerVelocity = Vector3.zero;
+
+        playerVelocity.x = GameManager.gm.player.playerRB.velocity.x;
+        playerVelocity.y = GameManager.gm.player.playerRB.velocity.y;
+        playerVelocity.z = 0;
+
+        return (100f * weaponType.bulletSpeed * direction) + playerVelocity;
     }
 
     private void CheckCanFire()
@@ -172,7 +179,7 @@ public class Weapon : MonoBehaviour
 
             bulletInstance.transform.parent = null;
             bulletRB.AddForce(bulletVelocity);
-            Destroy(bulletInstance, weaponType.bulletTravelTime);
+            bullet.DestroyBullet(weaponType.bulletTravelTime);
 
             GameManager.gm.player.KnockbackPlayer(recoilDir * weaponType.recoilForce);
 
@@ -211,10 +218,8 @@ public class Weapon : MonoBehaviour
                 bullet1.SetDamage(weaponType.bulletDamage);
 
                 bulletInstance1.transform.parent = null;
-
                 bulletRB1.AddForce(angle1);
-                Destroy(bulletInstance1, weaponType.bulletTravelTime);
-                GameManager.gm.player.KnockbackPlayer(recoilDir * weaponType.recoilForce);
+                bullet1.DestroyBullet(weaponType.bulletTravelTime);
 
                 GameObject bulletInstance2 = Instantiate(weaponType.bulletPrefab, bulletSpawn);
                 Rigidbody2D bulletRB2 = bulletInstance2.GetComponent<Rigidbody2D>();
@@ -225,7 +230,7 @@ public class Weapon : MonoBehaviour
 
                 bulletInstance2.transform.parent = null;
                 bulletRB2.AddForce(angle2);
-                Destroy(bulletInstance2, weaponType.bulletTravelTime);
+                bullet2.DestroyBullet(weaponType.bulletTravelTime);
 
                 //yield return new WaitForSeconds  << Crazy Weapon Variation
             }
@@ -292,31 +297,24 @@ public class Weapon : MonoBehaviour
         Vector3 angle = Vector3.zero, recoil = Vector3.zero;
         float angleBetweenshots = weaponType.sweepAngle * 2f / weaponType.ammoPerShot;
 
-        bool sweepRight = true;
+        List<Vector3> linesOfFire = new List<Vector3>();
+
+        for(int i = (int)-weaponType.sweepAngle; i < (int)weaponType.sweepAngle; i += (int)angleBetweenshots)
+        {
+            Vector3 newLine = Quaternion.AngleAxis(i, Vector3.forward) * bulletVelocity;
+
+            linesOfFire.Add(newLine);
+        }
+
+        bool sweepRight = GetRandomBool();
+
+        int index = Random.Range(0, linesOfFire.Count - 1);
 
         for (int i = 0; i < weaponType.linesOfFire; i++)
         {
-            if(sweepRight)
-            {
-                sweepRight = false;
-                angle = angle1;
-            }
-            else
-            {
-                sweepRight = true;
-                angle = angle2;
-            }
-
             for (int j = 0; j < weaponType.ammoPerShot; j++)
             {
-                if(sweepRight)
-                {
-                    angle = Quaternion.AngleAxis(angleBetweenshots, Vector3.forward) * angle;
-                }
-                else
-                {
-                    angle = Quaternion.AngleAxis(-1f * angleBetweenshots, Vector3.forward) * angle;
-                }
+                angle = linesOfFire[index];
 
                 GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
                 Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
@@ -328,12 +326,49 @@ public class Weapon : MonoBehaviour
 
                 bulletInstance.transform.parent = null;
                 bulletRB.AddForce(angle);
-                Destroy(bulletInstance, weaponType.bulletTravelTime);
+                bullet.DestroyBullet(weaponType.bulletTravelTime);
 
                 GameManager.gm.player.KnockbackPlayer(angle.normalized * -1f * weaponType.recoilForce);
 
                 yield return new WaitForSeconds(weaponType.timeBetweenBullets);
+
+                if(sweepRight)
+                {
+                    index++;
+
+                    if(index >= linesOfFire.Count)
+                    {
+                        index = linesOfFire.Count - 1;
+
+                        sweepRight = false;
+                    }
+                }
+                else
+                {
+                    index--;
+
+                    if (index <= 0)
+                    {
+                        index = 0;
+
+                        sweepRight = true;
+                    }
+                }
             }
+        }
+    }
+
+    private bool GetRandomBool()
+    {
+        int num = Random.Range(0, 1);
+
+        if(num == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -370,7 +405,7 @@ public class Weapon : MonoBehaviour
                 StartCoroutine(UnparentBullet(bulletInstance, releaseTime));
 
                 bulletRB.AddForce(GetBulletVelocity(bulletSpawn.right * -1f));
-                Destroy(bulletInstance, weaponType.bulletTravelTime);
+                bullet.DestroyBullet(weaponType.bulletTravelTime);
 
                 shotTimer = weaponType.timeBetweenBullets;
 
