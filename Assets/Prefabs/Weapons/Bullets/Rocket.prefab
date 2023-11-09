@@ -251,7 +251,7 @@ MonoBehaviour:
   damage: 0
   piercing: 0
   explode: 1
-  explosion: {fileID: 8861281605319804659, guid: a7cdd2fc01c21f64ea9742c7bdf7f9af, type: 3}
+  explosion: {fileID: 5534033592736569989, guid: f12acd212a73d4e42971e1c91ff1616f, type: 3}
 --- !u!50 &7127093362250943022
 Rigidbody2D:
   serializedVersion: 4
