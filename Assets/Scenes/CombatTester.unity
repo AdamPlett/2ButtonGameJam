@@ -230,7 +230,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 5c1a4884d751f0644a06e85fa8a09945, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b65da928de237a446a54f21873be31e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -889,7 +889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3678853597353328950, guid: 9932564942f29f94898a9c35adac5a78, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3678853597353328952, guid: 9932564942f29f94898a9c35adac5a78, type: 3}
       propertyPath: spriteArray.Array.size
@@ -2666,7 +2666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 40889222336906130, guid: 7ccd6c8d9e68dc74182f5ba47f93ce0f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ccd6c8d9e68dc74182f5ba47f93ce0f, type: 3}
@@ -2800,7 +2800,7 @@ MonoBehaviour:
   boosterFuel: 100
   boosterDepletion: 0
   boosterRegeneration: 0
-  booster: {fileID: 0}
+  booster: {fileID: 810309480392035316, guid: 6df2474c6da91884cb649ece035be5bd, type: 3}
   boosterActive: 0
   weapons: {fileID: 2012333135}
 --- !u!114 &2012333131

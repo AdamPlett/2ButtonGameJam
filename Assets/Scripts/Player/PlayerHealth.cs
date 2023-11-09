@@ -18,6 +18,17 @@ public class PlayerHealth : MonoBehaviour
     {
         slider.value = playerHP;
     }
+    /*private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Trigger Detected");
+        EyeFireball eyeFireball = other.gameObject.GetComponent<EyeFireball>();
+        if (eyeFireball != null)
+        {
+            Damage(eyeFireball.GetDamage());
+            Debug.Log("damage applied");
+            Destroy(other.gameObject);
+        }
+    } */
 
     // Update is called once per frame
     void Update()
@@ -46,12 +57,11 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player death!");
-        //StartCoroutine(DeathSequence());
+        StartCoroutine(DeathSequence());
     }
     IEnumerator DeathSequence()
     {
         playerArt.SetActive(false);
         yield return new WaitForSeconds(.5f);
-        SceneManager.LoadScene("Level01");
     }
 }

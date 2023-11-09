@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyeFireBall : MonoBehaviour
+public class EyeFireball : MonoBehaviour
 {
     public AudioSource hitSound;
     public float damage = 5f;
-    int collisions = 0;
+    public void SetDamage(float dmg)
+    {
+        damage = dmg;
+    }
+    public float GetDamage()
+    {
+        return damage;
+    }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger Detected");
@@ -17,10 +24,6 @@ public class EyeFireBall : MonoBehaviour
             Debug.Log("damage applied");
             DestroyBullet();
         }
-    }
-    public void setDamage(float dmg)
-    {
-        damage = dmg;
     }
     private void DestroyBullet()
     {
