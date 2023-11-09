@@ -178,6 +178,7 @@ public class Weapon : MonoBehaviour
             bullet.SetDamage(weaponType.bulletDamage);
 
             bulletInstance.transform.parent = null;
+            bulletInstance.transform.localScale = Vector3.one;
             bulletRB.AddForce(bulletVelocity);
             bullet.DestroyBullet(weaponType.bulletTravelTime);
 
@@ -218,6 +219,7 @@ public class Weapon : MonoBehaviour
                 bullet1.SetDamage(weaponType.bulletDamage);
 
                 bulletInstance1.transform.parent = null;
+                bulletInstance1.transform.localScale = Vector3.one;
                 bulletRB1.AddForce(angle1);
                 bullet1.DestroyBullet(weaponType.bulletTravelTime);
 
@@ -229,6 +231,7 @@ public class Weapon : MonoBehaviour
                 bullet2.SetDamage(weaponType.bulletDamage);
 
                 bulletInstance2.transform.parent = null;
+                bulletInstance2.transform.localScale = Vector3.one;
                 bulletRB2.AddForce(angle2);
                 bullet2.DestroyBullet(weaponType.bulletTravelTime);
 
@@ -269,6 +272,7 @@ public class Weapon : MonoBehaviour
                 bullet.SetDamage(weaponType.bulletDamage);
 
                 bulletInstance.transform.parent = null;
+                bulletInstance.transform.localScale = Vector3.one;
                 bulletRB.AddForce(angle);
                 Destroy(bulletInstance, weaponType.bulletTravelTime);
 
@@ -325,6 +329,7 @@ public class Weapon : MonoBehaviour
                 if (weaponType.piercing) bullet.setPiercing(weaponType.piercing);
 
                 bulletInstance.transform.parent = null;
+                bulletInstance.transform.localScale = Vector3.one;
                 bulletRB.AddForce(angle);
                 bullet.DestroyBullet(weaponType.bulletTravelTime);
 
