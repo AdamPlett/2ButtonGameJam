@@ -68,10 +68,18 @@ public class Eye : Enemy
                 currentSprite.sprite = spriteArray[1];
                 Invoke(nameof(ResetSprite), .25f);
                 //if bullet is not pericing than destroy bullet
-                if (!bullet.GetPiercing())
+                if (!bullet.GetPiercing() || !bullet.explode)
                 {
                     Destroy(other.gameObject);
                 }
+            }
+            Explosion explosion = other.gameObject.GetComponent<Explosion>();
+            if (explosion != null)
+            {
+                TakeDamage(explosion.GetDamage());
+                //changes sprite to take enemy hit than resets back to default sprite
+                currentSprite.sprite = spriteArray[1];
+                Invoke(nameof(ResetSprite), .25f);
             }
         }
     }

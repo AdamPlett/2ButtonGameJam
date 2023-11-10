@@ -29,6 +29,7 @@ public class Ghost : Enemy
         //take damage from player bullets
         if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
+            
             Bullet bullet = other.gameObject.GetComponent<Bullet>();
             if (bullet != null)
             {
@@ -37,10 +38,19 @@ public class Ghost : Enemy
                 currentSprite.sprite = spriteArray[1];
                 Invoke(nameof(ResetSprite), .25f);
                 //if bullet is not piercing than destory bullet
-                if (!bullet.GetPiercing())
+                if (!bullet.GetPiercing() || !bullet.explode)
                 {
+                    Debug.Log(bullet.GetPiercing());
                     Destroy(other.gameObject);
                 }
+            }
+            Explosion explosion = other.gameObject.GetComponent<Explosion>();
+            if (explosion != null)
+            {
+                TakeDamage(explosion.GetDamage());
+                //changes sprite to take enemy hit than resets back to default sprite
+                currentSprite.sprite = spriteArray[1];
+                Invoke(nameof(ResetSprite), .25f);
             }
         }
     }

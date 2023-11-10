@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5534033592736569991}
   - component: {fileID: 7493989753640541388}
   - component: {fileID: -2306076147596578393}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: explosionFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationTime: 0.8
+  explosionDamage: 5
 --- !u!58 &-2306076147596578393
 CircleCollider2D:
   m_ObjectHideFlags: 0

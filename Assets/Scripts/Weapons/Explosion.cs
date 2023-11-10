@@ -5,7 +5,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public float animationTime;
-
+    public float explosionDamage = 5;
     void Start()
     {
         Destroy(gameObject, animationTime);
@@ -14,5 +14,9 @@ public class Explosion : MonoBehaviour
     private void Update()
     {
         gameObject.transform.rotation = Quaternion.identity;
+    }
+    public float GetDamage()
+    {
+        return explosionDamage;
     }
 }
