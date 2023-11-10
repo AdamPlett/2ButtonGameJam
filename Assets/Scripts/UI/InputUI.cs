@@ -25,11 +25,11 @@ public class InputUI : MonoBehaviour
                 {
                     upgradeScript.SelectSlot(selectedWeapon);
                 }
-                else if (DetectLeftKey())
+                else if (DetectLeftKeyDown())
                 {
                     upgradeScript.ShiftActiveSlot(1);
                 }
-                else if(DetectRightKey())
+                else if(DetectRightKeyDown())
                 {
                     upgradeScript.ShiftActiveSlot(-1);
                 }

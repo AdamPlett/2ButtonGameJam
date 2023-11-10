@@ -213,7 +213,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5916358491259623939}
+      - m_Target: {fileID: 3977615595342686746}
         m_TargetAssemblyTypeName: UpgradeWeapons, Assembly-CSharp
         m_MethodName: GetWeapoonChoices
         m_Mode: 1
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5916358491259623939}
+      - m_Target: {fileID: 3977615595342686746}
         m_TargetAssemblyTypeName: UpgradeWeapons, Assembly-CSharp
         m_MethodName: GetUpgradeChoices
         m_Mode: 1
@@ -586,7 +586,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96753e3707d53e940bd9a73962b199f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allWeapons: []
+  allWeapons:
+  - {fileID: 11400000, guid: ea3f759f7a350f64b88ff6474c5aad72, type: 2}
+  - {fileID: 11400000, guid: 05d38bfdb7cec3e4d832c0a7606f7028, type: 2}
+  - {fileID: 11400000, guid: f41db093409d3e644a4a95b7619509df, type: 2}
+  - {fileID: 11400000, guid: 3fd4ad91031e93e448359cad4ebc689a, type: 2}
+  - {fileID: 11400000, guid: 7b64e955b51dc70409f335ee02c9d6f2, type: 2}
+  - {fileID: 11400000, guid: f16c078a1f61ce94da0e3dd7ac5eaa69, type: 2}
+  - {fileID: 11400000, guid: 5314a36ae9be174408bfaf0306ffb42f, type: 2}
+  - {fileID: 11400000, guid: 97b4a38ca8ff66249a4c58cad84a1fe4, type: 2}
+  - {fileID: 11400000, guid: 2c814cd0788d44b409e4a4df5dca5870, type: 2}
   randomWeapon: {fileID: 0}
   gunImage: {fileID: 2349704598866575302}
   gunName: {fileID: 8473995552642103512}
@@ -635,7 +644,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5916358491259623939}
+      - m_Target: {fileID: 3977615595342686746}
         m_TargetAssemblyTypeName: UpgradeWeapons, Assembly-CSharp
         m_MethodName: SelectWeapon2
         m_Mode: 1
@@ -739,7 +748,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96753e3707d53e940bd9a73962b199f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allWeapons: []
+  allWeapons:
+  - {fileID: 11400000, guid: ea3f759f7a350f64b88ff6474c5aad72, type: 2}
+  - {fileID: 11400000, guid: 05d38bfdb7cec3e4d832c0a7606f7028, type: 2}
+  - {fileID: 11400000, guid: f41db093409d3e644a4a95b7619509df, type: 2}
+  - {fileID: 11400000, guid: 3fd4ad91031e93e448359cad4ebc689a, type: 2}
+  - {fileID: 11400000, guid: 7b64e955b51dc70409f335ee02c9d6f2, type: 2}
+  - {fileID: 11400000, guid: f16c078a1f61ce94da0e3dd7ac5eaa69, type: 2}
+  - {fileID: 11400000, guid: 5314a36ae9be174408bfaf0306ffb42f, type: 2}
+  - {fileID: 11400000, guid: 97b4a38ca8ff66249a4c58cad84a1fe4, type: 2}
+  - {fileID: 11400000, guid: 2c814cd0788d44b409e4a4df5dca5870, type: 2}
   randomWeapon: {fileID: 0}
   gunImage: {fileID: 6731579377033135133}
   gunName: {fileID: 1998152072524299616}
@@ -788,7 +806,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5916358491259623939}
+      - m_Target: {fileID: 3977615595342686746}
         m_TargetAssemblyTypeName: UpgradeWeapons, Assembly-CSharp
         m_MethodName: SelectWeapon1
         m_Mode: 1
@@ -1807,7 +1825,6 @@ GameObject:
   - component: {fileID: 6222239384590175949}
   - component: {fileID: 6603658422970683121}
   - component: {fileID: 1134957689607851538}
-  - component: {fileID: 5916358491259623939}
   m_Layer: 5
   m_Name: Upgrade Canvas
   m_TagString: Untagged
@@ -1900,27 +1917,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5916358491259623939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7114430692966653656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb3b22bdd47b1534481842dbdf0d0a19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeBox: {fileID: 1744657698789624223}
-  upgradeChoice1: {fileID: 7365916466026938115}
-  upgradeChoice2: {fileID: 943974052802900204}
-  weaponBox: {fileID: 1555355306576617330}
-  weaponChoice1: {fileID: 2680142594520468580}
-  weaponChoice2: {fileID: 1804780045894278406}
-  player: {fileID: 0}
-  uiInput: {fileID: 0}
-  activeSlot: 0
 --- !u!1 &7286994228407586760
 GameObject:
   m_ObjectHideFlags: 0
@@ -3196,6 +3192,7 @@ GameObject:
   - component: {fileID: 7286994229912315035}
   - component: {fileID: 7286994229912315034}
   - component: {fileID: 192321876857389736}
+  - component: {fileID: 3977615595342686746}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -3266,6 +3263,38 @@ MonoBehaviour:
   selectorActive: 0
   upgradeScript: {fileID: 0}
   selectedWeapon: {fileID: 0}
+--- !u!114 &3977615595342686746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7286994229912315032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3b22bdd47b1534481842dbdf0d0a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeBox: {fileID: 1744657698789624223}
+  upgradeChoice1: {fileID: 7365916466026938115}
+  upgradeChoice2: {fileID: 943974052802900204}
+  weaponBox: {fileID: 1555355306576617330}
+  weaponChoice1: {fileID: 2680142594520468580}
+  weaponChoice2: {fileID: 1804780045894278406}
+  player: {fileID: 0}
+  uiInput: {fileID: 192321876857389736}
+  activeSlot: 0
+  weaponSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &7286994229951474328
 GameObject:
   m_ObjectHideFlags: 0

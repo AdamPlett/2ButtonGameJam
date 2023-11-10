@@ -15,7 +15,7 @@ public class UpgradeWeapons : MonoBehaviour
 
     [Header("Weapon Selector")]
     public int activeSlot = 0;
-    List<WeaponSlot> weaponSlots;
+    public List<WeaponSlot> weaponSlots;
 
     // Start is called before the first frame update
     void Start()
@@ -42,16 +42,12 @@ public class UpgradeWeapons : MonoBehaviour
     {
         upgradeChoice1.SetActive(false);
         upgradeChoice2.SetActive(false);
-
-        ResetUI();
     }
 
     public void SelectUpgrade2()
     {
         upgradeChoice1.SetActive(false);
         upgradeChoice2.SetActive(false);
-
-        ResetUI();
     }
 
     public void GetWeapoonChoices()
@@ -72,8 +68,6 @@ public class UpgradeWeapons : MonoBehaviour
         weaponChoice2.SetActive(false);
 
         uiInput.SetWeapon(weaponChoice1.GetComponent<WeaponChoice>().randomWeapon);
-
-        ResetUI();
     }
 
     public void SelectWeapon2()
@@ -82,14 +76,14 @@ public class UpgradeWeapons : MonoBehaviour
         weaponChoice2.SetActive(false);
 
         uiInput.SetWeapon(weaponChoice2.GetComponent<WeaponChoice>().randomWeapon);
-
-        ResetUI();
     }
 
     private void ResetUI()
     {
         weaponBox.SetActive(true);
         upgradeBox.SetActive(true);
+
+        GameManager.gm.ui.ActivateUpgradeScreen(false);
     }
 
 
@@ -100,21 +94,32 @@ public class UpgradeWeapons : MonoBehaviour
             weaponSlots[activeSlot].AddWeapon(weapon);
 
             uiInput.selectorActive = false;
-            GameManager.gm.ui.ActivateUpgradeScreen(false);
+
+            foreach(var slot in weaponSlots)
+            {
+                slot.HighlightSlot(false);
+            }
+
+            ResetUI();
         }
     }
 
     public void ShiftActiveSlot(int increment)
     {
+        weaponSlots[activeSlot].HighlightSlot(false);
         activeSlot += increment;
 
-        if(activeSlot >= weaponSlots.Count)
+        if (activeSlot >= weaponSlots.Count)
         {
             activeSlot = 0;
+            weaponSlots[activeSlot].HighlightSlot(true);
         }
         else if(activeSlot < 0)
         {
             activeSlot = weaponSlots.Count - 1;
+            weaponSlots[activeSlot].HighlightSlot(true);
         }
+
+        weaponSlots[activeSlot].HighlightSlot(true);
     }
 }

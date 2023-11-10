@@ -37,5 +37,5 @@ MonoBehaviour:
   stunOnHit: 0
   bulletPrefab: {fileID: 4700913227824733847, guid: 058afde19bdf0de4fbe80cdf2bb10adb, type: 3}
   weaponSprite: {fileID: 0}
-  weaponName: 
-  weaponDescription: 
+  weaponName: Rail Gun
+  weaponDescription: Get Railed Bitch

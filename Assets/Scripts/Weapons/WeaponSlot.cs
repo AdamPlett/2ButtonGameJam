@@ -15,6 +15,7 @@ public class WeaponSlot : MonoBehaviour
     public Color highlightColor, defaultColor, fullColor;
     public SpriteRenderer barrel;
 
+
     public void ShootWeapons()
     {
         if (weapons.Count > 0)
