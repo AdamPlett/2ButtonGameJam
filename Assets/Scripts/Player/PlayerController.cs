@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Transform playerTransform;
     public Vector3 playerForward;
     public Rigidbody2D playerRB;
+    public PlayerHealth playerHealth;
 
     [Header("Movement Variables")]
     [SerializeField] float rotateSpeed;
@@ -17,7 +18,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Booster Variables")]
     [SerializeField] float boosterForce;
-    [SerializeField] float boosterFuel;
+    public float boosterFuel;
+    public float maxFuel;
     [SerializeField] float boosterDepletion;  
     [SerializeField] float boosterRegeneration;
     [SerializeField] GameObject booster;
