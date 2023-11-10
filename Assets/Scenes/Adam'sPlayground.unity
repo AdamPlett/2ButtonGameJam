@@ -1515,7 +1515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919482, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: enemySpawnTime
-      value: 1.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919483, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: m_Enabled
