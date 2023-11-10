@@ -49,6 +49,10 @@ MonoBehaviour:
   enemySpawnTime: 10
   minTimeBetweenSpawn: 1
   spawnRateIncreaser: 0.1
+  enemyHealthIncreaser: 0.05
+  enemyDamageIncreaser: 0.05
+  damageCap: 25
+  healthCap: 25
   enemyPrefab: {fileID: 40889222336906130, guid: 7ccd6c8d9e68dc74182f5ba47f93ce0f, type: 3}
 --- !u!114 &2027958481919480
 MonoBehaviour:
@@ -65,6 +69,10 @@ MonoBehaviour:
   enemySpawnTime: 10
   minTimeBetweenSpawn: 1
   spawnRateIncreaser: 0.1
+  enemyHealthIncreaser: 0.05
+  enemyDamageIncreaser: 0.05
+  damageCap: 25
+  healthCap: 25
   enemyPrefab: {fileID: 3678853597353328950, guid: 9932564942f29f94898a9c35adac5a78, type: 3}
 --- !u!114 &2027958481919483
 MonoBehaviour:
@@ -81,4 +89,8 @@ MonoBehaviour:
   enemySpawnTime: 10
   minTimeBetweenSpawn: 1
   spawnRateIncreaser: 0.1
+  enemyHealthIncreaser: 0.05
+  enemyDamageIncreaser: 0.05
+  damageCap: 25
+  healthCap: 25
   enemyPrefab: {fileID: 5177177176294972154, guid: ae272e29687602a4ebd2183f2672961c, type: 3}

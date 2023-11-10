@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Booster Variables")]
     [SerializeField] float boosterForce;
-    public float boosterFuel;
+    public float boosterFuel=100;
     public float maxFuel;
     [SerializeField] float boosterDepletion;  
     [SerializeField] float boosterRegeneration;
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     public void UseBoost()
     {
-        if(boosterFuel >= 0)
+        if(boosterFuel > 0)
         {
             playerRB.AddForce(GameManager.gm.player.playerForward * boosterForce);
         }
@@ -93,7 +93,9 @@ public class PlayerController : MonoBehaviour
     {
         if(boosterFuel >= 0)
         {
-            booster.SetActive(activate);
+            //booster.SetActive(activate);
+            if (boosterFuel == 0) booster.SetActive(false);
+            else booster.SetActive(activate);
 
             boosterActive = activate;
         }
