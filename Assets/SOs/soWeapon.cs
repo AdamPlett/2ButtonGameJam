@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum eShot { straightShot, spread, cone, sweeping, beam}
 
@@ -114,4 +115,9 @@ public class soWeapon : ScriptableObject
 
     [Space(5)]
     public GameObject bulletPrefab;
+
+    [Space(10)]
+    public Image weaponSprite;
+    [TextAreaAttribute]
+    public string weaponDescription;
 }
