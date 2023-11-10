@@ -40,8 +40,8 @@ public class Ghost : Enemy
                 //if bullet is not piercing than destory bullet
                 if (!bullet.GetPiercing())
                 {
-                    Debug.Log(bullet.GetPiercing());
-                    Destroy(other.gameObject);
+                    if (bullet.explode) bullet.DestroyBullet(0);
+                    else Destroy(other.gameObject);
                 }
             }
             Explosion explosion = other.gameObject.GetComponent<Explosion>();

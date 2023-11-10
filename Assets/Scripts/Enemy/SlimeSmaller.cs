@@ -56,9 +56,10 @@ public class SlimeSmaller : Enemy
                 currentSprite.sprite = spriteArray[1];
                 Invoke(nameof(ResetSprite), .25f);
                 //if bullet is not a piercing bullet than destroy
-                if (!bullet.GetPiercing() || !bullet.explode)
+                if (!bullet.GetPiercing())
                 {
-                    Destroy(other.gameObject);
+                    if (bullet.explode) bullet.DestroyBullet(0);
+                    else Destroy(other.gameObject);
                 }
             }
             Explosion explosion = other.gameObject.GetComponent<Explosion>();

@@ -44,9 +44,10 @@ public class SlimeSmallest : Enemy
                 currentSprite.sprite = spriteArray[1];
                 Invoke(nameof(ResetSprite), .25f);
                 //if bullet is not piercing than destroy bullet
-                if (!bullet.GetPiercing() || !bullet.explode)
+                if (!bullet.GetPiercing())
                 {
-                    Destroy(other.gameObject);
+                    if (bullet.explode) bullet.DestroyBullet(0);
+                    else Destroy(other.gameObject);
                 }
             }
             Explosion explosion = other.gameObject.GetComponent<Explosion>();
