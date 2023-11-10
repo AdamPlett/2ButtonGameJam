@@ -3240,6 +3240,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2027958481919480, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
+      propertyPath: enemySpawnTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027958481919482, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
+      propertyPath: enemySpawnTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027958481919483, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
+      propertyPath: enemySpawnTime
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
 --- !u!1 &2850048533489120280
