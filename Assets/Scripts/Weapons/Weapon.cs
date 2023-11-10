@@ -140,6 +140,8 @@ public class Weapon : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
+        gameObject.transform.parent.GetComponent<WeaponSlot>().isReloading = true;
+
         reloadTimer = weaponType.timeToReload;
 
         while(reloadTimer > 0)
@@ -150,7 +152,9 @@ public class Weapon : MonoBehaviour
         }
 
         ammoCount = weaponType.totalAmmo;
+
         isReloading = false;
+        gameObject.transform.parent.GetComponent<WeaponSlot>().isReloading = false;
     }
 
     #endregion
