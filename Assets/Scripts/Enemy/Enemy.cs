@@ -57,6 +57,14 @@ public abstract class Enemy : MonoBehaviour
         health -= dmgTaken;
         if (health <= 0) Invoke(nameof(Death), .25f);
     }
+    public virtual void SetDamage(float dmg)
+    {
+        damage = dmg;
+    }
+    public virtual void SetHealth(float hp)
+    {
+        health = hp;
+    }
     public virtual void ResetAttack()
     {
         attacking = false;
