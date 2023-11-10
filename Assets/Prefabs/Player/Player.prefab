@@ -185,6 +185,10 @@ MonoBehaviour:
   side: 0
   zAngle: -60
   weapons: []
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  fullColor: {r: 0, g: 0, b: 0, a: 0}
+  barrel: {fileID: 0}
 --- !u!1 &3218503450835756675
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +413,10 @@ MonoBehaviour:
   zAngle: 0
   weapons:
   - {fileID: 3218503452704265588}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  fullColor: {r: 0, g: 0, b: 0, a: 0}
+  barrel: {fileID: 0}
 --- !u!1 &3218503450900365579
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +603,10 @@ MonoBehaviour:
   side: 0
   zAngle: -60
   weapons: []
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  fullColor: {r: 0, g: 0, b: 0, a: 0}
+  barrel: {fileID: 0}
 --- !u!1 &3218503451042278461
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +756,10 @@ MonoBehaviour:
   side: 0
   zAngle: 30
   weapons: []
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  fullColor: {r: 0, g: 0, b: 0, a: 0}
+  barrel: {fileID: 0}
 --- !u!1 &3218503451283371306
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +860,10 @@ MonoBehaviour:
   side: 0
   zAngle: -30
   weapons: []
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  fullColor: {r: 0, g: 0, b: 0, a: 0}
+  barrel: {fileID: 0}
 --- !u!1 &3218503451360256278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1098,10 @@ MonoBehaviour:
   side: 0
   zAngle: -30
   weapons: []
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  fullColor: {r: 0, g: 0, b: 0, a: 0}
+  barrel: {fileID: 0}
 --- !u!1 &3218503451858033953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1349,10 @@ MonoBehaviour:
   side: 0
   zAngle: 60
   weapons: []
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  fullColor: {r: 0, g: 0, b: 0, a: 0}
+  barrel: {fileID: 0}
 --- !u!1 &3218503452124812138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,6 +1453,10 @@ MonoBehaviour:
   side: 0
   zAngle: 30
   weapons: []
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  fullColor: {r: 0, g: 0, b: 0, a: 0}
+  barrel: {fileID: 0}
 --- !u!1 &3218503452242856081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1690,10 @@ MonoBehaviour:
   side: 0
   zAngle: 60
   weapons: []
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  fullColor: {r: 0, g: 0, b: 0, a: 0}
+  barrel: {fileID: 0}
 --- !u!1 &3218503452372047214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1877,10 @@ MonoBehaviour:
   side: 0
   zAngle: 0
   weapons: []
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  fullColor: {r: 0, g: 0, b: 0, a: 0}
+  barrel: {fileID: 0}
 --- !u!1 &3218503452632767121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1986,6 +2026,7 @@ MonoBehaviour:
   - {fileID: 3218503450866322792}
   - {fileID: 3218503451099590935}
   - {fileID: 3218503452280490275}
+  WeaponPrefabs: []
 --- !u!50 &3218503452632767130
 Rigidbody2D:
   serializedVersion: 4
@@ -2014,7 +2055,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3218503452632767121}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

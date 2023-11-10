@@ -1506,7 +1506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919480, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919480, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: enemySpawnTime
@@ -1526,7 +1526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919483, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919483, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: enemySpawnTime
@@ -2624,6 +2624,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3218503450669776111, guid: 469d917e35031bd4c8716a7e25d8bacd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3218503452543740906, guid: 469d917e35031bd4c8716a7e25d8bacd, type: 3}
       propertyPath: weapons.Array.size
       value: 1
