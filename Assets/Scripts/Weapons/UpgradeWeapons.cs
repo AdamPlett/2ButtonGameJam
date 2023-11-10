@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UpgradeWeapons : MonoBehaviour
@@ -9,6 +10,8 @@ public class UpgradeWeapons : MonoBehaviour
 
     public GameObject weaponBox;
     public GameObject weaponChoice1, weaponChoice2;
+
+    public TextMeshProUGUI title;
 
     public GameObject player;
     public InputUI uiInput;
@@ -29,6 +32,11 @@ public class UpgradeWeapons : MonoBehaviour
         
     }
 
+    public void ChangeTitleText(string text)
+    {
+        title.text = text;
+    }
+
     public void GetUpgradeChoices()
     {
         weaponBox.SetActive(false);
@@ -36,6 +44,8 @@ public class UpgradeWeapons : MonoBehaviour
 
         upgradeChoice1.SetActive(true);
         upgradeChoice2.SetActive(true);
+
+        ChangeTitleText("SELECT UPGRADE");
     }
 
     public void SelectUpgrade1()
@@ -60,6 +70,8 @@ public class UpgradeWeapons : MonoBehaviour
 
         weaponChoice2.GetComponent<WeaponChoice>().RandomizeWeaponChoices();
         weaponChoice2.SetActive(true);
+
+        ChangeTitleText("SELECT NEW WEAPON");
     }
 
     public void SelectWeapon1()
@@ -68,6 +80,8 @@ public class UpgradeWeapons : MonoBehaviour
         weaponChoice2.SetActive(false);
 
         uiInput.SetWeapon(weaponChoice1.GetComponent<WeaponChoice>().randomWeapon);
+
+        ChangeTitleText("SELECT WEAPON SLOT");
     }
 
     public void SelectWeapon2()
@@ -76,14 +90,8 @@ public class UpgradeWeapons : MonoBehaviour
         weaponChoice2.SetActive(false);
 
         uiInput.SetWeapon(weaponChoice2.GetComponent<WeaponChoice>().randomWeapon);
-    }
 
-    private void ResetUI()
-    {
-        weaponBox.SetActive(true);
-        upgradeBox.SetActive(true);
-
-        GameManager.gm.ui.ActivateUpgradeScreen(false);
+        ChangeTitleText("SELECT WEAPON SLOT");
     }
 
 
@@ -102,6 +110,16 @@ public class UpgradeWeapons : MonoBehaviour
 
             ResetUI();
         }
+    }
+
+    public void ResetUI()
+    {
+        weaponBox.SetActive(true);
+        upgradeBox.SetActive(true);
+
+        GameManager.gm.ui.ActivateUpgradeScreen(false);
+
+        ChangeTitleText("LEVEL UP");
     }
 
     public void ShiftActiveSlot(int increment)

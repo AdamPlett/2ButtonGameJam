@@ -51,6 +51,10 @@ public class PlayerController : MonoBehaviour
         {
             boosterFuel += (boosterRegeneration * Time.deltaTime);
         }
+        else
+        {
+            boosterFuel = 100;
+        }
     }
 
     private void DepleteBooster()
@@ -58,6 +62,10 @@ public class PlayerController : MonoBehaviour
         if(boosterFuel > 0)
         {
             boosterFuel -= (boosterDepletion * Time.deltaTime);
+        }
+        else
+        {
+            boosterFuel = 0;
         }
     }
 
@@ -75,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     public void UseBoost()
     {
-        if(boosterFuel > 0)
+        if(boosterFuel >= 0)
         {
             playerRB.AddForce(GameManager.gm.player.playerForward * boosterForce);
         }
@@ -83,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
     public void ActivateBooster(bool activate)
     {
-        if(boosterFuel > 0)
+        if(boosterFuel >= 0)
         {
             booster.SetActive(activate);
 

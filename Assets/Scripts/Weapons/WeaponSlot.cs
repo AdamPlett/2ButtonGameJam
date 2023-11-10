@@ -12,9 +12,16 @@ public class WeaponSlot : MonoBehaviour
     [Header("Weapons in this Slot")]
     public List<GameObject> weapons = new List<GameObject>();
 
-    public Color highlightColor, defaultColor, fullColor;
+    [Header("Reload")]
+    public bool isReloading;
     public SpriteRenderer barrel;
+    public Animator barrelAnim;
+    public Color highlightColor, defaultColor, fullColor;
 
+    private void Update()
+    {
+        SetAnimator();
+    }
 
     public void ShootWeapons()
     {
@@ -27,6 +34,18 @@ public class WeaponSlot : MonoBehaviour
                     weapon.GetComponent<Weapon>().Shoot(this.transform.right * -1f, gameObject.transform);
                 }
             }
+        }
+    }
+
+    public void SetAnimator()
+    {
+        if(isReloading && !barrelAnim.GetBool("reloading"))
+        {
+            barrelAnim.SetBool("reloading", true);
+        }
+        else if(!isReloading && barrelAnim.GetBool("reloading"))
+        {
+            barrelAnim.SetBool("reloading", false);
         }
     }
 

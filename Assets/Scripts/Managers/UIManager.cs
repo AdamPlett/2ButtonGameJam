@@ -83,9 +83,26 @@ public class UIManager : MonoBehaviour
 
     public void ActivateUpgradeScreen(bool activate)
     {
-        uiActive = activate;
+        if(activate)
+        {
+            ActivateUI();
+        }
+        else
+        {
+            Invoke("DeactivateUI", 0.25f);
+        }
 
         HUD.SetActive(!activate);
         upgradeScreen.SetActive(activate);
+    }
+
+    public void ActivateUI()
+    {
+        uiActive = true;
+    }
+
+    public void DeactivateUI()
+    {
+        uiActive = false;
     }
 }

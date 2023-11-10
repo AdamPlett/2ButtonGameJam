@@ -20,16 +20,16 @@ public class InputUI : MonoBehaviour
         if(GameManager.gm.ui.uiActive)
         {
             if(selectorActive)
-            {
+            {                
                 if(DetectLeftKey() && DetectRightKey())
                 {
                     upgradeScript.SelectSlot(selectedWeapon);
                 }
-                else if (DetectLeftKeyDown())
+                else if (DetectLeftKeyUp())
                 {
                     upgradeScript.ShiftActiveSlot(1);
                 }
-                else if(DetectRightKeyDown())
+                else if(DetectRightKeyUp())
                 {
                     upgradeScript.ShiftActiveSlot(-1);
                 }
@@ -43,7 +43,6 @@ public class InputUI : MonoBehaviour
             }
         }
     }
-
 
     public void SetWeapon(soWeapon weapon)
     {
