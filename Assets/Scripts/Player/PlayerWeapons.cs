@@ -8,4 +8,6 @@ public class PlayerWeapons : MonoBehaviour
 {
     public List<WeaponSlot> rightWeapons = new List<WeaponSlot>();
     public List<WeaponSlot> leftWeapons = new List<WeaponSlot>();
+
+    public List<GameObject> WeaponPrefabs = new List<GameObject>();
 }

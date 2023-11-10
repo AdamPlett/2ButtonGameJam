@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     public int secondsAlive;
 
     [Header("Booleans")]
-    public bool menuActive;
+    public bool uiActive;
     public bool playerAlive;
 
     [Header("UI Components")]
@@ -27,16 +27,19 @@ public class UIManager : MonoBehaviour
     public Slider fuelslider;
     public Image powerup;
 
+    [Header("UI Canvases")]
+    public GameObject upgradeScreen;
+    public GameObject deathScreen;
+    public GameObject HUD;
+
 
     private void Update()
     {
         if (playerAlive)
         {
-            // Update timer text
             totalTimeAlive += Time.deltaTime;
             timerText.text = "Time Alive: " + GetTimerText();
 
-            // Update score text
             scoreText.text = "Score: " + score.ToString();
 
             UpdateHealthBar(health);
@@ -76,5 +79,13 @@ public class UIManager : MonoBehaviour
         secondsAlive = (int)(totalTimeAlive % 60);
 
         return minutesAlive + "m " + secondsAlive + "s";
+    }
+
+    public void ActivateUpgradeScreen(bool activate)
+    {
+        uiActive = activate;
+
+        HUD.SetActive(!activate);
+        upgradeScreen.SetActive(activate);
     }
 }

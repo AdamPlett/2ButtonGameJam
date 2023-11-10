@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0
+  weaponClass: 8
+  timeBetweenShots: 6
   timeBetweenBullets: 0.05
   shootingPattern: 4
   linesOfFire: 1
@@ -35,3 +36,6 @@ MonoBehaviour:
   explodeOnHit: 0
   stunOnHit: 0
   bulletPrefab: {fileID: 208993102696529428, guid: c544a5c6c6deb2c489a27e5d183eb55d, type: 3}
+  weaponSprite: {fileID: 0}
+  weaponName: Flamethrower
+  weaponDescription: Hot!

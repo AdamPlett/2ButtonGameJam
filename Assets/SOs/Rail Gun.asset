@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Rail Gun
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0
-  timeBetweenBullets: 0
+  weaponClass: 7
+  timeBetweenShots: 1
+  timeBetweenBullets: 1
   shootingPattern: 0
   linesOfFire: 1
   requiresAmmo: 1
@@ -36,4 +37,5 @@ MonoBehaviour:
   stunOnHit: 0
   bulletPrefab: {fileID: 4700913227824733847, guid: 058afde19bdf0de4fbe80cdf2bb10adb, type: 3}
   weaponSprite: {fileID: 0}
-  weaponDescription: 
+  weaponName: Rail Gun
+  weaponDescription: Get Railed Bitch
