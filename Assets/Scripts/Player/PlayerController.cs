@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         ActivateBooster(false);
+        playerForward = gameObject.transform.up;
     }
 
     private void FixedUpdate()
