@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Auto Shotty
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.1
-  timeBetweenBullets: 0.1
+  timeBetweenBullets: 0.15
   shootingPattern: 1
   linesOfFire: 3
   requiresAmmo: 1
@@ -27,7 +27,7 @@ MonoBehaviour:
   beamDuration: 0
   bulletDamage: 2
   bulletSpeed: 15
-  bulletTravelTime: 1
+  bulletTravelTime: 2
   recoilForce: 3
   projectileForce: 3
   piercing: 0
