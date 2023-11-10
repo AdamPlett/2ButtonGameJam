@@ -178,6 +178,7 @@ public class Weapon : MonoBehaviour
             //sets the bullets damage
             Bullet bullet = bulletInstance.GetComponent<Bullet>();
             bullet.SetDamage(weaponType.bulletDamage);
+            bullet.setPiercing(weaponType.piercing);
 
             bulletInstance.transform.parent = null;
             bulletInstance.transform.localScale = Vector3.one;
@@ -223,6 +224,7 @@ public class Weapon : MonoBehaviour
                 //sets the bullets damage
                 Bullet bullet1 = bulletInstance1.GetComponent<Bullet>();
                 bullet1.SetDamage(weaponType.bulletDamage);
+                bullet1.setPiercing(weaponType.piercing);
 
                 bulletInstance1.transform.parent = null;
                 bulletInstance1.transform.localScale = Vector3.one;
@@ -235,6 +237,7 @@ public class Weapon : MonoBehaviour
                 //sets the bullets damage
                 Bullet bullet2 = bulletInstance2.GetComponent<Bullet>();
                 bullet2.SetDamage(weaponType.bulletDamage);
+                bullet2.setPiercing(weaponType.piercing);
 
                 bulletInstance2.transform.parent = null;
                 bulletInstance2.transform.localScale = Vector3.one;
@@ -280,6 +283,7 @@ public class Weapon : MonoBehaviour
                 //sets the bullets damage
                 Bullet bullet = bulletInstance.GetComponent<Bullet>();
                 bullet.SetDamage(weaponType.bulletDamage);
+                bullet.setPiercing(weaponType.piercing);
 
                 bulletInstance.transform.parent = null;
                 bulletInstance.transform.localScale = Vector3.one;
@@ -340,7 +344,7 @@ public class Weapon : MonoBehaviour
                 //sets the bullets damage and piercing
                 Bullet bullet = bulletInstance.GetComponent<Bullet>();
                 bullet.SetDamage(weaponType.bulletDamage);
-                if (weaponType.piercing) bullet.setPiercing(weaponType.piercing);
+                bullet.setPiercing(weaponType.piercing);
 
                 bulletInstance.transform.parent = null;
                 bulletInstance.transform.localScale = Vector3.one;
@@ -423,6 +427,7 @@ public class Weapon : MonoBehaviour
 
                 Bullet bullet = bulletInstance.GetComponent<Bullet>();
                 bullet.SetDamage(weaponType.bulletDamage);
+                bullet.setPiercing(weaponType.piercing);
 
                 StartCoroutine(UnparentBullet(bulletInstance, releaseTime));
 

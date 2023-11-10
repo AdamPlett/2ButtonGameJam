@@ -38,7 +38,7 @@ public class Ghost : Enemy
                 currentSprite.sprite = spriteArray[1];
                 Invoke(nameof(ResetSprite), .25f);
                 //if bullet is not piercing than destory bullet
-                if (!bullet.GetPiercing() || !bullet.explode)
+                if (!bullet.GetPiercing())
                 {
                     Debug.Log(bullet.GetPiercing());
                     Destroy(other.gameObject);
