@@ -16,7 +16,7 @@ MonoBehaviour:
   timeBetweenShots: 0.8
   timeBetweenBullets: 0.025
   shootingPattern: 3
-  linesOfFire: 10
+  linesOfFire: 5
   requiresAmmo: 1
   timeToReload: 4
   totalAmmo: 5
@@ -26,7 +26,7 @@ MonoBehaviour:
   sweepAngle: 15
   beamRange: 0
   beamDuration: 0
-  bulletDamage: 5
+  bulletDamage: 4
   bulletSpeed: 10
   bulletTravelTime: 3
   recoilForce: 3
@@ -38,4 +38,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4700913227824733847, guid: 48f46fa0da3d28746b305dbfcc6c5619, type: 3}
   weaponSprite: {fileID: 0}
   weaponName: Machine Gun
-  weaponDescription: pow pow pow pow
+  weaponDescription: 'Shoots waves of bullets to kill waves of enemies!
+
+    High
+    fire rate with slightly lower damage, with a sweeping pattern! '

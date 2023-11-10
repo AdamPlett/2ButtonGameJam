@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4700913227824733847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  piercing: 0
+  explode: 0
+  explosion: {fileID: 0}
 --- !u!50 &6887798688484224634
 Rigidbody2D:
   serializedVersion: 4

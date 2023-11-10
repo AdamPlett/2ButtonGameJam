@@ -18,7 +18,7 @@ MonoBehaviour:
   shootingPattern: 0
   linesOfFire: 1
   requiresAmmo: 1
-  timeToReload: 0.75
+  timeToReload: 0.5
   totalAmmo: 1
   ammoPerShot: 1
   angleBetweenBullets: 0
@@ -26,9 +26,9 @@ MonoBehaviour:
   sweepAngle: 0
   beamRange: 0
   beamDuration: 0
-  bulletDamage: 0
-  bulletSpeed: 0
-  bulletTravelTime: 0
+  bulletDamage: 9
+  bulletSpeed: 15
+  bulletTravelTime: 3
   recoilForce: 0
   projectileForce: 0
   piercing: 0
@@ -38,4 +38,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   weaponSprite: {fileID: 0}
   weaponName: Plasma Rfle
-  weaponDescription: You ever played Halo?
+  weaponDescription: 'You ever played Halo?
+
+    Has no ammo, with a slightly lower
+    fire rate, ignores armor!'

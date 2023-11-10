@@ -18,7 +18,7 @@ MonoBehaviour:
   shootingPattern: 1
   linesOfFire: 6
   requiresAmmo: 1
-  timeToReload: 2.5
+  timeToReload: 3
   totalAmmo: 2
   ammoPerShot: 1
   angleBetweenBullets: 3
@@ -26,7 +26,7 @@ MonoBehaviour:
   sweepAngle: 0
   beamRange: 0
   beamDuration: 0
-  bulletDamage: 3
+  bulletDamage: 5
   bulletSpeed: 15
   bulletTravelTime: 3
   recoilForce: 8
@@ -38,4 +38,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4700913227824733847, guid: 8e4a07ef8b07e444f8e6ef325aa70f14, type: 3}
   weaponSprite: {fileID: 0}
   weaponName: Shotgun
-  weaponDescription: SHOTS SHOTS SHOTS
+  weaponDescription: 'This ain''t buckshot!
+
+    Shoots a spread of higher than average
+    damage, and holds two shots!'

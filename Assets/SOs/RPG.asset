@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RPG
   m_EditorClassIdentifier: 
   weaponClass: 9
-  timeBetweenShots: 1
-  timeBetweenBullets: 1
+  timeBetweenShots: 0
+  timeBetweenBullets: 0
   shootingPattern: 0
   linesOfFire: 1
   requiresAmmo: 1
@@ -38,4 +38,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7127093362250943011, guid: 6bf39d4b610d6b148be876929760f8d1, type: 3}
   weaponSprite: {fileID: 0}
   weaponName: RPG
-  weaponDescription: BOOM BOOM
+  weaponDescription: 'Caution: May Explode!
+
+    Extremely low fire rate, with the
+    highest damage!'

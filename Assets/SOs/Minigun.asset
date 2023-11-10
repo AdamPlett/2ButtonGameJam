@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Minigun
   m_EditorClassIdentifier: 
   weaponClass: 6
-  timeBetweenShots: 1
+  timeBetweenShots: 0
   timeBetweenBullets: 0.02
   shootingPattern: 2
-  linesOfFire: 100
+  linesOfFire: 50
   requiresAmmo: 1
-  timeToReload: 5
+  timeToReload: 4
   totalAmmo: 1
   ammoPerShot: 1
   angleBetweenBullets: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
   sweepAngle: 0
   beamRange: 0
   beamDuration: 0
-  bulletDamage: 1
+  bulletDamage: 2
   bulletSpeed: 20
   bulletTravelTime: 3
   recoilForce: 2
@@ -38,5 +38,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4700913227824733847, guid: 8e4a07ef8b07e444f8e6ef325aa70f14, type: 3}
   weaponSprite: {fileID: 0}
   weaponName: Minigun
-  weaponDescription: it ain't about the size of the boat, it's about the motion of
-    the ocean iykyk
+  weaponDescription: 'Show your enemies the meaning of bullet hell!
+
+    Highest
+    fire rate with low damage, sprays in a cone!'

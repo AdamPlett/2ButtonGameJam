@@ -24,9 +24,9 @@ MonoBehaviour:
   angleBetweenBullets: 0
   coneAngle: 0
   sweepAngle: 0
-  beamRange: 3
+  beamRange: 2.5
   beamDuration: 3
-  bulletDamage: 2
+  bulletDamage: 4
   bulletSpeed: 5
   bulletTravelTime: 2
   recoilForce: 0
@@ -38,4 +38,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 208993102696529428, guid: c544a5c6c6deb2c489a27e5d183eb55d, type: 3}
   weaponSprite: {fileID: 0}
   weaponName: Flamethrower
-  weaponDescription: Hot!
+  weaponDescription: 'Hot!
+
+    Shoots a short range column of fire that chars your
+    enemies!'

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Rail Gun
   m_EditorClassIdentifier: 
   weaponClass: 7
-  timeBetweenShots: 1
-  timeBetweenBullets: 1
+  timeBetweenShots: 0
+  timeBetweenBullets: 0
   shootingPattern: 0
   linesOfFire: 1
   requiresAmmo: 1
-  timeToReload: 4
+  timeToReload: 3
   totalAmmo: 1
   ammoPerShot: 1
   angleBetweenBullets: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
   sweepAngle: 0
   beamRange: 0
   beamDuration: 0
-  bulletDamage: 30
+  bulletDamage: 40
   bulletSpeed: 30
   bulletTravelTime: 4
   recoilForce: 15
@@ -38,4 +38,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4700913227824733847, guid: 058afde19bdf0de4fbe80cdf2bb10adb, type: 3}
   weaponSprite: {fileID: 0}
   weaponName: Rail Gun
-  weaponDescription: Get Railed Bitch
+  weaponDescription: 'Who knew magnets could do so much?!
+
+    Low fire rate, very
+    high damage, with a piercing shot!'
