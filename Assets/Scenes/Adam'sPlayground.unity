@@ -177,13 +177,16 @@ MonoBehaviour:
   totalTimeAlive: 0
   minutesAlive: 0
   secondsAlive: 0
-  menuActive: 0
+  uiActive: 0
   playerAlive: 1
   scoreText: {fileID: 370489287}
   timerText: {fileID: 1762930253}
   healthSlider: {fileID: 2108280874}
   fuelslider: {fileID: 1390013592}
   powerup: {fileID: 0}
+  upgradeScreen: {fileID: 0}
+  deathScreen: {fileID: 0}
+  HUD: {fileID: 0}
 --- !u!1 &41870728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,7 +1506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919480, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919480, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: enemySpawnTime
@@ -1517,9 +1520,13 @@ PrefabInstance:
       propertyPath: enemySpawnTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2027958481919482, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
+      propertyPath: enemyHealthIncreaser
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2027958481919483, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919483, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: enemySpawnTime
