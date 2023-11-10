@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] float fireTimer;
 
     private bool isReloading = false;
+    private bool isFiring = false;
 
     private void Start()
     {
@@ -41,7 +42,7 @@ public class Weapon : MonoBehaviour
         }
         if (!isReloading)
         {
-            if (ammoCount==0) StartCoroutine(Reload());
+            if (ammoCount==0 && isFiring==false) StartCoroutine(Reload());
         }
     }
 
@@ -56,7 +57,6 @@ public class Weapon : MonoBehaviour
 
         if(canFire)
         {
-            DepleteAmmo(weaponType.ammoPerShot);
 
             // CHECKS THE FIRE PATTERN OF THE WEAPON AND CALLS CORRESPONDING SHOOT FUNCTION
             switch (weaponType.shootingPattern)
@@ -167,8 +167,10 @@ public class Weapon : MonoBehaviour
     }
 
     IEnumerator StraightShot(Vector3 bulletVelocity, Transform bulletSpawn, Vector3 recoilDir)
-    {       
-        for(int i = 0; i < weaponType.ammoPerShot; i++)
+    {
+        isFiring = true;
+        DepleteAmmo(weaponType.ammoPerShot);
+        for (int i = 0; i < weaponType.ammoPerShot; i++)
         {
             GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
             Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
@@ -186,6 +188,8 @@ public class Weapon : MonoBehaviour
 
             yield return new WaitForSeconds(weaponType.timeBetweenBullets);
         }
+
+        isFiring = false;
     }
 
     #endregion
@@ -201,6 +205,8 @@ public class Weapon : MonoBehaviour
     IEnumerator SpreadShot(Vector3 bulletVelocity, Transform bulletSpawn, Vector3 recoilDir)
     {             
         Vector3 angle1, angle2 = Vector3.zero;
+        isFiring = true;
+        DepleteAmmo(weaponType.ammoPerShot);
 
         for (int i = 0; i < weaponType.ammoPerShot; i++)
         {
@@ -241,6 +247,7 @@ public class Weapon : MonoBehaviour
             GameManager.gm.player.KnockbackPlayer(recoilDir * weaponType.recoilForce);
             yield return new WaitForSeconds(weaponType.timeBetweenBullets);
         }
+        isFiring = false;
     }
 
     #endregion
@@ -255,6 +262,9 @@ public class Weapon : MonoBehaviour
 
     IEnumerator ShootCone(Vector3 bulletVelocity, Transform bulletSpawn, Vector3 recoilDir)
     {
+        isFiring = true;
+        DepleteAmmo(weaponType.ammoPerShot);
+
         for (int i = 0; i < weaponType.linesOfFire; i++)
         {
             for(int j = 0; j < weaponType.ammoPerShot; j++)
@@ -281,6 +291,7 @@ public class Weapon : MonoBehaviour
 
             yield return new WaitForSeconds(weaponType.timeBetweenBullets);
         }
+        isFiring = false;
     }
 
     #endregion
@@ -295,6 +306,9 @@ public class Weapon : MonoBehaviour
 
     IEnumerator SweepingShot(Vector3 bulletVelocity, Transform bulletSpawn, Vector3 recoilDir)
     {
+        isFiring = true;
+        DepleteAmmo(weaponType.ammoPerShot);
+
         Vector3 angle1 = Quaternion.AngleAxis(weaponType.sweepAngle, Vector3.forward) * bulletVelocity;
         Vector3 angle2 = Quaternion.AngleAxis(-1f * weaponType.sweepAngle, Vector3.forward) * bulletVelocity;
 
@@ -361,6 +375,7 @@ public class Weapon : MonoBehaviour
                 }
             }
         }
+        isFiring = false;
     }
 
     private bool GetRandomBool()
@@ -392,6 +407,8 @@ public class Weapon : MonoBehaviour
         float beamTimer = weaponType.beamDuration;
         float shotTimer = weaponType.timeBetweenBullets;
         float releaseTime = shotTimer / 10f;
+        isFiring = true;
+        DepleteAmmo(weaponType.ammoPerShot);
 
         while (beamTimer > 0f)
         {
@@ -422,6 +439,7 @@ public class Weapon : MonoBehaviour
 
             yield return null;
         }
+        isFiring = false;
     }
 
     IEnumerator UnparentBullet(GameObject bullet, float time)

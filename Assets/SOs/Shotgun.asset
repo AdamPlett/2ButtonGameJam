@@ -15,7 +15,7 @@ MonoBehaviour:
   timeBetweenShots: 0.5
   timeBetweenBullets: 0
   shootingPattern: 1
-  linesOfFire: 5
+  linesOfFire: 6
   requiresAmmo: 1
   timeToReload: 2.5
   totalAmmo: 2
@@ -27,7 +27,7 @@ MonoBehaviour:
   beamDuration: 0
   bulletDamage: 3
   bulletSpeed: 15
-  bulletTravelTime: 1
+  bulletTravelTime: 3
   recoilForce: 8
   projectileForce: 8
   piercing: 0

@@ -15,10 +15,10 @@ MonoBehaviour:
   timeBetweenShots: 1
   timeBetweenBullets: 0.02
   shootingPattern: 2
-  linesOfFire: 50
+  linesOfFire: 100
   requiresAmmo: 1
   timeToReload: 5
-  totalAmmo: 50
+  totalAmmo: 1
   ammoPerShot: 1
   angleBetweenBullets: 0
   coneAngle: 10
@@ -27,7 +27,7 @@ MonoBehaviour:
   beamDuration: 0
   bulletDamage: 1
   bulletSpeed: 20
-  bulletTravelTime: 2
+  bulletTravelTime: 3
   recoilForce: 2
   projectileForce: 2
   piercing: 0

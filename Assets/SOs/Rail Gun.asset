@@ -27,7 +27,7 @@ MonoBehaviour:
   beamDuration: 0
   bulletDamage: 30
   bulletSpeed: 30
-  bulletTravelTime: 3
+  bulletTravelTime: 4
   recoilForce: 15
   projectileForce: 15
   piercing: 1

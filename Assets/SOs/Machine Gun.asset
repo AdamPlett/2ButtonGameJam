@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Machine Gun
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.8
+  timeBetweenShots: 0
   timeBetweenBullets: 0.025
   shootingPattern: 3
   linesOfFire: 10
@@ -27,7 +27,7 @@ MonoBehaviour:
   beamDuration: 0
   bulletDamage: 5
   bulletSpeed: 10
-  bulletTravelTime: 2
+  bulletTravelTime: 3
   recoilForce: 3
   projectileForce: 3
   piercing: 0
