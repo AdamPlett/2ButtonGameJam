@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: RPG
   m_EditorClassIdentifier: 
+  weaponClass: 9
   timeBetweenShots: 1
   timeBetweenBullets: 1
   shootingPattern: 0
@@ -36,4 +37,5 @@ MonoBehaviour:
   stunOnHit: 0
   bulletPrefab: {fileID: 7127093362250943011, guid: 6bf39d4b610d6b148be876929760f8d1, type: 3}
   weaponSprite: {fileID: 0}
-  weaponDescription: 
+  weaponName: RPG
+  weaponDescription: BOOM BOOM

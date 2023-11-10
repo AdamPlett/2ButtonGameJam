@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum eShot { straightShot, spread, cone, sweeping, beam}
+public enum eWeapon { rifle, burstRifle, plasmaRifle, shotty, autoShotty, machineGun, miniGun, railGun, flamethrower, RPG }
 
 [CreateAssetMenu(fileName = "New Weapon", menuName = "ScriptableObjects/Weapons")]
 public class soWeapon : ScriptableObject
 {
+    public eWeapon weaponClass;
+
     [Space(10)] 
     [Header("General Weapon Variables")]
 
@@ -117,7 +120,9 @@ public class soWeapon : ScriptableObject
     public GameObject bulletPrefab;
 
     [Space(10)]
+    [Header("Visual Information")]
     public Image weaponSprite;
+    public string weaponName;
     [TextAreaAttribute]
     public string weaponDescription;
 }

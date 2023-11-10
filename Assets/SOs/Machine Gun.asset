@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Machine Gun
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0
+  weaponClass: 5
+  timeBetweenShots: 0.8
   timeBetweenBullets: 0.025
   shootingPattern: 3
   linesOfFire: 10
@@ -35,3 +36,6 @@ MonoBehaviour:
   explodeOnHit: 0
   stunOnHit: 0
   bulletPrefab: {fileID: 4700913227824733847, guid: 48f46fa0da3d28746b305dbfcc6c5619, type: 3}
+  weaponSprite: {fileID: 0}
+  weaponName: Machine Gun
+  weaponDescription: pow pow pow pow

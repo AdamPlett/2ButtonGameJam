@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool boosterActive;
 
     [Header("Weapons")]
-    [SerializeField] PlayerWeapons weapons;
+    public PlayerWeapons weapons;
 
     private void Start()
     {
@@ -83,9 +83,12 @@ public class PlayerController : MonoBehaviour
 
     public void ActivateBooster(bool activate)
     {
-        booster.SetActive(activate);
+        if(boosterFuel > 0)
+        {
+            booster.SetActive(activate);
 
-        boosterActive = activate;
+            boosterActive = activate;
+        }
     }
 
     public void FireLeft()

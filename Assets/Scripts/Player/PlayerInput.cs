@@ -26,7 +26,10 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        CheckForInput();
+        if(!GameManager.gm.ui.uiActive)
+        {
+            CheckForInput();
+        }
     }
 
     private void FixedUpdate()
