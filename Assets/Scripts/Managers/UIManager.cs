@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
     public GameObject upgradeScreen;
     public GameObject deathScreen;
     public GameObject HUD;
+    public TextMeshProUGUI highScore;
 
     private void Update()
     {
@@ -99,9 +100,11 @@ public class UIManager : MonoBehaviour
     }
 
     public void ActivateDeathScreen()
-    {
+    {       
         uiActive = true;
         playerAlive = false;
+
+        highScore.text = "High Score: " + PlayerPrefs.GetFloat("HighScore");
 
         deathScreen.SetActive(true);
         HUD.SetActive(false);
