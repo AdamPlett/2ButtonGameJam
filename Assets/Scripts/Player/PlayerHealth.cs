@@ -50,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         PlayerPrefs.SetFloat("HighScore", GameManager.gm.ui.score);
         

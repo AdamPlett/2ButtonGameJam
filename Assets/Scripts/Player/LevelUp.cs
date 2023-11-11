@@ -8,13 +8,13 @@ public class LevelUp : MonoBehaviour
 
     public int levelUpScale;
     public int scoreUntilLevelUp;
-    public int prevLevels = 0;
+    public int scoreForLastLevel;
 
     public void CheckForLevelUp()
     {
-        int score = GameManager.gm.ui.score - prevLevels;
+        int scoreToCheck = GameManager.gm.ui.score - scoreForLastLevel;
 
-        if(score >= scoreUntilLevelUp)
+        if(scoreToCheck >= scoreUntilLevelUp)
         {
             IncreaseLevel();
         }
@@ -24,8 +24,9 @@ public class LevelUp : MonoBehaviour
     {
         currentLevel++;
 
-        prevLevels = scoreUntilLevelUp;
-        scoreUntilLevelUp += levelUpScale;
+        scoreForLastLevel = scoreUntilLevelUp;
+
+        scoreUntilLevelUp = GameManager.gm.ui.score + levelUpScale;
 
         GameManager.gm.ui.ActivateUpgradeScreen(true);
     }
@@ -34,5 +35,6 @@ public class LevelUp : MonoBehaviour
     {
         currentLevel = 1;
         scoreUntilLevelUp = 100;
+        scoreForLastLevel = 0;
     }
 }

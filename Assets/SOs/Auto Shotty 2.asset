@@ -21,16 +21,16 @@ MonoBehaviour:
   timeToReload: 2.5
   totalAmmo: 5
   ammoPerShot: 5
-  angleBetweenBullets: 2
+  angleBetweenBullets: 3
   coneAngle: 0
   sweepAngle: 0
   beamRange: 0
   beamDuration: 0
   bulletDamage: 4
-  bulletSpeed: 15
+  bulletSpeed: 10
   bulletTravelTime: 2
-  recoilForce: 10
-  projectileForce: 10
+  recoilForce: 100
+  projectileForce: 100
   piercing: 0
   ignoreArmor: 0
   explodeOnHit: 0
