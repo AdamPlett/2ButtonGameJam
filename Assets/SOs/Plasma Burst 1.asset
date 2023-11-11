@@ -35,7 +35,7 @@ MonoBehaviour:
   ignoreArmor: 0
   explodeOnHit: 0
   stunOnHit: 0
-  bulletPrefab: {fileID: 4700913227824733847, guid: 48f46fa0da3d28746b305dbfcc6c5619, type: 3}
+  bulletPrefab: {fileID: 4700913227824733847, guid: b86ec47ffcb282c45ab85b131c986952, type: 3}
   weaponSprite: {fileID: -680186597, guid: 1952a8762c187ff409296ce78240d41f, type: 3}
   weaponName: Plasma Burst
   weaponDescription: "Halo 3 was better anyways! \nJust like the standard burst rifle,
