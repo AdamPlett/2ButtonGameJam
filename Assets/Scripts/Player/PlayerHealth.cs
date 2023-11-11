@@ -38,9 +38,14 @@ public class PlayerHealth : MonoBehaviour
 
     public void giveHealth(float addedHealth)
     {
-        if (currentHP + addedHealth <= 100)
+        if (currentHP + addedHealth <= maxHP)
         {
             currentHP += addedHealth;
+            GameManager.gm.ui.UpdateHealthBar(currentHP);
+        }
+        else
+        {
+            currentHP = maxHP;
             GameManager.gm.ui.UpdateHealthBar(currentHP);
         }
     }

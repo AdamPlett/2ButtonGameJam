@@ -18,6 +18,27 @@ public abstract class PowerUp : MonoBehaviour
     //on pickup VFX
     public ParticleSystem collectVFX;
 
+    public bool isInstantUse = true;
+    protected bool movingUp=true;
+
+    public virtual void Start()
+    {
+        movingUp = true;
+    }
+    public virtual void Update()
+    {
+        if (movingUp)
+        {
+            transform.Translate(new Vector3(0, .375f, 0) * Time.deltaTime);
+            Invoke(nameof(SetMovingDown), .5f);
+        }
+        else
+        {
+            transform.Translate(new Vector3(0, -.375f, 0) * Time.deltaTime);
+            Invoke(nameof(SetMovingUp), .5f);
+            Debug.Log(movingUp);
+        }
+    }
     //activates the powerup and start a coroutine lasting duration 
     public virtual void Collect()
     {
@@ -27,5 +48,18 @@ public abstract class PowerUp : MonoBehaviour
     public virtual void DestoryPowerUp()
     {
         Debug.Log("PowerUp Destroyed!");
+        Destroy(gameObject);
+    }
+    public virtual void Use()
+    {
+        Debug.Log("PowerUp Used");
+    }
+    protected virtual void SetMovingUp()
+    {
+        movingUp = true;
+    }
+    protected virtual void SetMovingDown()
+    {
+        movingUp = false;
     }
 }
