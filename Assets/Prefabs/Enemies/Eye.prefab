@@ -49,11 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  damage: 1
+  damage: 1.5
   fireRate: 1.5
-  health: 5
+  health: 10
   killPoints: 5
-  attackRange: 7.5
+  attackRange: 20
   spriteArray:
   - {fileID: 308159231, guid: 7ddc8866e371d4347a4db9ffdfc3f0b3, type: 3}
   - {fileID: -1222756592, guid: 7ddc8866e371d4347a4db9ffdfc3f0b3, type: 3}

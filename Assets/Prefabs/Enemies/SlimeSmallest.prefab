@@ -51,7 +51,7 @@ MonoBehaviour:
   speed: 5.5
   damage: 1
   fireRate: 1.5
-  health: 5
+  health: 2.5
   killPoints: 5
   attackRange: 0
   spriteArray:

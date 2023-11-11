@@ -49,9 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
-  damage: 1
+  damage: 3
   fireRate: 1
-  health: 5
+  health: 10
   killPoints: 5
   attackRange: 0
   spriteArray:
