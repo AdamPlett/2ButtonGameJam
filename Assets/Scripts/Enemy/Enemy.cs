@@ -44,6 +44,7 @@ public abstract class Enemy : MonoBehaviour
     //destroys the enemy gameobject when health reaches 0
     public virtual void Death()
     {
+        GameManager.gm.ui.AddToScore((int)killPoints);
         gameObject.SetActive(false);
         dead = true;
         Destroy(gameObject,.25f);

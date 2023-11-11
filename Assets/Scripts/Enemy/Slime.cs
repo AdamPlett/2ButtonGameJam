@@ -16,7 +16,10 @@ public class Slime : Enemy
     }
     void Update()
     {
-        if (isMoving == true) Move();
+        if(!GameManager.gm.ui.uiActive)
+        {
+            if (isMoving == true) Move();
+        }
     }
     public override void Move()
     {

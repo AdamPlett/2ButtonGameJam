@@ -10,9 +10,11 @@ public class Eye : Enemy
     // Update is called once per frame
     void Update()
     {
-
-        if (Vector2.Distance(player.position, transform.position) < attackRange) Attack();
-        else Move();
+        if(!GameManager.gm.ui.uiActive)
+        {
+            if (Vector2.Distance(player.position, transform.position) < attackRange) Attack();
+            else Move();
+        }
     }
     public override void Move()
     {
