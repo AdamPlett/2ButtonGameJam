@@ -36,7 +36,7 @@ MonoBehaviour:
   explodeOnHit: 0
   stunOnHit: 0
   bulletPrefab: {fileID: 208993102696529428, guid: c544a5c6c6deb2c489a27e5d183eb55d, type: 3}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: 1578370318, guid: 1952a8762c187ff409296ce78240d41f, type: 3}
   weaponName: Flamethrower
   weaponDescription: 'Hot!
 

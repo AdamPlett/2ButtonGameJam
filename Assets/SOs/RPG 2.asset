@@ -36,7 +36,7 @@ MonoBehaviour:
   explodeOnHit: 1
   stunOnHit: 0
   bulletPrefab: {fileID: 7127093362250943011, guid: 6bf39d4b610d6b148be876929760f8d1, type: 3}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: 2000210282, guid: 1952a8762c187ff409296ce78240d41f, type: 3}
   weaponName: RPG
   weaponDescription: 'Caution: May Explode!
 

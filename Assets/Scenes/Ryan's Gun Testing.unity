@@ -4515,6 +4515,7 @@ MonoBehaviour:
   booster: {fileID: 150004277}
   boosterActive: 0
   weapons: {fileID: 1669634368}
+  shield: {fileID: 0}
 --- !u!114 &2012333131
 MonoBehaviour:
   m_ObjectHideFlags: 0
