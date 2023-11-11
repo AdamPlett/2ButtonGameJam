@@ -361,7 +361,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6084812900293071612}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14676729b7e094f49981e0b8f65a0f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 0
+  side: 1
   zAngle: 0
   weapons:
   - {fileID: 6084812901805119460}
@@ -914,7 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14676729b7e094f49981e0b8f65a0f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 0
+  side: 1
   zAngle: 30
   weapons: []
   isReloading: 0
@@ -1042,13 +1042,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14676729b7e094f49981e0b8f65a0f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 0
+  side: 1
   zAngle: 60
   weapons: []
   isReloading: 0
   barrel: {fileID: 6084812900918266546}
   barrelAnim: {fileID: 6084812900918266544}
-  highlightColor: {r: 0.099012084, g: 0.8396226, b: 0.35469896, a: 1}
+  highlightColor: {r: 0.09803922, g: 0.84313726, b: 0.3529412, a: 1}
   defaultColor: {r: 0.35686275, g: 0.34509805, b: 0.34509805, a: 1}
   fullColor: {r: 0.8962264, g: 0.22401369, b: 0.15641688, a: 1}
 --- !u!95 &6084812900918266544
@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14676729b7e094f49981e0b8f65a0f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 0
+  side: 1
   zAngle: -30
   weapons: []
   isReloading: 0
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14676729b7e094f49981e0b8f65a0f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 0
+  side: 1
   zAngle: -60
   weapons: []
   isReloading: 0
