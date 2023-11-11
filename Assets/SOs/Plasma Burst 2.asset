@@ -10,35 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
-  m_Name: Plasma Shotgun
+  m_Name: Plasma Burst 2
   m_EditorClassIdentifier: 
-  weaponClass: 3
+  weaponClass: 1
   timeBetweenShots: 0
-  timeBetweenBullets: 0
-  shootingPattern: 1
-  linesOfFire: 6
+  timeBetweenBullets: 0.05
+  shootingPattern: 0
+  linesOfFire: 1
   requiresAmmo: 1
-  timeToReload: 1.75
-  totalAmmo: 1
-  ammoPerShot: 1
-  angleBetweenBullets: 3
+  timeToReload: 0.8
+  totalAmmo: 3
+  ammoPerShot: 3
+  angleBetweenBullets: 0
   coneAngle: 0
   sweepAngle: 0
   beamRange: 0
   beamDuration: 0
-  bulletDamage: 4
+  bulletDamage: 7
   bulletSpeed: 15
-  bulletTravelTime: 2
+  bulletTravelTime: 3
   recoilForce: 0
   projectileForce: 0
   piercing: 0
-  ignoreArmor: 1
+  ignoreArmor: 0
   explodeOnHit: 0
   stunOnHit: 0
-  bulletPrefab: {fileID: 4700913227824733847, guid: 8e4a07ef8b07e444f8e6ef325aa70f14, type: 3}
+  bulletPrefab: {fileID: 4700913227824733847, guid: 48f46fa0da3d28746b305dbfcc6c5619, type: 3}
   weaponSprite: {fileID: 0}
-  weaponName: Plasma Shotgun
-  weaponDescription: 'This definitely ain''t buckshot!
-
-    Shoots like the shotgun,
-    but has no ammo, no recoil, and ignores armor!'
+  weaponName: Plasma Burst
+  weaponDescription: "Halo 3 was better anyways! \nJust like the standard burst rifle,
+    but with no ammo or recoil, and ignores armor!"

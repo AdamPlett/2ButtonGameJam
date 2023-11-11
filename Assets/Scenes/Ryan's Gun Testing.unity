@@ -4733,7 +4733,7 @@ MonoBehaviour:
   side: 0
   zAngle: 0
   weapons:
-  - {fileID: 2052137726}
+  - {fileID: 729309423}
   isReloading: 0
   barrel: {fileID: 2017883451}
   barrelAnim: {fileID: 2017883453}

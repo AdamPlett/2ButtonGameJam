@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
-  m_Name: Plasma Shotgun
+  m_Name: Plasma Shotgun 1
   m_EditorClassIdentifier: 
   weaponClass: 3
   timeBetweenShots: 0
@@ -18,7 +18,7 @@ MonoBehaviour:
   shootingPattern: 1
   linesOfFire: 6
   requiresAmmo: 1
-  timeToReload: 1.75
+  timeToReload: 1.6
   totalAmmo: 1
   ammoPerShot: 1
   angleBetweenBullets: 3
