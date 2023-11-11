@@ -29,8 +29,8 @@ MonoBehaviour:
   bulletDamage: 6
   bulletSpeed: 15
   bulletTravelTime: 2
-  recoilForce: 20
-  projectileForce: 20
+  recoilForce: 90
+  projectileForce: 90
   piercing: 0
   ignoreArmor: 0
   explodeOnHit: 0

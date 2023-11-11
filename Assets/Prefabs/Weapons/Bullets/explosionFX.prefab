@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationTime: 0.8
-  explosionDamage: 5
+  explosionDamage: 15
 --- !u!58 &-2306076147596578393
 CircleCollider2D:
   m_ObjectHideFlags: 0

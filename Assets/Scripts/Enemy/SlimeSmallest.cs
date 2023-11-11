@@ -16,7 +16,10 @@ public class SlimeSmallest : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (isMoving == true) Move();
+        if (!GameManager.gm.ui.uiActive)
+        {
+            if (isMoving == true) Move();
+        }
     }
     public override void Move()
     {
