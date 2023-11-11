@@ -121,7 +121,7 @@ public class soWeapon : ScriptableObject
 
     [Space(10)]
     [Header("Visual Information")]
-    public Image weaponSprite;
+    public Sprite weaponSprite;
     public string weaponName;
     [TextAreaAttribute]
     public string weaponDescription;

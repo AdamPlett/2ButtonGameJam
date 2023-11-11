@@ -12,6 +12,7 @@ public class UpgradeWeapons : MonoBehaviour
     public GameObject weaponChoice1, weaponChoice2;
 
     public TextMeshProUGUI title;
+    public GameObject controlsText;
 
     public GameObject player;
     public InputUI uiInput;
@@ -103,6 +104,8 @@ public class UpgradeWeapons : MonoBehaviour
 
             uiInput.selectorActive = false;
 
+            controlsText.SetActive(false);
+
             foreach(var slot in weaponSlots)
             {
                 slot.HighlightSlot(false);
@@ -123,19 +126,20 @@ public class UpgradeWeapons : MonoBehaviour
     }
 
     public void ShiftActiveSlot(int increment)
-    {
+    {       
         weaponSlots[activeSlot].HighlightSlot(false);
+
+        controlsText.SetActive(true);
+
         activeSlot += increment;
 
         if (activeSlot >= weaponSlots.Count)
         {
             activeSlot = 0;
-            weaponSlots[activeSlot].HighlightSlot(true);
         }
         else if(activeSlot < 0)
         {
             activeSlot = weaponSlots.Count - 1;
-            weaponSlots[activeSlot].HighlightSlot(true);
         }
 
         weaponSlots[activeSlot].HighlightSlot(true);

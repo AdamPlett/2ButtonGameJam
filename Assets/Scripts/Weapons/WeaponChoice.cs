@@ -21,7 +21,7 @@ public class WeaponChoice : MonoBehaviour
     {
         randomWeapon = GetRandomWeapon();
 
-        gunImage = randomWeapon.weaponSprite;
+        gunImage.sprite = randomWeapon.weaponSprite;
         gunName.text = randomWeapon.weaponName;
         gunDesc.text = randomWeapon.weaponDescription;
     }
