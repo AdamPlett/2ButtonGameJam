@@ -88,7 +88,13 @@ public class Eye : Enemy
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-    PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+        PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+        //exit if shield is active
+        PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            if (playerController.shield.activeSelf) return;
+        }
         //exit if already attacking
         //makes sure other has a playerHealth component 
         if (playerHealth != null)
