@@ -35,7 +35,7 @@ MonoBehaviour:
   ignoreArmor: 1
   explodeOnHit: 0
   stunOnHit: 0
-  bulletPrefab: {fileID: 4700913227824733847, guid: 8e4a07ef8b07e444f8e6ef325aa70f14, type: 3}
+  bulletPrefab: {fileID: 4700913227824733847, guid: 4f182b58e052bb44ca88d73b9ee2f3f3, type: 3}
   weaponSprite: {fileID: 932113226, guid: 1952a8762c187ff409296ce78240d41f, type: 3}
   weaponName: Flux Incapacitator
   weaponDescription: 'Enough to power a small village!

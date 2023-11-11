@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum eShot { straightShot, spread, cone, sweeping, beam}
-public enum eWeapon { rifle, burstRifle, plasmaRifle, shotty, autoShotty, machineGun, miniGun, railGun, flamethrower, RPG }
+public enum eWeapon { rifle, burstRifle, plasmaRifle, shotty, autoShotty, machineGun, miniGun, railGun, flamethrower, RPG,}
 
 [CreateAssetMenu(fileName = "New Weapon", menuName = "ScriptableObjects/Weapons")]
 public class soWeapon : ScriptableObject
