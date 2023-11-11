@@ -185,11 +185,11 @@ public class Weapon : MonoBehaviour
             bullet.setPiercing(weaponType.piercing);
 
             bulletInstance.transform.parent = null;
-            bulletInstance.transform.localScale = Vector3.one;
+            //bulletInstance.transform.localScale = Vector3.one;
             bulletRB.AddForce(bulletVelocity);
             bullet.DestroyBullet(weaponType.bulletTravelTime);
 
-            GameManager.gm.player.KnockbackPlayer(recoilDir * weaponType.recoilForce);
+            //GameManager.gm.player.KnockbackPlayer(recoilDir * weaponType.recoilForce);
 
             yield return new WaitForSeconds(weaponType.timeBetweenBullets);
         }
@@ -231,7 +231,7 @@ public class Weapon : MonoBehaviour
                 bullet1.setPiercing(weaponType.piercing);
 
                 bulletInstance1.transform.parent = null;
-                bulletInstance1.transform.localScale = Vector3.one;
+                //bulletInstance1.transform.localScale = Vector3.one;
                 bulletRB1.AddForce(angle1);
                 bullet1.DestroyBullet(weaponType.bulletTravelTime);
 
@@ -244,7 +244,7 @@ public class Weapon : MonoBehaviour
                 bullet2.setPiercing(weaponType.piercing);
 
                 bulletInstance2.transform.parent = null;
-                bulletInstance2.transform.localScale = Vector3.one;
+                //bulletInstance2.transform.localScale = Vector3.one;
                 bulletRB2.AddForce(angle2);
                 bullet2.DestroyBullet(weaponType.bulletTravelTime);
 
@@ -290,7 +290,7 @@ public class Weapon : MonoBehaviour
                 bullet.setPiercing(weaponType.piercing);
 
                 bulletInstance.transform.parent = null;
-                bulletInstance.transform.localScale = Vector3.one;
+                //bulletInstance.transform.localScale = Vector3.one;
                 bulletRB.AddForce(angle);
                 Destroy(bulletInstance, weaponType.bulletTravelTime);
 
@@ -351,7 +351,7 @@ public class Weapon : MonoBehaviour
                 bullet.setPiercing(weaponType.piercing);
 
                 bulletInstance.transform.parent = null;
-                bulletInstance.transform.localScale = Vector3.one;
+                //bulletInstance.transform.localScale = Vector3.one;
                 bulletRB.AddForce(angle);
                 bullet.DestroyBullet(weaponType.bulletTravelTime);
 

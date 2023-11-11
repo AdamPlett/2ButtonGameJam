@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerAlive)
+        if (playerAlive && !uiActive)
         {
             totalTimeAlive += Time.deltaTime;
             timerText.text = "Time Alive: " + GetTimerText();
@@ -95,6 +96,25 @@ public class UIManager : MonoBehaviour
 
         HUD.SetActive(!activate);
         upgradeScreen.SetActive(activate);
+    }
+
+    public void ActivateDeathScreen()
+    {
+        uiActive = true;
+        playerAlive = false;
+
+        deathScreen.SetActive(true);
+        HUD.SetActive(false);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("RealShit");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     public void ActivateUI()

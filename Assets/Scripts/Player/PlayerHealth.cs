@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentHP <= 0 )
+        if (currentHP <= 0)
         {
             //death.Play();
 
@@ -58,7 +58,9 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator DeathSequence()
     {
+        GameManager.gm.ui.ActivateDeathScreen();
         playerArt.SetActive(false);
-        yield return new WaitForSeconds(.5f);
+
+        yield return new WaitForSeconds(1f);
     }
 }

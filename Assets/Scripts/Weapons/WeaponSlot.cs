@@ -20,7 +20,10 @@ public class WeaponSlot : MonoBehaviour
 
     private void Update()
     {
-        SetAnimator();
+        if(!GameManager.gm.ui.uiActive)
+        {
+            SetAnimator();
+        }
     }
 
     public void ShootWeapons()
@@ -39,11 +42,11 @@ public class WeaponSlot : MonoBehaviour
 
     public void SetAnimator()
     {
-        if(isReloading && !barrelAnim.GetBool("reloading"))
+        if (isReloading && !barrelAnim.GetBool("reloading"))
         {
             barrelAnim.SetBool("reloading", true);
         }
-        else if(!isReloading && barrelAnim.GetBool("reloading"))
+        else if (!isReloading && barrelAnim.GetBool("reloading"))
         {
             barrelAnim.SetBool("reloading", false);
         }
@@ -115,6 +118,8 @@ public class WeaponSlot : MonoBehaviour
             if(weapons.Count == 0)
             {
                 barrel.color = highlightColor;
+                Debug.Log(barrel.color);
+                Debug.Log(highlightColor);
             }
             else
             {
