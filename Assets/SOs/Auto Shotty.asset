@@ -37,7 +37,7 @@ MonoBehaviour:
   stunOnHit: 0
   bulletPrefab: {fileID: 4700913227824733847, guid: 8e4a07ef8b07e444f8e6ef325aa70f14, type: 3}
   weaponSprite: {fileID: 0}
-  weaponName: Auto Shotty
+  weaponName: Auto-Shotgun
   weaponDescription: 'Like the shotgun, but automatic!
 
     Fires like the shotgun
