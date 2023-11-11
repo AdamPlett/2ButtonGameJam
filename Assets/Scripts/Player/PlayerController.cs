@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     [Header("Weapons")]
     public PlayerWeapons weapons;
 
+    [Header("Shield")]
+    public GameObject shield;
+
     private void Start()
     {
         ActivateBooster(false);
@@ -140,5 +143,9 @@ public class PlayerController : MonoBehaviour
         playerTransform.Rotate(0, 0, rotateSpeed * -1f);
 
         playerForward = gameObject.transform.up;
+    }
+    public void SetShield(bool activeState)
+    {
+        shield.SetActive(activeState);
     }
 }

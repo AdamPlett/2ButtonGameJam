@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  piercing: 0
+  explode: 0
+  explosion: {fileID: 0}
 --- !u!50 &6887798688484224634
 Rigidbody2D:
   serializedVersion: 4

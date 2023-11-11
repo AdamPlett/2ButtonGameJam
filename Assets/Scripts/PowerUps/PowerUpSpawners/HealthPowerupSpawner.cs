@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPowerup : PowerUpSpawner
+public class HealthPowerupSpawner : PowerUpSpawner
 {
 
 }

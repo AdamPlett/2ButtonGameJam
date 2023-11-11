@@ -12,7 +12,7 @@ public abstract class PowerUp : MonoBehaviour
     /*to hide the visual and collider for powerup while the duration 
     is still active before destorying the powerup*/
     public GameObject visualsToDeactivate;
-    public Collider colliderToDeactivate;
+    public Collider2D colliderToDeactivate;
     //on pickup SFX
     public AudioSource collectSFX;
     //on pickup VFX
@@ -21,9 +21,10 @@ public abstract class PowerUp : MonoBehaviour
     public bool isInstantUse = true;
     protected bool movingUp=true;
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         movingUp = true;
+        colliderToDeactivate = GetComponent<Collider2D>();
     }
     public virtual void Update()
     {
@@ -61,5 +62,10 @@ public abstract class PowerUp : MonoBehaviour
     protected virtual void SetMovingDown()
     {
         movingUp = false;
+    }
+    protected virtual void DisablePowerupInteraction()
+    {
+        colliderToDeactivate.enabled = false;
+        visualsToDeactivate.SetActive(false);
     }
 }
