@@ -6,8 +6,8 @@ public class LevelUp : MonoBehaviour
 {
     public int currentLevel = 1;
 
-    public int levelUpScale = 50;
-    public int scoreUntilLevelUp = 100;
+    public int levelUpScale;
+    public int scoreUntilLevelUp;
     public int prevLevels = 0;
 
     public void CheckForLevelUp()

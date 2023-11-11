@@ -52,6 +52,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        PlayerPrefs.SetFloat("HighScore", GameManager.gm.ui.score);
+        
         Debug.Log("Player death!");
         StartCoroutine(DeathSequence());
     }

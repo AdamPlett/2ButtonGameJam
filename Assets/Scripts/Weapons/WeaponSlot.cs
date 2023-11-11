@@ -20,8 +20,20 @@ public class WeaponSlot : MonoBehaviour
 
     private void Update()
     {
-        if(!GameManager.gm.ui.uiActive)
+        if(GameManager.gm.ui.uiActive)
         {
+            if (barrelAnim.enabled)
+            {
+                barrelAnim.enabled = false;
+            }
+        }
+        else
+        {
+            if(!barrelAnim.enabled)
+            {
+                barrelAnim.enabled = true;
+            }
+
             SetAnimator();
         }
     }
