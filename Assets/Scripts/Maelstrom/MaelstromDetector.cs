@@ -13,7 +13,7 @@ public class MaelstromDetector : MonoBehaviour
 
     private void Update()
     {
-        if (inMaelstrom)
+        if (inMaelstrom && !GameManager.gm.ui.uiActive)
         {
             RotateWithMaelstrom();
         }
