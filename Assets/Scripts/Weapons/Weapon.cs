@@ -55,7 +55,7 @@ public class Weapon : MonoBehaviour
 
         CheckCanFire();
 
-        if(canFire)
+        if(canFire && !isReloading)
         {
 
             // CHECKS THE FIRE PATTERN OF THE WEAPON AND CALLS CORRESPONDING SHOOT FUNCTION

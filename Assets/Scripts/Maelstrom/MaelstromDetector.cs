@@ -34,6 +34,7 @@ public class MaelstromDetector : MonoBehaviour
         // IF PLAYER ENTERS THE 'MAELSTROM' TRIGGER, ROTATE PLAYER AROUND CENTER POINT OF MAELSTROM
         if (collision.gameObject.CompareTag("Maelstrom"))
         {
+            maelstrom = collision.gameObject;
             inMaelstrom = true;
         }
 
@@ -42,8 +43,7 @@ public class MaelstromDetector : MonoBehaviour
         {
             Debug.Log("Player has been swallowed by the Maelstrom...");
 
-            //Destroy(this.gameObject);
-            //ui.ActivateDeathScreen();
+            GameManager.gm.player.playerHealth.Die();
         }
     }
 
