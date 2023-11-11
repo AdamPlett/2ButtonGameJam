@@ -4504,6 +4504,7 @@ MonoBehaviour:
   playerForward: {x: 0, y: 0, z: 0}
   playerRB: {fileID: 2012333132}
   playerHealth: {fileID: 2012333137}
+  playerLevel: {fileID: 0}
   rotateSpeed: 1
   knockbackForce: 10
   boosterForce: 20
