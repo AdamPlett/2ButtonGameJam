@@ -98,8 +98,8 @@ public class UpgradeWeapons : MonoBehaviour
 
     public void SelectSlot(soWeapon weapon)
     {
-        if(weaponSlots[activeSlot].GetNumWeapons() == 0)
-        {
+        /*if(weaponSlots[activeSlot].GetNumWeapons() == 0)
+        {*/
             weaponSlots[activeSlot].AddWeapon(weapon);
 
             uiInput.selectorActive = false;
@@ -112,7 +112,7 @@ public class UpgradeWeapons : MonoBehaviour
             }
 
             ResetUI();
-        }
+        //}
     }
 
     public void ResetUI()

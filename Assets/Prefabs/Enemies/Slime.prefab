@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3.5
-  damage: 3
+  damage: 10
   fireRate: 1
   health: 15
   killPoints: 10

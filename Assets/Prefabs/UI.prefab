@@ -3921,7 +3921,7 @@ MonoBehaviour:
   upgradeScreen: {fileID: 7114430692966653656}
   deathScreen: {fileID: 7286994230078582736}
   HUD: {fileID: 7286994228762443669}
-  highScore: {fileID: 0}
+  highScore: {fileID: 8747957910345173168}
 --- !u!114 &192321876857389736
 MonoBehaviour:
   m_ObjectHideFlags: 0
