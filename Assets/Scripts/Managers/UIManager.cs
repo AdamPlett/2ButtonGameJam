@@ -32,7 +32,6 @@ public class UIManager : MonoBehaviour
     public GameObject deathScreen;
     public GameObject HUD;
 
-
     private void Update()
     {
         if (playerAlive)
@@ -66,6 +65,8 @@ public class UIManager : MonoBehaviour
     public void AddToScore(int addition)
     {
         score += addition;
+
+        GameManager.gm.player.playerLevel.CheckForLevelUp();
     }
 
     public void SetScore(int newScore)

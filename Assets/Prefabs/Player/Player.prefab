@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 6084812900293071602}
   - component: {fileID: 6084812900293071600}
   - component: {fileID: 6084812900293071594}
+  - component: {fileID: 5761855875858706769}
   - component: {fileID: 6084812900293071605}
   - component: {fileID: 6084812900293071607}
   - component: {fileID: 6084812900293071606}
@@ -389,6 +390,7 @@ MonoBehaviour:
   playerForward: {x: 0, y: 0, z: 0}
   playerRB: {fileID: 6084812900293071607}
   playerHealth: {fileID: 6084812900293071594}
+  playerLevel: {fileID: 5761855875858706769}
   rotateSpeed: 1
   knockbackForce: 10
   boosterForce: 20
@@ -439,6 +441,22 @@ MonoBehaviour:
   playerArt: {fileID: 6084812900293071612}
   hit: {fileID: 0}
   death: {fileID: 0}
+--- !u!114 &5761855875858706769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6084812900293071612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d95836a9c89c84abcdef8d4adebdfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 1
+  levelUpScale: 50
+  scoreUntilLevelUp: 100
+  prevLevels: 0
 --- !u!114 &6084812900293071605
 MonoBehaviour:
   m_ObjectHideFlags: 0

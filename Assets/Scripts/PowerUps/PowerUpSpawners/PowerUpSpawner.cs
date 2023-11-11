@@ -21,8 +21,11 @@ public abstract class PowerUpSpawner : MonoBehaviour
     }
     public virtual void Update()
     {
-        currentSpawnerTime -= Time.deltaTime;
-        if (currentSpawnerTime <= 0) SpawnPowerup();
+        if(!GameManager.gm.ui.uiActive)
+        {
+            currentSpawnerTime -= Time.deltaTime;
+            if (currentSpawnerTime <= 0) SpawnPowerup();
+        }
     }
 
     public virtual void SpawnPowerup()

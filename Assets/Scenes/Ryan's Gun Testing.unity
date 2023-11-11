@@ -4504,6 +4504,7 @@ MonoBehaviour:
   playerForward: {x: 0, y: 0, z: 0}
   playerRB: {fileID: 2012333132}
   playerHealth: {fileID: 2012333137}
+  playerLevel: {fileID: 0}
   rotateSpeed: 1
   knockbackForce: 10
   boosterForce: 20
@@ -4732,7 +4733,7 @@ MonoBehaviour:
   side: 0
   zAngle: 0
   weapons:
-  - {fileID: 2052137726}
+  - {fileID: 729309423}
   isReloading: 0
   barrel: {fileID: 2017883451}
   barrelAnim: {fileID: 2017883453}

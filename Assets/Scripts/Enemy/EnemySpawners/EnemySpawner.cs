@@ -29,8 +29,11 @@ public abstract class EnemySpawner: MonoBehaviour
     }
     public virtual void Update()
     {
-        currentSpawnerTime -= Time.deltaTime;
-        if (currentSpawnerTime <= 0) SpawnEnemy();
+        if(!GameManager.gm.ui.uiActive)
+        {
+            currentSpawnerTime -= Time.deltaTime;
+            if (currentSpawnerTime <= 0) SpawnEnemy();
+        }
     }
     public virtual void SpawnEnemy()
     {

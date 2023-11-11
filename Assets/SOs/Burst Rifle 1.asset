@@ -10,35 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
-  m_Name: Plasma Rifle
+  m_Name: Burst Rifle 1
   m_EditorClassIdentifier: 
-  weaponClass: 2
-  timeBetweenShots: 0
-  timeBetweenBullets: 0
+  weaponClass: 1
+  timeBetweenShots: 0.3
+  timeBetweenBullets: 0.05
   shootingPattern: 0
   linesOfFire: 1
   requiresAmmo: 1
-  timeToReload: 0.5
-  totalAmmo: 1
-  ammoPerShot: 1
+  timeToReload: 1.5
+  totalAmmo: 15
+  ammoPerShot: 3
   angleBetweenBullets: 0
   coneAngle: 0
   sweepAngle: 0
   beamRange: 0
   beamDuration: 0
-  bulletDamage: 10
-  bulletSpeed: 15
+  bulletDamage: 5
+  bulletSpeed: 20
   bulletTravelTime: 3
-  recoilForce: 0
-  projectileForce: 0
+  recoilForce: 3
+  projectileForce: 3
   piercing: 0
-  ignoreArmor: 1
+  ignoreArmor: 0
   explodeOnHit: 0
   stunOnHit: 0
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 4700913227824733847, guid: 48f46fa0da3d28746b305dbfcc6c5619, type: 3}
   weaponSprite: {fileID: 0}
-  weaponName: Plasma Rfle
-  weaponDescription: 'You ever played Halo?
+  weaponName: Burst Rifle
+  weaponDescription: 'Ooh baby a triple!
 
-    Has no ammo, with a slightly lower
-    fire rate, ignores armor!'
+    Slightly lower damage than the rifle,
+    but with a 3 round burst! '

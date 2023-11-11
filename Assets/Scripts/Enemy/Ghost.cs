@@ -7,7 +7,10 @@ public class Ghost : Enemy
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if(!GameManager.gm.ui.uiActive)
+        {
+            Move();
+        }
     }
     public override void Move()
     {

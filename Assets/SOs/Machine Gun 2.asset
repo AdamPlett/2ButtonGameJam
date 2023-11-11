@@ -10,35 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
-  m_Name: Plasma Rifle
+  m_Name: Machine Gun 2
   m_EditorClassIdentifier: 
-  weaponClass: 2
-  timeBetweenShots: 0
-  timeBetweenBullets: 0
-  shootingPattern: 0
-  linesOfFire: 1
+  weaponClass: 5
+  timeBetweenShots: 0.8
+  timeBetweenBullets: 0.025
+  shootingPattern: 3
+  linesOfFire: 5
   requiresAmmo: 1
-  timeToReload: 0.5
-  totalAmmo: 1
-  ammoPerShot: 1
+  timeToReload: 4
+  totalAmmo: 5
+  ammoPerShot: 5
   angleBetweenBullets: 0
   coneAngle: 0
-  sweepAngle: 0
+  sweepAngle: 15
   beamRange: 0
   beamDuration: 0
-  bulletDamage: 10
-  bulletSpeed: 15
+  bulletDamage: 5
+  bulletSpeed: 10
   bulletTravelTime: 3
-  recoilForce: 0
-  projectileForce: 0
+  recoilForce: 5
+  projectileForce: 5
   piercing: 0
-  ignoreArmor: 1
+  ignoreArmor: 0
   explodeOnHit: 0
   stunOnHit: 0
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 4700913227824733847, guid: 48f46fa0da3d28746b305dbfcc6c5619, type: 3}
   weaponSprite: {fileID: 0}
-  weaponName: Plasma Rfle
-  weaponDescription: 'You ever played Halo?
+  weaponName: Machine Gun
+  weaponDescription: 'Shoots waves of bullets to kill waves of enemies!
 
-    Has no ammo, with a slightly lower
-    fire rate, ignores armor!'
+    High
+    fire rate with slightly lower damage, with a sweeping pattern! '

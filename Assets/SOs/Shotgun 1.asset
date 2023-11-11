@@ -10,35 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
-  m_Name: Plasma Shotgun
+  m_Name: Shotgun 1
   m_EditorClassIdentifier: 
   weaponClass: 3
-  timeBetweenShots: 0
+  timeBetweenShots: 0.5
   timeBetweenBullets: 0
   shootingPattern: 1
   linesOfFire: 6
   requiresAmmo: 1
-  timeToReload: 1.75
-  totalAmmo: 1
+  timeToReload: 3
+  totalAmmo: 2
   ammoPerShot: 1
   angleBetweenBullets: 3
   coneAngle: 0
   sweepAngle: 0
   beamRange: 0
   beamDuration: 0
-  bulletDamage: 4
+  bulletDamage: 5
   bulletSpeed: 15
   bulletTravelTime: 2
-  recoilForce: 0
-  projectileForce: 0
+  recoilForce: 8
+  projectileForce: 8
   piercing: 0
-  ignoreArmor: 1
+  ignoreArmor: 0
   explodeOnHit: 0
   stunOnHit: 0
   bulletPrefab: {fileID: 4700913227824733847, guid: 8e4a07ef8b07e444f8e6ef325aa70f14, type: 3}
   weaponSprite: {fileID: 0}
-  weaponName: Plasma Shotgun
-  weaponDescription: 'This definitely ain''t buckshot!
+  weaponName: Shotgun
+  weaponDescription: 'This ain''t buckshot!
 
-    Shoots like the shotgun,
-    but has no ammo, no recoil, and ignores armor!'
+    Shoots a spread of higher than average
+    damage, and holds two shots!'

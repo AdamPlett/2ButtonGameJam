@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 playerForward;
     public Rigidbody2D playerRB;
     public PlayerHealth playerHealth;
+    public LevelUp playerLevel;
 
     [Header("Movement Variables")]
     [SerializeField] float rotateSpeed;
