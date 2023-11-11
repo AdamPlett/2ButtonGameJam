@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3464fd3811be934ebb7eee0239cef47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupSpawnTime: 25
+  powerupSpawnTime: 8
   maxTimeBetweenSpawn: 120
   spawnRateDecreaser: 5
   powerupPrefab: {fileID: 1548549409617573672, guid: cba332f3b7d4cb642883983d41035e70, type: 3}
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878aacb944b552441bfce0a567a81274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupSpawnTime: 25
+  powerupSpawnTime: 5
   maxTimeBetweenSpawn: 120
   spawnRateDecreaser: 5
   powerupPrefab: {fileID: 5773223876776697214, guid: 3f795c94b0d2f2b478e1dac1912e2706, type: 3}
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3dcf80fefee4bc4baff1903206a07b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupSpawnTime: 1
+  powerupSpawnTime: 13
   maxTimeBetweenSpawn: 120
   spawnRateDecreaser: 5
   powerupPrefab: {fileID: 4531021739084149789, guid: 24dc6bd21d0738f41b0dc3c058dcf3f2, type: 3}

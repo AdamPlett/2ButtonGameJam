@@ -473,15 +473,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919480, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: enemySpawnTime
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919482, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: enemySpawnTime
-      value: 10
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2027958481919483, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
       propertyPath: enemySpawnTime
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 035a735d22eedbc45b688f9c2113f2ca, type: 3}
@@ -838,7 +838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410255218408849105, guid: 400aaad5e7789514e8d8cba7f113c038, type: 3}
       propertyPath: powerupSpawnTime
-      value: 40
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400aaad5e7789514e8d8cba7f113c038, type: 3}

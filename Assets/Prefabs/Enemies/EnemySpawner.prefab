@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8883dcdcc93fb94280a3b7c6dc0cba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnTime: 10
+  enemySpawnTime: 5
   minTimeBetweenSpawn: 1
-  spawnRateIncreaser: 0.1
+  spawnRateIncreaser: 0.05
   enemyHealthIncreaser: 0.05
   enemyDamageIncreaser: 0.05
   damageCap: 25
@@ -66,9 +66,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f50226c0fd11954299e69b14b38ac31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnTime: 10
+  enemySpawnTime: 7.5
   minTimeBetweenSpawn: 1
-  spawnRateIncreaser: 0.1
+  spawnRateIncreaser: 0.05
   enemyHealthIncreaser: 0.05
   enemyDamageIncreaser: 0.05
   damageCap: 25
@@ -86,9 +86,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4407817649a94e542a20fb23d13a5590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnTime: 10
+  enemySpawnTime: 4
   minTimeBetweenSpawn: 1
-  spawnRateIncreaser: 0.1
+  spawnRateIncreaser: 0.05
   enemyHealthIncreaser: 0.05
   enemyDamageIncreaser: 0.05
   damageCap: 25
