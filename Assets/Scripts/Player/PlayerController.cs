@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [Header("Booster Variables")]
     [SerializeField] float boosterForce;
     public float boosterFuel=100;
-    public float maxFuel;
+    public float maxFuel=100;
     [SerializeField] float boosterDepletion;  
     [SerializeField] float boosterRegeneration;
     [SerializeField] GameObject booster;
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            boosterFuel = 100;
+            boosterFuel = maxFuel;
         }
     }
 
@@ -69,7 +69,17 @@ public class PlayerController : MonoBehaviour
             boosterFuel = 0;
         }
     }
-
+    public void AddBoost(float addedBoost)
+    {
+        if (boosterFuel + addedBoost < 100)
+        {
+            boosterFuel += addedBoost;
+        }
+        else
+        {
+            boosterFuel = 100;
+        }
+    }
     public void KnockbackPlayer(Vector3 velocity)
     {
         //Debug.Log("Knocking back player, with a force of " + velocity);
