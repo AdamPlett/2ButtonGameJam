@@ -718,6 +718,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5314a36ae9be174408bfaf0306ffb42f, type: 2}
   - {fileID: 11400000, guid: 97b4a38ca8ff66249a4c58cad84a1fe4, type: 2}
   - {fileID: 11400000, guid: 2c814cd0788d44b409e4a4df5dca5870, type: 2}
+  - {fileID: 11400000, guid: 059a57eb777513b47892709647040c9a, type: 2}
+  - {fileID: 11400000, guid: 21f0425eb2147674fb1fbc931b654394, type: 2}
+  - {fileID: 11400000, guid: da63e3a09b993204fb956a1ea70f7525, type: 2}
+  - {fileID: 11400000, guid: 0101eba6bcc95e14288d8172570ef86b, type: 2}
   randomWeapon: {fileID: 0}
   gunImage: {fileID: 2349704598866575302}
   gunName: {fileID: 8473995552642103512}
@@ -1015,6 +1019,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5314a36ae9be174408bfaf0306ffb42f, type: 2}
   - {fileID: 11400000, guid: 97b4a38ca8ff66249a4c58cad84a1fe4, type: 2}
   - {fileID: 11400000, guid: 2c814cd0788d44b409e4a4df5dca5870, type: 2}
+  - {fileID: 11400000, guid: 059a57eb777513b47892709647040c9a, type: 2}
+  - {fileID: 11400000, guid: 21f0425eb2147674fb1fbc931b654394, type: 2}
+  - {fileID: 11400000, guid: da63e3a09b993204fb956a1ea70f7525, type: 2}
+  - {fileID: 11400000, guid: 0101eba6bcc95e14288d8172570ef86b, type: 2}
   randomWeapon: {fileID: 0}
   gunImage: {fileID: 6731579377033135133}
   gunName: {fileID: 1998152072524299616}
@@ -1141,7 +1149,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SELECT UPGRADE
+  m_text: 'SELECT UPGRADE
+
+    (Coming Soon)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ed88b33310da53a4090d41e96d7eff07, type: 2}
   m_sharedMaterial: {fileID: -2561658532965465834, guid: ed88b33310da53a4090d41e96d7eff07, type: 2}

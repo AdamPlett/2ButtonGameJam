@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Flux Incapacitator 2
   m_EditorClassIdentifier: 
-  weaponClass: 6
+  weaponClass: 4
   timeBetweenShots: 0
   timeBetweenBullets: 0.02
   shootingPattern: 2

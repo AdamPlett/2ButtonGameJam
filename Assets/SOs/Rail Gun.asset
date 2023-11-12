@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Rail Gun
   m_EditorClassIdentifier: 
-  weaponClass: 7
+  weaponClass: 6
   timeBetweenShots: 0
   timeBetweenBullets: 0
   shootingPattern: 0

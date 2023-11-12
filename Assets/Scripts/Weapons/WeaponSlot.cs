@@ -113,6 +113,22 @@ public class WeaponSlot : MonoBehaviour
             case eWeapon.RPG:
                 weaponToAdd = GameManager.gm.player.weapons.WeaponPrefabs[8];
                 break;
+
+            case eWeapon.plasmaRifle:
+                weaponToAdd = GameManager.gm.player.weapons.WeaponPrefabs[9];
+                break;
+
+            case eWeapon.plasmaBurstRifle:
+                weaponToAdd = GameManager.gm.player.weapons.WeaponPrefabs[10];
+                break;
+
+            case eWeapon.plasmaShotty:
+                weaponToAdd = GameManager.gm.player.weapons.WeaponPrefabs[11];
+                break;
+
+            case eWeapon.fluxIncapacitor:
+                weaponToAdd = GameManager.gm.player.weapons.WeaponPrefabs[12];
+                break;
         }
 
         return weaponToAdd;

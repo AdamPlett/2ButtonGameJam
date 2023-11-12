@@ -153,6 +153,10 @@ MonoBehaviour:
   - {fileID: 2143737380702112152, guid: e9f3ec9978f29cd4abe0c8fca5643ebb, type: 3}
   - {fileID: 4292499602517029928, guid: 87c3e45d34e91854ba8b37165e52d81c, type: 3}
   - {fileID: 8160562031676954191, guid: 937615a77c4baf94fa673054af94de59, type: 3}
+  - {fileID: 7813411546812879366, guid: 21beca152a59f354b937908d6192000d, type: 3}
+  - {fileID: 7813411546812879366, guid: 15507f9d8a353b64ab1024ce81c9c231, type: 3}
+  - {fileID: 7813411546812879366, guid: a5ca0443c4f3c2b41a3d478a986a4426, type: 3}
+  - {fileID: 7813411546812879366, guid: dead72e1fe120964caee5b5e3ddc4c20, type: 3}
 --- !u!1 &6084812900074619209
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +460,7 @@ MonoBehaviour:
   currentLevel: 1
   levelUpScale: 50
   scoreUntilLevelUp: 100
-  prevLevels: 0
+  scoreForLastLevel: 0
 --- !u!114 &6084812900293071605
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad608478deeda04a988c0f958148cf4, type: 3}
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
-  weaponClass: 8
+  weaponClass: 7
   timeBetweenShots: 6
   timeBetweenBullets: 0.05
   shootingPattern: 4

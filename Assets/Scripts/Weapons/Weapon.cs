@@ -81,8 +81,8 @@ public class Weapon : MonoBehaviour
                     ShootBeam(bulletVelocity, weaponBarrel, recoilDirection);
                     break;
             }
+            GameManager.gm.player.KnockbackPlayer(bulletForward * weaponType.recoilForce * -1f);
         }
-        GameManager.gm.player.KnockbackPlayer(bulletForward * weaponType.recoilForce * -1f);
     }
 
     // MULTIPLIES BULLET SPEED BY THE WEAPON BARREL'S "FORWARD" TO GET BULLET VELOCITY
@@ -176,7 +176,8 @@ public class Weapon : MonoBehaviour
         DepleteAmmo(weaponType.ammoPerShot);
         for (int i = 0; i < weaponType.ammoPerShot; i++)
         {
-            GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+            Vector3 bulletSpawnLocation = bulletSpawn.position;
+            GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawnLocation, Quaternion.identity);
             Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
 
             //sets the bullets damage
@@ -221,8 +222,8 @@ public class Weapon : MonoBehaviour
                 angle2 = Quaternion.AngleAxis(-1f * weaponType.angleBetweenBullets * j, Vector3.forward) * bulletVelocity;
 
                 // Remove the * j from above for wild weapon type
-
-                GameObject bulletInstance1 = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+                Vector3 bulletSpawnLocation = bulletSpawn.position;
+                GameObject bulletInstance1 = Instantiate(weaponType.bulletPrefab, bulletSpawnLocation, Quaternion.identity);
                 Rigidbody2D bulletRB1 = bulletInstance1.GetComponent<Rigidbody2D>();
 
                 //sets the bullets damage
@@ -235,7 +236,7 @@ public class Weapon : MonoBehaviour
                 bulletRB1.AddForce(angle1);
                 bullet1.DestroyBullet(weaponType.bulletTravelTime);
 
-                GameObject bulletInstance2 = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+                GameObject bulletInstance2 = Instantiate(weaponType.bulletPrefab, bulletSpawnLocation, Quaternion.identity);
                 Rigidbody2D bulletRB2 = bulletInstance2.GetComponent<Rigidbody2D>();
 
                 //sets the bullets damage
@@ -281,7 +282,8 @@ public class Weapon : MonoBehaviour
                 Vector3 angle = Quaternion.AngleAxis(randomAngle, Vector3.forward) * bulletVelocity;
                 Vector3 recoil = Quaternion.AngleAxis(-1f * randomAngle, Vector3.forward) * recoilDir;
 
-                GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+                Vector3 bulletSpawnLocation = bulletSpawn.position;
+                GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawnLocation, Quaternion.identity);
                 Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
 
                 //sets the bullets damage
@@ -342,7 +344,8 @@ public class Weapon : MonoBehaviour
             {
                 angle = linesOfFire[index];
 
-                GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+                Vector3 bulletSpawnLocation = bulletSpawn.position;
+                GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawnLocation, Quaternion.identity);
                 Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
 
                 //sets the bullets damage and piercing
@@ -425,8 +428,9 @@ public class Weapon : MonoBehaviour
                 shotTimer -= Time.deltaTime;
             }
             else
-            {              
-                GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawn);
+            {
+                Vector3 bulletSpawnLocation = bulletSpawn.position;
+                GameObject bulletInstance = Instantiate(weaponType.bulletPrefab, bulletSpawnLocation, Quaternion.identity);
                 Rigidbody2D bulletRB = bulletInstance.GetComponent<Rigidbody2D>();
 
                 Bullet bullet = bulletInstance.GetComponent<Bullet>();

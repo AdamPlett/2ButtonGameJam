@@ -28,6 +28,6 @@ public class WeaponChoice : MonoBehaviour
 
     public soWeapon GetRandomWeapon()
     {
-        return allWeapons[Random.Range(0, allWeapons.Count-1)];
+        return allWeapons[Random.Range(0, allWeapons.Count)];
     }
 }
